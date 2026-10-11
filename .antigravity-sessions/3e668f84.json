@@ -1,0 +1,12 @@
+{
+  "sessionId": "3e668f84",
+  "label": "prime-seat",
+  "baseDir": "C:\\Users\\vrviv\\Projects\\personal\\prime-seat",
+  "projects": {
+    "primary": "./",
+    "ui": "apps/web",
+    "api": "apps/api"
+  },
+  "startedAt": "2026-10-11T12:48:12-04:00",
+  "activeMilestone": "1.0"
+}
