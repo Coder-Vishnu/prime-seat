@@ -29,7 +29,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 This allows deployment and verification testing after each task.
 
 **Git Branch:**
-- **[repo-name]:** `{developer}-MMDDYY-[VERSION]-[repo-suffix]` (or `feat/milestone-[VERSION]`)
+- **[repo-name]:** `vishnu-MMDDYY-[VERSION]-[repo-suffix]`
 
 ---
 
@@ -100,8 +100,8 @@ Read `package.json` (or version file) to verify starting version matches expecta
 ```bash
 git checkout main
 git pull origin main
-git checkout -b feat/milestone-[VERSION]
-git push -u origin feat/milestone-[VERSION]
+git checkout -b vishnu-MMDDYY-[VERSION]-[repo-suffix]
+git push -u origin vishnu-MMDDYY-[VERSION]-[repo-suffix]
 ```
 
 ### Step 0.3: Update Milestone Header

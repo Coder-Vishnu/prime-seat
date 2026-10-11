@@ -2,9 +2,9 @@
 
 **Version:** 1.0.0.0 (Starting version)  
 **Date Created:** 2026-10-11  
-**Date Started:** Pending (when Task 0 begins)  
+**Date Started:** 2026-10-11  
 **Date Completed:** Pending (when all tasks complete)  
-**Status:** Planning  
+**Status:** In Progress  
 **Based on:** `docs/modules/01_INGESTION_AND_FIXTURES.md`  
 
 Establish an offline-first, fail-closed ingestion boundary that isolates untrusted remote AMC network responses and normalizes them into strongly-typed Pydantic v2 domain models for AMC Tysons Corner 16 PLF auditoriums.
@@ -27,17 +27,17 @@ Each task completion increments the BUILD number (4th digit) by 1:
 - Task 3 complete: `1.0.0.3` (100% pytest test gates verification)
 
 **Git Branch:**
-- **prime-seat:** `feat/milestone-1.0` (or `vishnu-101126-1.0.0.0-api`)
+- **prime-seat:** `vishnu-101126-1.0-api`
 
 ---
 
 ## Progress Summary
 
-**Completion:** 0 of 4 tasks complete (0%)
+**Completion:** 1 of 4 tasks complete (25%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
-| **Task 0: Milestone Initialization & Branch Setup** | SETUP | ⏳ Pending | `1.0.0.0` | - |
+| **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `1.0.0.0` | Verified on `vishnu-101126-1.0-api` |
 | **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ⏳ Pending | `1.0.0.1` | - |
 | **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ⏳ Pending | `1.0.0.2` | - |
 | **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ⏳ Pending | `1.0.0.3` | - |
@@ -92,7 +92,7 @@ Implement the type-safe ingestion boundary specified in `docs/modules/01_INGESTI
 
 **Purpose:** Verify starting environment, initialize required directories, and checkout the milestone feature branch.  
 **Estimated Time:** 5 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.0`  
 
 ### Step 0.1: Check Current Version
@@ -101,7 +101,7 @@ Confirm starting version `1.0.0.0` in session state.
 ### Step 0.2: Create Feature Branch
 ```bash
 git checkout main
-git checkout -b feat/milestone-1.0
+git checkout -b vishnu-101126-1.0-api
 ```
 
 ### Step 0.3: Directory Scaffolding
@@ -110,8 +110,8 @@ Ensure required directory hierarchy exists:
 - `apps/api/tests/fixtures/`
 
 ### Verification Gate
-- [ ] Working branch is `feat/milestone-1.0`
-- [ ] Target directories created
+- [x] Working branch is `vishnu-101126-1.0-api`
+- [x] Target directories created
 
 ---
 
