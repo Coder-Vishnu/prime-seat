@@ -74,10 +74,10 @@ The AMC ticketing backend exposes diverse seat state descriptions across API rev
 ### 2.3 Physical Prime Row Geometries (AMC Tysons Corner 16)
 
 To eliminate false-positive alerts on suboptimal acoustic/sightline angles, `is_prime` is deterministically computed based on audited auditorium architectural layouts:
-- **Dolby Cinema (Auditorium 10):**
+- **Dolby Cinema (Auditoriums 9 & 11):**
   - Prime Rows: Rows `E`, `F`, `G`, `H`.
   - Prime Column Range: Seats `8` through `18` (midpoint centered).
-- **IMAX with Laser (Auditorium 1):**
+- **IMAX with Laser (Auditorium 3):**
   - Prime Rows: Rows `F`, `G`, `H`, `J`, `K`.
   - Prime Column Range: Seats `10` through `22`.
 
@@ -199,7 +199,7 @@ class SeatMapSnapshot(BaseModel):
         ...,
         min_length=2,
         max_length=64,
-        description="Auditorium label (e.g., 'Auditorium 1 (IMAX)' or 'Dolby Cinema').",
+        description="Auditorium label (e.g., 'Auditorium 3 (IMAX)' or 'Dolby Cinema').",
     )
     screen_format: ScreenFormat = Field(
         ...,

@@ -13,6 +13,7 @@ from pydantic import (
     BaseModel,
     ConfigDict,
     Field,
+    ValidationError,
     field_validator,
     model_validator,
 )
@@ -108,7 +109,7 @@ class SeatMapSnapshot(BaseModel):
         ...,
         min_length=2,
         max_length=64,
-        description="Auditorium label (e.g., 'Auditorium 1 (IMAX)' or 'Dolby Cinema').",
+        description="Auditorium label (e.g., 'Auditorium 3 (IMAX)' or 'Dolby Cinema').",
     )
     screen_format: ScreenFormat = Field(
         ...,
@@ -285,12 +286,19 @@ def parse_raw_amc_payload(raw_json: Dict[str, Any]) -> SeatMapSnapshot:
     else:
         dt = datetime.now(timezone.utc)
 
-    return SeatMapSnapshot(
-        showtime_id=str(raw_json["showtime_id"]),
-        auditorium_name=str(raw_json["auditorium_name"]),
-        screen_format=fmt,
-        captured_at=dt,
-        total_rows=int(raw_json["rows"]),
-        total_cols=int(raw_json["cols"]),
-        seats=parsed_seats,
-    )
+    try:
+        return SeatMapSnapshot(
+            showtime_id=str(raw_json["showtime_id"]),
+            auditorium_name=str(raw_json["auditorium_name"]),
+            screen_format=fmt,
+            captured_at=dt,
+            total_rows=int(raw_json["rows"]),
+            total_cols=int(raw_json["cols"]),
+            seats=parsed_seats,
+        )
+    except ValidationError as exc:
+        first_error = exc.errors()[0]
+        msg = first_error.get("msg", str(exc))
+        if msg.startswith("Value error, "):
+            msg = msg[len("Value error, "):]
+        raise SchemaValidationError(msg) from exc

@@ -109,7 +109,7 @@ class AdversarialInputSanitizer:
     # Static architectural limits for AMC Tysons Corner 16 PLF Auditoriums
     MAX_ROWS: int = 30
     MAX_COLS: int = 40
-    MAX_CAPACITY: int = 450  # Hardware seating limit for Dolby (Auditorium 10) & IMAX (Auditorium 1)
+    MAX_CAPACITY: int = 450  # Hardware seating limit for Dolby (Auditoriums 9 & 11) & IMAX (Auditorium 3)
     MAX_TIMESTAMP_DRIFT_SECONDS: float = 300.0  # 5 minutes replay threshold
     MAX_PERMISSIBLE_DROP_RATIO: float = 0.15  # Max 15% simultaneous seat drop
 
