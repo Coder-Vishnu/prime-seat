@@ -33,14 +33,14 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 3 of 4 tasks complete (75%)
+**Completion:** 4 of 4 tasks complete (100%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `1.0.0.0` | Verified on `vishnu-101126-1.0-api` |
 | **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ✅ Complete | `1.0.0.1` | Verified (Aud 9: 161 seats, Aud 11: 262 seats) |
 | **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ✅ Complete | `1.0.0.2` | Verified (Pydantic v2 strict models & parser) |
-| **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ⏳ Pending | `1.0.0.3` | - |
+| **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ✅ Complete | `1.0.0.3` | Verified (8/8 tests pass, 100% exit code 0) |
 
 **Status Legend:**
 - ⏳ Pending: not started
@@ -183,7 +183,7 @@ Implement the complete type definitions, custom validators, and fail-closed pars
 
 **Purpose:** Implement and verify the 6 automated test gates in `apps/api/tests/test_schema.py`.  
 **Estimated Time:** 30 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.3`  
 **Dependencies:** Task 2  
 
@@ -192,16 +192,17 @@ Implement the comprehensive pytest verification suite asserting valid fixture no
 
 ### Affected Files
 - `apps/api/tests/__init__.py`
+- `apps/api/tests/conftest.py`
 - `apps/api/tests/test_schema.py`
 
 ### Verification Gates & Testing
-- [ ] **Gate 01:** Authentic fixture parsed successfully with correct prime flags and status mappings
-- [ ] **Gate 02:** Immediate `SchemaValidationError` raised on unmapped raw seat status
-- [ ] **Gate 03:** Immediate `SchemaValidationError` raised on lowercase or invalid row regex
-- [ ] **Gate 04:** Immediate `SchemaValidationError` raised on negative or out-of-bounds seat numbers
-- [ ] **Gate 05:** Immediate `SchemaValidationError` raised on duplicate seat coordinates
-- [ ] **Gate 06:** Immediate `SchemaValidationError` raised on unsupported screen formats
-- [ ] **Overall Gate:** 100% pytest pass rate (`pytest apps/api/tests/test_schema.py`)
+- [x] **Gate 01:** Authentic fixture parsed successfully with correct prime flags and status mappings
+- [x] **Gate 02:** Immediate `SchemaValidationError` raised on unmapped raw seat status
+- [x] **Gate 03:** Immediate `SchemaValidationError` raised on lowercase or invalid row regex
+- [x] **Gate 04:** Immediate `SchemaValidationError` raised on negative or out-of-bounds seat numbers
+- [x] **Gate 05:** Immediate `SchemaValidationError` raised on duplicate seat coordinates
+- [x] **Gate 06:** Immediate `SchemaValidationError` raised on unsupported screen formats
+- [x] **Overall Gate:** 100% pytest pass rate (`pytest apps/api/tests/test_schema.py` - 8/8 tests passed)
 
 ---
 

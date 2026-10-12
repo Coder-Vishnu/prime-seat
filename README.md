@@ -2,7 +2,7 @@
 
 > **High-Throughput PLF Seat Vacancy Reclamation Monitor, Vectorized 2D Diff Engine & Predictive Churn Analytics Pipeline**  
 > **Author:** Vishnu Venkatesan  
-> **Target Scope:** AMC Tysons Corner 16 (Auditorium 10: Dolby Cinema, Auditorium 1: IMAX with Laser)  
+> **Target Scope:** AMC Tysons Corner 16 (Auditoriums 9 & 11: Dolby Cinema, Auditorium 3: IMAX with Laser)  
 > **Monorepo Structure:** `apps/api` (FastAPI / NumPy / PyTorch / PyArrow) & `apps/web` (Next.js 15 / React 19 PWA)  
 > **Version:** `2.0.0-PROD` (Definitive Edition)
 
