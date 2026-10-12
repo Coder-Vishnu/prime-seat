@@ -33,12 +33,12 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 1 of 4 tasks complete (25%)
+**Completion:** 2 of 4 tasks complete (50%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `1.0.0.0` | Verified on `vishnu-101126-1.0-api` |
-| **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ⏳ Pending | `1.0.0.1` | - |
+| **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ✅ Complete | `1.0.0.1` | Verified (Aud 9: 161 seats, Aud 11: 262 seats) |
 | **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ⏳ Pending | `1.0.0.2` | - |
 | **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ⏳ Pending | `1.0.0.3` | - |
 
@@ -117,26 +117,33 @@ Ensure required directory hierarchy exists:
 
 ## Task 1: Offline PLF Test Fixture Scaffolding (HIGH)
 
-**Purpose:** Scaffold the authentic offline fixture representing AMC Tysons Corner 16 Dolby Cinema.  
+**Purpose:** Scaffold authentic offline fixtures representing AMC Tysons Corner 16 Dolby Cinema auditoriums (Auditorium 9 & Auditorium 11).  
 **Estimated Time:** 15 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.1`  
 **Dependencies:** Task 0  
 
 ### Description
-Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` adhering exactly to the fixture schema in `docs/modules/01_INGESTION_AND_FIXTURES.md`. Fixture must include mixed seat states: `Available`, `Reserved`, `Sold`, `Held`, and ADA `Wheelchair`/`Companion`.
+Create `apps/api/tests/fixtures/tysons_seatmap_sample.json`, `apps/api/tests/fixtures/tysons_auditorium_9_dolby.json`, and `apps/api/tests/fixtures/tysons_auditorium_11_dolby.json` adhering strictly to the schema in `docs/modules/01_INGESTION_AND_FIXTURES.md`.
+- **Auditorium 9 (Dolby Cinema):** Authentic 161-seat physical geometry (Rows A–J, 9 rows $\times$ 20 cols) with 152 `Available`, 9 `Reserved`, and ADA spaces (Wheelchair / Companion).
+- **Auditorium 11 (Dolby Cinema):** Authentic 262-seat physical geometry (Rows A–L, 11 rows $\times$ 26 cols) with 190 `Available`, 72 `Reserved`, 7 `Wheelchair`, and 8 `Companion` spaces captured from live showtime screenshot.
 
 ### Affected Files
 - `apps/api/tests/fixtures/tysons_seatmap_sample.json`
+- `apps/api/tests/fixtures/tysons_auditorium_9_dolby.json`
+- `apps/api/tests/fixtures/tysons_auditorium_11_dolby.json`
+- `apps/api/tests/fixtures/auditorium_11_annotated_overlay.png`
 
 ### Implementation Steps
-1. Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` with valid JSON structure.
-2. Include showtime `amc-tysons-20261011-dolby-2000`, Dolby Cinema format, 12 rows x 24 cols.
-3. Validate JSON formatting with `json.load`.
+1. Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` and `tysons_auditorium_9_dolby.json` with valid JSON structure.
+2. Model authentic Tysons 16 Auditorium 9 Dolby Cinema geometry (Rows A–J, 161 physical seats).
+3. Analyze live screenshot of Auditorium 11 Dolby Cinema, perform pixel-level seat identification, and scaffold `tysons_auditorium_11_dolby.json` (Rows A–L, 262 physical seats).
+4. Validate JSON formatting with `json.load`.
 
 ### Verification Gates & Testing
-- [ ] Valid JSON syntax with 0 parsing errors
-- [ ] All 7 sample seats populated with valid coordinates
+- [x] Valid JSON syntax with 0 parsing errors across all fixtures
+- [x] All 161 physical seats populated with valid coordinates from live Tysons 16 Auditorium 9 Dolby layout
+- [x] All 262 physical seats populated with valid coordinates from live Tysons 16 Auditorium 11 Dolby layout (190 Available, 72 Reserved, 7 Wheelchair, 8 Companion)
 
 ---
 
