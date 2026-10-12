@@ -33,13 +33,13 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 2 of 4 tasks complete (50%)
+**Completion:** 3 of 4 tasks complete (75%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `1.0.0.0` | Verified on `vishnu-101126-1.0-api` |
 | **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ✅ Complete | `1.0.0.1` | Verified (Aud 9: 161 seats, Aud 11: 262 seats) |
-| **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ⏳ Pending | `1.0.0.2` | - |
+| **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ✅ Complete | `1.0.0.2` | Verified (Pydantic v2 strict models & parser) |
 | **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ⏳ Pending | `1.0.0.3` | - |
 
 **Status Legend:**
@@ -151,7 +151,7 @@ Create `apps/api/tests/fixtures/tysons_seatmap_sample.json`, `apps/api/tests/fix
 
 **Purpose:** Implement strongly-typed domain models and fail-closed normalization parser in `apps/api/src/sentinel/schema.py`.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.2`  
 **Dependencies:** Task 1  
 
@@ -174,8 +174,8 @@ Implement the complete type definitions, custom validators, and fail-closed pars
 3. Add `is_tysons_prime_seat` helper for Dolby (E-H, 8-18) and IMAX (F-K, 10-22).
 
 ### Verification Gates & Testing
-- [ ] Type check clean with zero syntax or typing errors
-- [ ] Strict immutable configuration (`frozen=True`, `extra="forbid"`)
+- [x] Type check clean with zero syntax or typing errors
+- [x] Strict immutable configuration (`frozen=True`, `extra="forbid"`)
 
 ---
 
