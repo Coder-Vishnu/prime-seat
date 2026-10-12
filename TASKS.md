@@ -3,17 +3,15 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `1.0.0.3`  
+**Current Version**: `2.0.0.3`  
 **Last Updated**: `2026-10-12`  
-**Active Milestone**: *(none active — run /milestone-new to start next milestone)*
+**Active Milestone**: None (Ready for Milestone 3.0)
 
 ---
 
 ## Active & In-Progress Milestones
 
-| Milestone | Priority | Status | Target Date | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| *(none currently active)* | — | — | — | All active milestones completed |
+*No active milestones. Run `/milestone-start` or `/milestone-new` to initialize Milestone 3.0.*
 
 ---
 
@@ -21,7 +19,6 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 2.0 | CRITICAL | ⏳ Pending | Milestone 1.0 | Vectorized 2D NumPy State Diff Engine (`02_NUMPY_STATE_ENGINE`) |
 | Milestone 3.0 | HIGH | ⏳ Pending | Milestone 2.0 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
 | Milestone 4.0 | HIGH | ⏳ Pending | Milestone 3.0 | PyTorch Deep Learning Churn Predictor (`04_PYTORCH_CHURN_PREDICTOR`) |
 | Milestone 5.0 | CRITICAL | ⏳ Pending | Milestone 4.0 | Adversarial Boundaries & Secure AI Protections (`05_ADVERSARIAL_SECURITY`) |
@@ -34,7 +31,8 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 1.0](./tasks/Milestone1.0.md) | 2026-10-12 | `1.0.0.3` | 4 / 4 | Ingestion Contracts, Pydantic v2 Models & 8/8 Pytest Verification Gates ([#1](file:///C:/Users/vrviv/Projects/personal/prime-seat/tasks/Milestone1.0.md)) |
+| [Milestone 2.0](./tasks/Milestone2.0.md) | 2026-10-12 | `2.0.0.3` | 4 / 4 | Vectorized 2D NumPy State Diff Engine, Sentinel Masking & 0.015ms Latency SLA Verified ([#2](./tasks/Milestone2.0.md)) |
+| [Milestone 1.0](./tasks/Milestone1.0.md) | 2026-10-12 | `1.0.0.3` | 4 / 4 | Ingestion Contracts, Pydantic v2 Models & 8/8 Pytest Verification Gates ([#1](./tasks/Milestone1.0.md)) |
 
 ---
 
