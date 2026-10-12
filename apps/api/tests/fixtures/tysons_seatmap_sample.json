@@ -1,0 +1,66 @@
+{
+  "showtime_id": "amc-tysons-20261011-dolby-2000",
+  "auditorium_name": "Dolby Cinema at AMC",
+  "screen_format": "DOLBY_CINEMA",
+  "captured_at": "2026-10-11T12:00:00Z",
+  "rows": 12,
+  "cols": 24,
+  "seats": [
+    {
+      "row": "D",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Standard",
+      "x": 100.5,
+      "y": 200.0
+    },
+    {
+      "row": "E",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 120.0,
+      "y": 250.0
+    },
+    {
+      "row": "F",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 140.0,
+      "y": 300.0
+    },
+    {
+      "row": "G",
+      "number": 14,
+      "status": "Sold",
+      "seat_type": "Recliner",
+      "x": 140.0,
+      "y": 350.0
+    },
+    {
+      "row": "H",
+      "number": 15,
+      "status": "Held",
+      "seat_type": "Recliner",
+      "x": 150.0,
+      "y": 400.0
+    },
+    {
+      "row": "A",
+      "number": 1,
+      "status": "Unavailable",
+      "seat_type": "Wheelchair",
+      "x": 10.0,
+      "y": 50.0
+    },
+    {
+      "row": "A",
+      "number": 2,
+      "status": "Unavailable",
+      "seat_type": "Companion",
+      "x": 20.0,
+      "y": 50.0
+    }
+  ]
+}

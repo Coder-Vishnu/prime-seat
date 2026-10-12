@@ -2,9 +2,9 @@
 
 **Version:** 1.0.0.0 (Starting version)  
 **Date Created:** 2026-10-11  
-**Date Started:** Pending (when Task 0 begins)  
+**Date Started:** 2026-10-11  
 **Date Completed:** Pending (when all tasks complete)  
-**Status:** Planning  
+**Status:** In Progress  
 **Based on:** `docs/modules/01_INGESTION_AND_FIXTURES.md`  
 
 Establish an offline-first, fail-closed ingestion boundary that isolates untrusted remote AMC network responses and normalizes them into strongly-typed Pydantic v2 domain models for AMC Tysons Corner 16 PLF auditoriums.
@@ -27,19 +27,19 @@ Each task completion increments the BUILD number (4th digit) by 1:
 - Task 3 complete: `1.0.0.3` (100% pytest test gates verification)
 
 **Git Branch:**
-- **prime-seat:** `feat/milestone-1.0` (or `vishnu-101126-1.0.0.0-api`)
+- **prime-seat:** `vishnu-101126-1.0-api`
 
 ---
 
 ## Progress Summary
 
-**Completion:** 0 of 4 tasks complete (0%)
+**Completion:** 3 of 4 tasks complete (75%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
-| **Task 0: Milestone Initialization & Branch Setup** | SETUP | ⏳ Pending | `1.0.0.0` | - |
-| **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ⏳ Pending | `1.0.0.1` | - |
-| **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ⏳ Pending | `1.0.0.2` | - |
+| **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `1.0.0.0` | Verified on `vishnu-101126-1.0-api` |
+| **Task 1: Offline PLF Test Fixture Scaffolding** | HIGH | ✅ Complete | `1.0.0.1` | Verified (Aud 9: 161 seats, Aud 11: 262 seats) |
+| **Task 2: Pydantic v2 Domain Models & Parser** | HIGH | ✅ Complete | `1.0.0.2` | Verified (Pydantic v2 strict models & parser) |
 | **Task 3: Deterministic Pytest Verification Gates** | CRITICAL | ⏳ Pending | `1.0.0.3` | - |
 
 **Status Legend:**
@@ -92,7 +92,7 @@ Implement the type-safe ingestion boundary specified in `docs/modules/01_INGESTI
 
 **Purpose:** Verify starting environment, initialize required directories, and checkout the milestone feature branch.  
 **Estimated Time:** 5 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.0`  
 
 ### Step 0.1: Check Current Version
@@ -101,7 +101,7 @@ Confirm starting version `1.0.0.0` in session state.
 ### Step 0.2: Create Feature Branch
 ```bash
 git checkout main
-git checkout -b feat/milestone-1.0
+git checkout -b vishnu-101126-1.0-api
 ```
 
 ### Step 0.3: Directory Scaffolding
@@ -110,33 +110,40 @@ Ensure required directory hierarchy exists:
 - `apps/api/tests/fixtures/`
 
 ### Verification Gate
-- [ ] Working branch is `feat/milestone-1.0`
-- [ ] Target directories created
+- [x] Working branch is `vishnu-101126-1.0-api`
+- [x] Target directories created
 
 ---
 
 ## Task 1: Offline PLF Test Fixture Scaffolding (HIGH)
 
-**Purpose:** Scaffold the authentic offline fixture representing AMC Tysons Corner 16 Dolby Cinema.  
+**Purpose:** Scaffold authentic offline fixtures representing AMC Tysons Corner 16 Dolby Cinema auditoriums (Auditorium 9 & Auditorium 11).  
 **Estimated Time:** 15 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.1`  
 **Dependencies:** Task 0  
 
 ### Description
-Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` adhering exactly to the fixture schema in `docs/modules/01_INGESTION_AND_FIXTURES.md`. Fixture must include mixed seat states: `Available`, `Reserved`, `Sold`, `Held`, and ADA `Wheelchair`/`Companion`.
+Create `apps/api/tests/fixtures/tysons_seatmap_sample.json`, `apps/api/tests/fixtures/tysons_auditorium_9_dolby.json`, and `apps/api/tests/fixtures/tysons_auditorium_11_dolby.json` adhering strictly to the schema in `docs/modules/01_INGESTION_AND_FIXTURES.md`.
+- **Auditorium 9 (Dolby Cinema):** Authentic 161-seat physical geometry (Rows A–J, 9 rows $\times$ 20 cols) with 152 `Available`, 9 `Reserved`, and ADA spaces (Wheelchair / Companion).
+- **Auditorium 11 (Dolby Cinema):** Authentic 262-seat physical geometry (Rows A–L, 11 rows $\times$ 26 cols) with 190 `Available`, 72 `Reserved`, 7 `Wheelchair`, and 8 `Companion` spaces captured from live showtime screenshot.
 
 ### Affected Files
 - `apps/api/tests/fixtures/tysons_seatmap_sample.json`
+- `apps/api/tests/fixtures/tysons_auditorium_9_dolby.json`
+- `apps/api/tests/fixtures/tysons_auditorium_11_dolby.json`
+- `apps/api/tests/fixtures/auditorium_11_annotated_overlay.png`
 
 ### Implementation Steps
-1. Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` with valid JSON structure.
-2. Include showtime `amc-tysons-20261011-dolby-2000`, Dolby Cinema format, 12 rows x 24 cols.
-3. Validate JSON formatting with `json.load`.
+1. Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` and `tysons_auditorium_9_dolby.json` with valid JSON structure.
+2. Model authentic Tysons 16 Auditorium 9 Dolby Cinema geometry (Rows A–J, 161 physical seats).
+3. Analyze live screenshot of Auditorium 11 Dolby Cinema, perform pixel-level seat identification, and scaffold `tysons_auditorium_11_dolby.json` (Rows A–L, 262 physical seats).
+4. Validate JSON formatting with `json.load`.
 
 ### Verification Gates & Testing
-- [ ] Valid JSON syntax with 0 parsing errors
-- [ ] All 7 sample seats populated with valid coordinates
+- [x] Valid JSON syntax with 0 parsing errors across all fixtures
+- [x] All 161 physical seats populated with valid coordinates from live Tysons 16 Auditorium 9 Dolby layout
+- [x] All 262 physical seats populated with valid coordinates from live Tysons 16 Auditorium 11 Dolby layout (190 Available, 72 Reserved, 7 Wheelchair, 8 Companion)
 
 ---
 
@@ -144,7 +151,7 @@ Create `apps/api/tests/fixtures/tysons_seatmap_sample.json` adhering exactly to 
 
 **Purpose:** Implement strongly-typed domain models and fail-closed normalization parser in `apps/api/src/sentinel/schema.py`.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `1.0.0.2`  
 **Dependencies:** Task 1  
 
@@ -167,8 +174,8 @@ Implement the complete type definitions, custom validators, and fail-closed pars
 3. Add `is_tysons_prime_seat` helper for Dolby (E-H, 8-18) and IMAX (F-K, 10-22).
 
 ### Verification Gates & Testing
-- [ ] Type check clean with zero syntax or typing errors
-- [ ] Strict immutable configuration (`frozen=True`, `extra="forbid"`)
+- [x] Type check clean with zero syntax or typing errors
+- [x] Strict immutable configuration (`frozen=True`, `extra="forbid"`)
 
 ---
 

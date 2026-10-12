@@ -75,7 +75,7 @@ Every physical node on the SVG canvas maps to a strict visual style and interact
 
 ```json
 {
-  "name": "Prime Seat Sentinel",
+  "name": "Prime Seat",
   "short_name": "PrimeSeat",
   "description": "High-Throughput PLF Seat Vacancy Reclamation Monitor",
   "start_url": "/",

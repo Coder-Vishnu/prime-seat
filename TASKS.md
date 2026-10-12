@@ -1,10 +1,10 @@
 # TASKS.md: prime-seat Milestone Dashboard
 
-> High-level project tracker and milestone dashboard for prime-seat (AMC Tysons 16 Seat Sentinel).  
+> High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `1.0.0.0`  
-**Last Updated**: `2026-10-11`  
+**Current Version**: `1.0.0.2`  
+**Last Updated**: `2026-10-12`  
 **Active Milestone**: [1.0.0.0 (Milestone 1.0)](./tasks/Milestone1.0.md)
 
 ---

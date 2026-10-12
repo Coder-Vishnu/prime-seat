@@ -1,0 +1,2108 @@
+{
+  "showtime_id": "amc-tysons-clayface-auditorium11-dolby",
+  "auditorium_name": "Auditorium 11 (Dolby Cinema at AMC Tysons Corner 16)",
+  "auditorium_number": 11,
+  "screen_format": "DOLBY_CINEMA",
+  "captured_at": "2026-10-11T17:02:05Z",
+  "rows": 11,
+  "cols": 26,
+  "total_physical_capacity": 262,
+  "seats": [
+    {
+      "row": "A",
+      "number": 1,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 9,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 11,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 12,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 13,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 14,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 15,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 16,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 17,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 410.0
+    },
+    {
+      "row": "A",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 410.0
+    },
+    {
+      "row": "B",
+      "number": 1,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 9,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 11,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 12,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 13,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 14,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 15,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 16,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 17,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 457.0
+    },
+    {
+      "row": "B",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 457.0
+    },
+    {
+      "row": "C",
+      "number": 1,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 9,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 11,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 12,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 13,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 14,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 15,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 16,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 17,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 505.0
+    },
+    {
+      "row": "C",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 505.0
+    },
+    {
+      "row": "D",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 9,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 11,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 12,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 777.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 13,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 817.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 14,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 847.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 15,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 886.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 16,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 17,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 552.0
+    },
+    {
+      "row": "D",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 552.0
+    },
+    {
+      "row": "E",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 13,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 15,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 16,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 19,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 21,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 598.0
+    },
+    {
+      "row": "E",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 598.0
+    },
+    {
+      "row": "F",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 8,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 13,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 15,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 16,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 20,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 645.0
+    },
+    {
+      "row": "F",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 645.0
+    },
+    {
+      "row": "G",
+      "number": 1,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 7,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 8,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 13,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 15,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 16,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 18,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 19,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 20,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 21,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 22,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 692.0
+    },
+    {
+      "row": "G",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 692.0
+    },
+    {
+      "row": "H",
+      "number": 1,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 7,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 8,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 13,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 15,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 16,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 18,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 19,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 20,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 739.0
+    },
+    {
+      "row": "H",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 739.0
+    },
+    {
+      "row": "J",
+      "number": 1,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 396.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 7,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 8,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 12,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 13,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 817.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 14,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 847.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 15,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 886.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 16,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 917.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 18,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 19,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 786.0
+    },
+    {
+      "row": "J",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 786.0
+    },
+    {
+      "row": "K",
+      "number": 2,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 427.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 606.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 637.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 9,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 676.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 10,
+      "status": "Reserved",
+      "seat_type": "Companion",
+      "x": 707.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 11,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 746.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 12,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 777.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 13,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 817.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 14,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 847.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 15,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 886.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 16,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 917.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 17,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 18,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 1026.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Wheelchair",
+      "x": 1057.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 21,
+      "status": "Available",
+      "seat_type": "Companion",
+      "x": 1096.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 25,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1237.0,
+      "y": 833.0
+    },
+    {
+      "row": "K",
+      "number": 26,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1267.0,
+      "y": 833.0
+    },
+    {
+      "row": "L",
+      "number": 3,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 466.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 4,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 497.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 5,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 536.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 6,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 567.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 7,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 606.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 8,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 637.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 9,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 676.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 10,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 707.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 17,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 956.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 18,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 987.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 19,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1026.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 20,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1057.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 21,
+      "status": "Reserved",
+      "seat_type": "Recliner",
+      "x": 1096.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 22,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1127.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 23,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1166.0,
+      "y": 881.0
+    },
+    {
+      "row": "L",
+      "number": 24,
+      "status": "Available",
+      "seat_type": "Recliner",
+      "x": 1197.0,
+      "y": 881.0
+    }
+  ]
+}
