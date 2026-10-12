@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `1.0.0.2`  
+**Current Version**: `1.0.0.3`  
 **Last Updated**: `2026-10-12`  
-**Active Milestone**: [1.0.0.0 (Milestone 1.0)](./tasks/Milestone1.0.md)
+**Active Milestone**: *(none active — run /milestone-new to start next milestone)*
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 1.0](./tasks/Milestone1.0.md) | CRITICAL | 🚧 Planning / In Progress | 2026-10-11 | Ingestion Contracts, Pydantic v2 Models & Fail-Closed Fixture Testing (`01_INGESTION_AND_FIXTURES`) |
+| *(none currently active)* | — | — | — | All active milestones completed |
 
 ---
 
@@ -34,7 +34,7 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
-| *(none yet)* | — | — | — | Architecture Blueprints established (Modules 01–07) |
+| [Milestone 1.0](./tasks/Milestone1.0.md) | 2026-10-12 | `1.0.0.3` | 4 / 4 | Ingestion Contracts, Pydantic v2 Models & 8/8 Pytest Verification Gates ([#1](file:///C:/Users/vrviv/Projects/personal/prime-seat/tasks/Milestone1.0.md)) |
 
 ---
 
