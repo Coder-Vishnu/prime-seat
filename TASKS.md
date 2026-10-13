@@ -5,13 +5,15 @@
 
 **Current Version**: `2.0.0.3`  
 **Last Updated**: `2026-10-12`  
-**Active Milestone**: None (Ready for Milestone 3.0)
+**Active Milestone**: [3.0.0.0 (Milestone 3.0)](./tasks/Milestone3.0.md)
 
 ---
 
 ## Active & In-Progress Milestones
 
-*No active milestones. Run `/milestone-start` or `/milestone-new` to initialize Milestone 3.0.*
+| Milestone | Priority | Status | Target Date | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| [Milestone 3.0](./tasks/Milestone3.0.md) | HIGH | 🚧 Planning | 2026-10-12 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
 
 ---
 
@@ -19,7 +21,6 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 3.0 | HIGH | ⏳ Pending | Milestone 2.0 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
 | Milestone 4.0 | HIGH | ⏳ Pending | Milestone 3.0 | PyTorch Deep Learning Churn Predictor (`04_PYTORCH_CHURN_PREDICTOR`) |
 | Milestone 5.0 | CRITICAL | ⏳ Pending | Milestone 4.0 | Adversarial Boundaries & Secure AI Protections (`05_ADVERSARIAL_SECURITY`) |
 | Milestone 6.0 | HIGH | ⏳ Pending | Milestone 5.0 | Adaptive Poller & Dual-Dispatch Pipeline (`06_ALERT_AND_DISPATCH`) |
