@@ -17,6 +17,14 @@ from sentinel.diff_engine import (
     AuditoriumCoordinateMapper,
     AuditoriumStateEngine,
 )
+from sentinel.poller import (
+    AdaptivePollingPolicy,
+)
+from sentinel.dispatcher import (
+    SSEConnectionManager,
+    sse_manager,
+    DualAlertDispatcher,
+)
 
 __all__ = [
     "SeatStatus",
@@ -30,4 +38,9 @@ __all__ = [
     "CoordinateMappingError",
     "AuditoriumCoordinateMapper",
     "AuditoriumStateEngine",
+    "AdaptivePollingPolicy",
+    "SSEConnectionManager",
+    "sse_manager",
+    "DualAlertDispatcher",
 ]
+
