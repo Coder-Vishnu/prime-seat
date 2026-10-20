@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `5.0.0.3`  
+**Current Version**: `6.0.0.3`  
 **Last Updated**: `2026-10-20`  
-**Active Milestone**: None (Milestone 5.0 completed)
+**Active Milestone**: None (Milestone 6.0 completed)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| None | - | - | - | All active milestones completed. Next: Milestone 6.0 |
+| None | - | - | - | All active milestones completed. Next: Milestone 7.0 |
 
 ---
 
@@ -21,7 +21,6 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 6.0 | HIGH | ⏳ Pending | Milestone 5.0 | Adaptive Poller & Dual-Dispatch Pipeline (`06_ALERT_AND_DISPATCH`) |
 | Milestone 7.0 | HIGH | ⏳ Pending | Milestone 6.0 | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
 
 ---
@@ -30,6 +29,7 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
+| [Milestone 6.0](./tasks/Milestone6.0.md) | 2026-10-20 | `6.0.0.3` | 4 / 4 | Adaptive Polling Policy, Stochastic Jitter, SSE Broadcast, Urgent ntfy.sh Webhook & 2/2 Pytest Gates ([#6](./tasks/Milestone6.0.md)) |
 | [Milestone 5.0](./tasks/Milestone5.0.md) | 2026-10-20 | `5.0.0.3` | 4 / 4 | Adversarial Boundary Sanitization, Hardware Bounds Gating, Replay Defense, Anomaly Rate-of-Change Limiter & 5/5 Pytest Gates ([#5](./tasks/Milestone5.0.md)) |
 | [Milestone 4.0](./tasks/Milestone4.0.md) | 2026-10-20 | `4.0.0.3` | 4 / 4 | PyTorch Deep Learning Churn Predictor, 16-Dim Feature Builder, Weighted BCE Loss (45:1), TorchScript Exporter & 5/5 Pytest Gates ([#4](./tasks/Milestone4.0.md)) |
 | [Milestone 3.0](./tasks/Milestone3.0.md) | 2026-10-19 | `3.0.0.3` | 4 / 4 | Columnar Parquet Telemetry, Hive Partitioning, pgvector HNSW Schema & 3/3 Pytest Gates ([#3](./tasks/Milestone3.0.md)) |
