@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `3.0.0.2`  
+**Current Version**: `3.0.0.3`  
 **Last Updated**: `2026-10-19`  
-**Active Milestone**: [3.0.0.0 (Milestone 3.0)](./tasks/Milestone3.0.md)
+**Active Milestone**: None (Milestone 3.0 completed)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 3.0](./tasks/Milestone3.0.md) | HIGH | 🚧 In Progress | 2026-10-19 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
+| None | - | - | - | All active milestones completed. Next: Milestone 4.0 |
 
 ---
 
@@ -32,6 +32,7 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
+| [Milestone 3.0](./tasks/Milestone3.0.md) | 2026-10-19 | `3.0.0.3` | 4 / 4 | Columnar Parquet Telemetry, Hive Partitioning, pgvector HNSW Schema & 3/3 Pytest Gates ([#3](./tasks/Milestone3.0.md)) |
 | [Milestone 2.0](./tasks/Milestone2.0.md) | 2026-10-12 | `2.0.0.3` | 4 / 4 | Vectorized 2D NumPy State Diff Engine, Sentinel Masking & 0.015ms Latency SLA Verified ([#2](./tasks/Milestone2.0.md)) |
 | [Milestone 1.0](./tasks/Milestone1.0.md) | 2026-10-12 | `1.0.0.3` | 4 / 4 | Ingestion Contracts, Pydantic v2 Models & 8/8 Pytest Verification Gates ([#1](./tasks/Milestone1.0.md)) |
 
