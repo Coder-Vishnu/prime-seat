@@ -3,8 +3,8 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `2.0.0.3`  
-**Last Updated**: `2026-10-12`  
+**Current Version**: `3.0.0.0`  
+**Last Updated**: `2026-10-19`  
 **Active Milestone**: [3.0.0.0 (Milestone 3.0)](./tasks/Milestone3.0.md)
 
 ---
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 3.0](./tasks/Milestone3.0.md) | HIGH | 🚧 Planning | 2026-10-12 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
+| [Milestone 3.0](./tasks/Milestone3.0.md) | HIGH | 🚧 In Progress | 2026-10-19 | Columnar Parquet Telemetry & pgvector Store (`03_ETL_AND_TELEMETRY`) |
 
 ---
 

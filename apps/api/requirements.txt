@@ -6,6 +6,7 @@ packaging==26.3
 pluggy==1.6.0
 pydantic==2.14.1
 pydantic_core==2.50.1
+pyarrow==26.0.0
 Pygments==2.21.0
 pytest==9.1.1
 typing-inspection==0.4.4
