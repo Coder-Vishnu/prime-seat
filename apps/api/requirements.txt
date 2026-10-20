@@ -9,5 +9,6 @@ pydantic_core==2.50.1
 pyarrow==26.0.0
 Pygments==2.21.0
 pytest==9.1.1
+torch==2.14.1+cpu
 typing-inspection==0.4.4
 typing_extensions==4.16.0

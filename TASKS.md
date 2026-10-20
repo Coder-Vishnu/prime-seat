@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `3.0.0.3`  
-**Last Updated**: `2026-10-19`  
-**Active Milestone**: None (Milestone 3.0 completed)
+**Current Version**: `4.0.0.2`  
+**Last Updated**: `2026-10-20`  
+**Active Milestone**: [4.0.0.0 (Milestone 4.0)](./tasks/Milestone4.0.md)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| None | - | - | - | All active milestones completed. Next: Milestone 4.0 |
+| [Milestone 4.0](./tasks/Milestone4.0.md) | HIGH | 🚧 In Progress | 2026-10-19 | PyTorch Deep Learning Churn Predictor (`04_PYTORCH_CHURN_PREDICTOR`) |
 
 ---
 
@@ -21,7 +21,6 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 4.0 | HIGH | ⏳ Pending | Milestone 3.0 | PyTorch Deep Learning Churn Predictor (`04_PYTORCH_CHURN_PREDICTOR`) |
 | Milestone 5.0 | CRITICAL | ⏳ Pending | Milestone 4.0 | Adversarial Boundaries & Secure AI Protections (`05_ADVERSARIAL_SECURITY`) |
 | Milestone 6.0 | HIGH | ⏳ Pending | Milestone 5.0 | Adaptive Poller & Dual-Dispatch Pipeline (`06_ALERT_AND_DISPATCH`) |
 | Milestone 7.0 | HIGH | ⏳ Pending | Milestone 6.0 | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
