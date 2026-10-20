@@ -3,7 +3,7 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `3.0.0.0`  
+**Current Version**: `3.0.0.2`  
 **Last Updated**: `2026-10-19`  
 **Active Milestone**: [3.0.0.0 (Milestone 3.0)](./tasks/Milestone3.0.md)
 

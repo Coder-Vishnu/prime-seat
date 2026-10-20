@@ -33,13 +33,13 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 2 of 4 tasks complete (50%)
+**Completion:** 3 of 4 tasks complete (75%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `3.0.0.0` | 2026-10-19 |
 | **Task 1: PyArrow Schema & pgvector Trajectory DDL** | HIGH | ✅ Complete | `3.0.0.1` | 2026-10-19 |
-| **Task 2: Thread-Safe Buffered ParquetTelemetrySink** | CRITICAL | ⏳ Pending | `3.0.0.2` | - |
+| **Task 2: Thread-Safe Buffered ParquetTelemetrySink** | CRITICAL | ✅ Complete | `3.0.0.2` | 2026-10-19 |
 | **Task 3: Pytest Verification Gates & Partition Conformity** | CRITICAL | ⏳ Pending | `3.0.0.3` | - |
 
 **Status Legend:**
@@ -136,7 +136,7 @@ git checkout -b vishnu-101226-3.0-parquet-telemetry
 
 **Purpose:** Implement thread-safe buffered Parquet sink with Hive partitioning.  
 **Estimated Time:** 40 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `3.0.0.2`  
 **Dependencies:** Task 1  
 
@@ -154,9 +154,9 @@ Implement `ParquetTelemetrySink` in `apps/api/src/analytics/telemetry.py`:
 - `apps/api/src/analytics/telemetry.py`
 
 ### Verification Gates & Testing
-- [ ] Event buffering and thread-safe batch flushing validated
-- [ ] Correct Hive partition directories created on disk
-- [ ] Output files compressed using `zstd` with dictionary encoding
+- [x] Event buffering and thread-safe batch flushing validated
+- [x] Correct Hive partition directories created on disk
+- [x] Output files compressed using `zstd` with dictionary encoding
 
 ---
 
