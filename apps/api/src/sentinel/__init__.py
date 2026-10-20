@@ -12,6 +12,11 @@ from sentinel.schema import (
     parse_raw_amc_payload,
     is_tysons_prime_seat,
 )
+from sentinel.diff_engine import (
+    CoordinateMappingError,
+    AuditoriumCoordinateMapper,
+    AuditoriumStateEngine,
+)
 
 __all__ = [
     "SeatStatus",
@@ -22,4 +27,7 @@ __all__ = [
     "SchemaValidationError",
     "parse_raw_amc_payload",
     "is_tysons_prime_seat",
+    "CoordinateMappingError",
+    "AuditoriumCoordinateMapper",
+    "AuditoriumStateEngine",
 ]
