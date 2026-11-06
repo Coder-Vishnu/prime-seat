@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `6.0.0.3`  
-**Last Updated**: `2026-10-20`  
-**Active Milestone**: Milestone 7.0 (Planning)
+**Current Version**: `7.0.0.1`  
+**Last Updated**: `2026-11-06`  
+**Active Milestone**: Milestone 7.0 (In Progress)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 7.0](./tasks/Milestone7.0.md) | HIGH | 📋 Planning | TBD | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
+| [Milestone 7.0](./tasks/Milestone7.0.md) | HIGH | 🚧 In Progress | TBD | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
 
 ---
 
