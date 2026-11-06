@@ -34,14 +34,14 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 3 of 5 tasks complete (60%)
+**Completion:** 4 of 5 tasks complete (80%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `7.0.0.0` | 2026-11-06 |
 | **Task 1: Next.js 15 PWA Scaffold, Manifest & Service Worker** | HIGH | ✅ Complete | `7.0.0.1` | 2026-11-06 |
 | **Task 2: SSE Stream Hook & Desktop Notification Hook** | HIGH | ✅ Complete | `7.0.0.2` | 2026-11-06 |
-| **Task 3: Interactive SVG AuditoriumCanvas Component & Heatmap Mode** | HIGH | ⏳ Pending | `7.0.0.3` | - |
+| **Task 3: Interactive SVG AuditoriumCanvas Component & Heatmap Mode** | HIGH | ✅ Complete | `7.0.0.3` | 2026-11-06 |
 | **Task 4: Vitest Component Verification Gates & Sub-50ms Re-Render SLA** | CRITICAL | ⏳ Pending | `7.0.0.4` | - |
 
 **Status Legend:**
@@ -191,7 +191,7 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Implement the hardware-accelerated 2D SVG auditorium seatmap with 6-state color encoding, drop animation, and predictive heatmap overlay.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Status:** ✅ Complete  
 **Version:** `7.0.0.3`  
 **Dependencies:** Task 2  
 
@@ -223,10 +223,10 @@ Update this document with confirmed version and record `Date Started`.
 - `apps/web/src/app/page.tsx`
 
 ### Verification Gates & Testing
-- [ ] All 6 seat states render with correct SVG fill/stroke colors per Section 2 matrix
-- [ ] Pulsing amber animation triggers exclusively on `SEAT_DROP` event seats
-- [ ] Heatmap mode correctly maps $P(\text{Drop}) \ge 0.7$ to red, $\ge 0.4$ to orange, $< 0.4$ to blue
-- [ ] `onSeatClick` fires with correct `SeatData` payload on seat node click
+- [x] All 6 seat states render with correct SVG fill/stroke colors per Section 2 matrix
+- [x] Pulsing amber animation triggers exclusively on `SEAT_DROP` event seats
+- [x] Heatmap mode correctly maps $P(\text{Drop}) \ge 0.7$ to red, $\ge 0.4$ to orange, $< 0.4$ to blue
+- [x] `onSeatClick` fires with correct `SeatData` payload on seat node click
 
 ---
 
