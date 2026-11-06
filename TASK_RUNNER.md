@@ -1,23 +1,21 @@
 # Task Runner: Milestone 7.0
 
-## Active Task: Task 3 - Interactive SVG AuditoriumCanvas Component & Heatmap Mode (HIGH)
+## Active Task: Task 4 - Vitest Component Verification Gates & Sub-50ms Re-Render SLA (CRITICAL)
 
 ### Plan
-1. **Implement `apps/web/src/components/AuditoriumCanvas.tsx`**:
-   - 2D SVG vector rendering of auditorium seats with screen curvature banner
-   - Exact implementation of the Section 2 six-state color and styling matrix
-   - Pulsing amber keyframe animation on recent seat drops
-   - Predictive ML heatmap gradient mode based on PyTorch $P(\text{Drop})$ scores
-   - Dynamic hover tooltip displaying seat coordinates, occupancy status, and drop risk
-   - Interactive seat click handler routing to `onSeatClick`
-2. **Wire up `apps/web/src/app/page.tsx`**:
-   - Integrate `AuditoriumCanvas`, `useAuditoriumStream`, and `useDesktopNotification`
-   - Real-time connection badge (live SSE pulse indicator)
-   - Heatmap toggle switch with gradient legend (High $\ge 70\%$, Med $\ge 40\%$, Low $< 40\%$)
-   - Showtime and screen format switcher (Dolby Cinema vs. IMAX with Laser)
-   - Recent drop alert banner with direct AMC checkout deep-link
-3. **Verification Gates**:
-   - TypeScript compiler validation (`npx tsc --noEmit`)
-   - Verify SVG fill and stroke mapping for all 6 states
-   - Verify heatmap mode probability thresholds
-   - Verify click interaction callback
+1. **Configure Vitest Dependencies**:
+   - Install `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `jsdom`, `@vitejs/plugin-react` in `apps/web`
+2. **Vitest Configuration**:
+   - Create `apps/web/vitest.config.ts` with `jsdom` test environment and `@/*` alias
+   - Create `apps/web/tests/setup.ts` importing `@testing-library/jest-dom/vitest`
+3. **Implement Verification Suite**:
+   - `apps/web/tests/AuditoriumCanvas.test.tsx` implementing 5 gates:
+     - `test_gate_01_seat_node_rendering_and_geometry`
+     - `test_gate_02_click_interaction_callback`
+     - `test_gate_03_color_encoding_matrix`
+     - `test_gate_04_heatmap_probability_gradient`
+     - `test_gate_05_sub_50ms_rerender_sla`
+4. **Execute Verification Gates**:
+   - Run `npx vitest run` ensuring 100% pass rate (5/5 gates)
+   - Verify 0 TypeScript strict-mode errors
+   - Re-start dev server if desired
