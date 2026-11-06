@@ -5,7 +5,7 @@
 
 **Current Version**: `6.0.0.3`  
 **Last Updated**: `2026-10-20`  
-**Active Milestone**: None (Milestone 6.0 completed)
+**Active Milestone**: Milestone 7.0 (Planning)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| None | - | - | - | All active milestones completed. Next: Milestone 7.0 |
+| [Milestone 7.0](./tasks/Milestone7.0.md) | HIGH | 📋 Planning | TBD | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
 
 ---
 
@@ -21,7 +21,7 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 7.0 | HIGH | ⏳ Pending | Milestone 6.0 | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
+| None | - | - | - | - |
 
 ---
 
@@ -43,3 +43,4 @@
 - **PATCH bump** (`1.0.0.x` -> `1.0.1.0`): Bumped on patch releases.
 - **MINOR bump** (`1.0.x.x` -> `1.1.0.0`): Milestone completion across major subsystems.
 - **MAJOR bump** (`1.x.x.x` -> `2.0.0.0`): Production release.
+
