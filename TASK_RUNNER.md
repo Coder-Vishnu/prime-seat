@@ -1,21 +1,14 @@
-# Task Runner: Milestone 7.0
+# Task Runner: Milestone 8.0
 
-## Active Task: Task 4 - Vitest Component Verification Gates & Sub-50ms Re-Render SLA (CRITICAL)
+## Active Task: Task 1 - DMV AMC Theatres Ingestion & Instant Search Component (HIGH)
 
 ### Plan
-1. **Configure Vitest Dependencies**:
-   - Install `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `jsdom`, `@vitejs/plugin-react` in `apps/web`
-2. **Vitest Configuration**:
-   - Create `apps/web/vitest.config.ts` with `jsdom` test environment and `@/*` alias
-   - Create `apps/web/tests/setup.ts` importing `@testing-library/jest-dom/vitest`
-3. **Implement Verification Suite**:
-   - `apps/web/tests/AuditoriumCanvas.test.tsx` implementing 5 gates:
-     - `test_gate_01_seat_node_rendering_and_geometry`
-     - `test_gate_02_click_interaction_callback`
-     - `test_gate_03_color_encoding_matrix`
-     - `test_gate_04_heatmap_probability_gradient`
-     - `test_gate_05_sub_50ms_rerender_sla`
-4. **Execute Verification Gates**:
-   - Run `npx vitest run` ensuring 100% pass rate (5/5 gates)
-   - Verify 0 TypeScript strict-mode errors
-   - Re-start dev server if desired
+1. **Define Data Models & Dataset**:
+   - Create `apps/web/src/data/theatres.ts` with `AMCTheatre` interface and 10 premier DMV AMC theatres (AMC Tysons Corner 16, Georgetown 14, Hoffman Center 22, Montgomery 16, Shirlington 7, Courthouse Plaza 8, Rio Cinemas 18, DINE-IN Techworld 11, Magic Johnson Capital Centre 12, Columbia 14).
+2. **Build Instant Search Component**:
+   - Create `apps/web/src/components/TheatreSearch.tsx` with instant debounced search query filtering across name, city, zip code, and region.
+   - Add format toggle filter chips (`ALL`, `DOLBY_CINEMA`, `IMAX_LASER`, `PRIME`, `FLAGSHIP`).
+   - Implement responsive cards showing theatre address, formats, screen counts, recliner status, and "View Showtimes →" selection trigger.
+3. **Run Verification Gates**:
+   - Run TypeScript type checks (`npx tsc --noEmit` in `apps/web`).
+   - Run Vitest test suite (`npm run test` in `apps/web`).

@@ -5,7 +5,7 @@
 
 **Current Version**: `7.0.0.4`  
 **Last Updated**: `2026-11-06`  
-**Active Milestone**: Milestone 8.0 (Planning)
+**Active Milestone**: Milestone 8.0 (In Progress)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 8.0](./tasks/Milestone8.0.md) | HIGH | 📋 Planning | TBD | AMC Theatre Discovery, Monthly Calendar, PLF Showtimes & Accurate Seatmap Explorer |
+| [Milestone 8.0](./tasks/Milestone8.0.md) | HIGH | 🚧 In Progress | TBD | AMC Theatre Discovery, Monthly Calendar, PLF Showtimes & Accurate Seatmap Explorer |
 
 ---
 
