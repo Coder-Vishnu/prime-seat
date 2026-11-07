@@ -1,0 +1,173 @@
+// apps/web/src/data/theatres.ts
+
+export type TheatreFormat = 'DOLBY_CINEMA' | 'IMAX_LASER' | 'PRIME' | 'REALD_3D' | 'DINE_IN';
+
+export interface AMCTheatre {
+  id: string;
+  name: string;
+  slug: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  region: string;
+  formats: TheatreFormat[];
+  screenCount: number;
+  hasRecliners: boolean;
+  isFlagship: boolean;
+  imageUrl?: string;
+  phone?: string;
+}
+
+export const DMV_AMC_THEATRES: AMCTheatre[] = [
+  {
+    id: 'amc-tysons-16',
+    name: 'AMC Tysons Corner 16',
+    slug: 'amc-tysons-corner-16',
+    address: '7850 Tysons Corner Center',
+    city: 'McLean',
+    state: 'VA',
+    zip: '22102',
+    region: 'Northern Virginia',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'PRIME', 'REALD_3D'],
+    screenCount: 16,
+    hasRecliners: true,
+    isFlagship: true,
+    phone: '(703) 991-3067',
+  },
+  {
+    id: 'amc-georgetown-14',
+    name: 'AMC Georgetown 14',
+    slug: 'amc-georgetown-14',
+    address: '3111 K St NW',
+    city: 'Washington',
+    state: 'DC',
+    zip: '20007',
+    region: 'Washington DC',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'REALD_3D'],
+    screenCount: 14,
+    hasRecliners: true,
+    isFlagship: true,
+    phone: '(202) 342-4040',
+  },
+  {
+    id: 'amc-hoffman-22',
+    name: 'AMC Hoffman Center 22',
+    slug: 'amc-hoffman-center-22',
+    address: '206 Swamp Fox Rd',
+    city: 'Alexandria',
+    state: 'VA',
+    zip: '22314',
+    region: 'Northern Virginia',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'REALD_3D'],
+    screenCount: 22,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(703) 236-1082',
+  },
+  {
+    id: 'amc-montgomery-16',
+    name: 'AMC Montgomery 16',
+    slug: 'amc-montgomery-16',
+    address: '7101 Democracy Blvd',
+    city: 'Bethesda',
+    state: 'MD',
+    zip: '20817',
+    region: 'Maryland Suburbs',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'REALD_3D'],
+    screenCount: 16,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(301) 365-2000',
+  },
+  {
+    id: 'amc-shirlington-7',
+    name: 'AMC Shirlington 7',
+    slug: 'amc-shirlington-7',
+    address: '2772 S Arlington Mill Dr',
+    city: 'Arlington',
+    state: 'VA',
+    zip: '22206',
+    region: 'Northern Virginia',
+    formats: ['REALD_3D'],
+    screenCount: 7,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(703) 820-2230',
+  },
+  {
+    id: 'amc-courthouse-8',
+    name: 'AMC Courthouse Plaza 8',
+    slug: 'amc-courthouse-plaza-8',
+    address: '2150 Clarendon Blvd',
+    city: 'Arlington',
+    state: 'VA',
+    zip: '22201',
+    region: 'Northern Virginia',
+    formats: ['REALD_3D'],
+    screenCount: 8,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(703) 243-4950',
+  },
+  {
+    id: 'amc-rio-18',
+    name: 'AMC DINE-IN Rio Cinemas 18',
+    slug: 'amc-dine-in-rio-cinemas-18',
+    address: '9811 Washingtonian Center',
+    city: 'Gaithersburg',
+    state: 'MD',
+    zip: '20878',
+    region: 'Maryland Suburbs',
+    formats: ['DOLBY_CINEMA', 'REALD_3D', 'DINE_IN'],
+    screenCount: 18,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(301) 948-6673',
+  },
+  {
+    id: 'amc-techworld-11',
+    name: 'AMC DINE-IN Techworld 11',
+    slug: 'amc-dine-in-techworld-11',
+    address: '800 F St NW',
+    city: 'Washington',
+    state: 'DC',
+    zip: '20001',
+    region: 'Washington DC',
+    formats: ['REALD_3D', 'DINE_IN'],
+    screenCount: 11,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(202) 741-9440',
+  },
+  {
+    id: 'amc-magic-johnson-12',
+    name: 'AMC Magic Johnson Capital Centre 12',
+    slug: 'amc-magic-johnson-capital-centre-12',
+    address: '800 Shoppers Way',
+    city: 'Largo',
+    state: 'MD',
+    zip: '20774',
+    region: 'Maryland Suburbs',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'REALD_3D'],
+    screenCount: 12,
+    hasRecliners: false,
+    isFlagship: false,
+    phone: '(301) 333-8889',
+  },
+  {
+    id: 'amc-columbia-14',
+    name: 'AMC Columbia 14',
+    slug: 'amc-columbia-14',
+    address: '10300 Little Patuxent Pkwy',
+    city: 'Columbia',
+    state: 'MD',
+    zip: '21044',
+    region: 'Maryland Suburbs',
+    formats: ['DOLBY_CINEMA', 'IMAX_LASER', 'REALD_3D'],
+    screenCount: 14,
+    hasRecliners: true,
+    isFlagship: false,
+    phone: '(410) 730-8900',
+  },
+];
