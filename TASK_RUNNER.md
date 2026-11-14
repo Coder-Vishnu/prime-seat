@@ -3,19 +3,21 @@
 ## Completed Tasks
 - [x] **Task 0: Milestone Initialization & Branch Setup** (`8.0.0.0`)
 - [x] **Task 1: DMV AMC Theatres Ingestion & Instant Search Component** (`8.0.0.1`)
+- [x] **Task 2: Interactive Monthly Calendar & Date Range Selector** (`8.0.0.2`)
 
-## Active Task: Task 2 - Interactive Monthly Calendar & Date Range Selector (HIGH)
+## Queued Task: Task 3 - PLF Format Showtime Matrix & Movie Catalog (HIGH)
 
-### Plan
-1. **Build CalendarPicker Component**:
-   - Create `apps/web/src/components/CalendarPicker.tsx`.
-   - Implement interactive monthly grid with previous/next month navigation.
-   - Compute start-of-month day offset, days in month, and disable past historical dates.
-   - Add shortcut pills: "Today", "Tomorrow", "This Friday", "This Saturday", "This Sunday".
-   - Highlight active selected date with gold/sky accent styling and visual indicator dots for available screening dates.
-   - Expose `selectedDate: string` (YYYY-MM-DD) and `onSelectDate: (dateStr: string) => void`.
-2. **Implement Vitest Verification Suite**:
-   - Create `apps/web/tests/CalendarPicker.test.tsx` verifying day calculation, disabling past dates, shortcut selection, and `onSelectDate` emission.
-3. **Run Verification Gates**:
-   - `npx tsc --noEmit`
-   - `npm test`
+### Plan for Task 3
+1. **Define Showtime & Movie Models**:
+   - Create `apps/web/src/data/showtimes.ts`.
+   - Implement `Movie` interface (id, title, rating, runtimeMinutes, posterUrl, genre).
+   - Implement `Showtime` interface (id, theatreId, movieId, date, time, format, auditoriumId, auditoriumName, totalSeats, availableSeats, primeAvailableSeats, checkoutUrl).
+   - Seed schedule data across DMV theatres, movies, and dates.
+2. **Build ShowtimeSchedule Component**:
+   - Create `apps/web/src/components/ShowtimeSchedule.tsx`.
+   - Format filter tabs: "All PLF Formats", "Dolby Cinema", "IMAX with Laser", "Prime 3D".
+   - Movie presentation cards with posters, ratings, runtimes, and showtime pills with availability indicators.
+   - Expose `onSelectShowtime: (showtime: Showtime, movie: Movie) => void`.
+3. **Vitest Verification**:
+   - Implement `apps/web/tests/ShowtimeSchedule.test.tsx`.
+   - Run type checks and tests.

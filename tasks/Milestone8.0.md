@@ -34,13 +34,13 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 1 of 5 tasks complete (20%)
+**Completion:** 2 of 5 tasks complete (40%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `8.0.0.0` | Feature Branch Ready |
-| **Task 1: DMV AMC Theatres Ingestion & Instant Search Component** | HIGH | ⏳ Pending | `8.0.0.1` | - |
-| **Task 2: Interactive Monthly Calendar & Date Range Selector** | HIGH | ⏳ Pending | `8.0.0.2` | - |
+| **Task 1: DMV AMC Theatres Ingestion & Instant Search Component** | HIGH | ✅ Complete | `8.0.0.1` | Vitest 7/7 Gates Passed |
+| **Task 2: Interactive Monthly Calendar & Date Range Selector** | HIGH | 🚧 In Progress | `8.0.0.2` | - |
 | **Task 3: PLF Format Showtime Matrix & Movie Catalog** | HIGH | ⏳ Pending | `8.0.0.3` | - |
 | **Task 4: Accurate AMC Physical Seatmap Routing & Vitest Verification Gates** | CRITICAL | ⏳ Pending | `8.0.0.4` | - |
 
@@ -121,7 +121,8 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Implement typed dataset of DMV-area AMC theatres and an interactive search component with format filters and location queries.  
 **Estimated Time:** 40 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 25 minutes  
+**Status:** ✅ Complete  
 **Version:** `8.0.0.1`  
 **Dependencies:** Task 0  
 
@@ -140,9 +141,9 @@ Update this document with confirmed version and record `Date Started`.
 - `apps/web/src/components/TheatreSearch.tsx`
 
 ### Verification Gates & Testing
-- [ ] TypeScript compiler passes with 0 errors (`npx tsc --noEmit`)
-- [ ] Instant search accurately filters by city (e.g. "McLean" returns Tysons Corner 16)
-- [ ] Format chip filter correctly isolates theatres offering Dolby Cinema
+- [x] TypeScript compiler passes with 0 errors (`npx tsc --noEmit`)
+- [x] Instant search accurately filters by city (e.g. "McLean" returns Tysons Corner 16)
+- [x] Format chip filter correctly isolates theatres offering Dolby Cinema
 
 ---
 
