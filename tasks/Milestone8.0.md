@@ -34,14 +34,14 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 2 of 5 tasks complete (40%)
+**Completion:** 4 of 5 tasks complete (80%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `8.0.0.0` | Feature Branch Ready |
 | **Task 1: DMV AMC Theatres Ingestion & Instant Search Component** | HIGH | ✅ Complete | `8.0.0.1` | Vitest 7/7 Gates Passed |
-| **Task 2: Interactive Monthly Calendar & Date Range Selector** | HIGH | 🚧 In Progress | `8.0.0.2` | - |
-| **Task 3: PLF Format Showtime Matrix & Movie Catalog** | HIGH | ⏳ Pending | `8.0.0.3` | - |
+| **Task 2: Interactive Monthly Calendar & Date Range Selector** | HIGH | ✅ Complete | `8.0.0.2` | Vitest 7/7 Gates Passed |
+| **Task 3: PLF Format Showtime Matrix & Movie Catalog** | HIGH | ✅ Complete | `8.0.0.3` | Vitest 5/5 Gates Passed |
 | **Task 4: Accurate AMC Physical Seatmap Routing & Vitest Verification Gates** | CRITICAL | ⏳ Pending | `8.0.0.4` | - |
 
 **Status Legend:**
@@ -151,7 +151,8 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Implement an interactive monthly calendar view allowing users to select showtime dates with screening density indicators.  
 **Estimated Time:** 35 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 20 minutes  
+**Status:** ✅ Complete  
 **Version:** `8.0.0.2`  
 **Dependencies:** Task 1  
 
@@ -168,9 +169,9 @@ Update this document with confirmed version and record `Date Started`.
 - `apps/web/src/components/CalendarPicker.tsx`
 
 ### Verification Gates & Testing
-- [ ] Calendar correctly calculates days in month and start day offset
-- [ ] Past dates are disabled and non-clickable
-- [ ] Shortcut pills ("Today", "Tomorrow") accurately update selected date
+- [x] Calendar correctly calculates days in month and start day offset
+- [x] Past dates are disabled and non-clickable
+- [x] Shortcut pills ("Today", "Tomorrow") accurately update selected date
 
 ---
 
@@ -178,7 +179,8 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Implement the movie catalog and showtime matrix filtered by Dolby Cinema, IMAX with Laser, 4DX, and Prime formats.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 30 minutes  
+**Status:** ✅ Complete  
 **Version:** `8.0.0.3`  
 **Dependencies:** Task 2  
 
@@ -200,9 +202,9 @@ Update this document with confirmed version and record `Date Started`.
 - `apps/web/src/components/ShowtimeSchedule.tsx`
 
 ### Verification Gates & Testing
-- [ ] Format tabs correctly filter showtime pills without re-mounting movie list
-- [ ] Showtime pills display correct prime vacancy badges
-- [ ] `onSelectShowtime` fires with complete showtime & movie payload
+- [x] Format tabs correctly filter showtime pills without re-mounting movie list
+- [x] Showtime pills display correct prime vacancy badges
+- [x] onSelectShowtime fires with complete showtime & movie payload
 
 ---
 
