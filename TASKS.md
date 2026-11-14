@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `8.0.0.3`  
+**Current Version**: `8.0.0.4`  
 **Last Updated**: `2026-11-14`  
-**Active Milestone**: Milestone 8.0 (In Progress)
+**Active Milestone**: None (Milestone 8.0 Completed)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| [Milestone 8.0](./tasks/Milestone8.0.md) | HIGH | 🚧 In Progress | TBD | AMC Theatre Discovery, Monthly Calendar, PLF Showtimes & Accurate Seatmap Explorer |
+| None | - | - | - | - |
 
 ---
 
@@ -29,6 +29,7 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
+| [Milestone 8.0](./tasks/Milestone8.0.md) | 2026-11-14 | `8.0.0.4` | 5 / 5 | AMC Theatre Discovery, Interactive Monthly Calendar, PLF Format Showtime Matrix, Physical Seatmaps & 4/4 Integration Gates ([#8](./tasks/Milestone8.0.md)) |
 | [Milestone 7.0](./tasks/Milestone7.0.md) | 2026-11-06 | `7.0.0.4` | 5 / 5 | Next.js 15 / React 19 PWA Auditorium Canvas, SVG Seatmap, Live SSE Stream Hook, ML Heatmap Overlay & 5/5 Vitest Gates ([#7](./tasks/Milestone7.0.md)) |
 | [Milestone 6.0](./tasks/Milestone6.0.md) | 2026-10-20 | `6.0.0.3` | 4 / 4 | Adaptive Polling Policy, Stochastic Jitter, SSE Broadcast, Urgent ntfy.sh Webhook & 2/2 Pytest Gates ([#6](./tasks/Milestone6.0.md)) |
 | [Milestone 5.0](./tasks/Milestone5.0.md) | 2026-10-20 | `5.0.0.3` | 4 / 4 | Adversarial Boundary Sanitization, Hardware Bounds Gating, Replay Defense, Anomaly Rate-of-Change Limiter & 5/5 Pytest Gates ([#5](./tasks/Milestone5.0.md)) |

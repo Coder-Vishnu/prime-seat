@@ -41,7 +41,7 @@ export function useAuditoriumStream(showtimeId: string) {
   const retryCount = useRef<number>(0);
 
   useEffect(() => {
-    if (!showtimeId) return;
+    if (!showtimeId || typeof EventSource === 'undefined') return;
 
     let eventSource: EventSource | null = null;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
