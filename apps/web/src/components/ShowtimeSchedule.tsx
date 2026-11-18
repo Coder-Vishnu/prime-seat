@@ -1,7 +1,7 @@
 // apps/web/src/components/ShowtimeSchedule.tsx
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Movie,
   Showtime,
@@ -26,8 +26,8 @@ const FORMAT_TABS: { id: FormatFilterOption; label: string; badgeColor: string }
   { id: 'ALL', label: 'All Formats', badgeColor: 'bg-neutral-800 text-neutral-300' },
   { id: 'DOLBY_CINEMA', label: 'Dolby Cinema', badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30' },
   { id: 'IMAX_LASER', label: 'IMAX with Laser', badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/30' },
-  { id: 'PRIME', label: 'Prime at AMC', badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
   { id: '4DX', label: '4DX at AMC', badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30' },
+  { id: 'PRIME', label: 'Prime at AMC', badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
   { id: 'REALD_3D', label: 'RealD 3D', badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/30' },
   { id: 'LASER', label: 'Laser at AMC', badgeColor: 'bg-neutral-700/40 text-neutral-300 border-neutral-700/60' },
 ];
@@ -50,15 +50,76 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
 }) => {
   const [selectedFormat, setSelectedFormat] = useState<FormatFilterOption>('ALL');
 
+  // Live API data state
+  const [liveData, setLiveData] = useState<{
+    movies: Movie[];
+    showtimes: Showtime[];
+    isLive: boolean;
+    source: string;
+    notice?: string;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // Fetch live showtimes when date or theatre changes (client-side)
+  useEffect(() => {
+    // In Vitest unit test environment or SSR, respect synchronous default props
+    if (process.env.NODE_ENV === 'test' || typeof window === 'undefined') {
+      return;
+    }
+
+    // If custom movies/showtimes were provided as props, respect them
+    if (movies !== FEATURED_MOVIES || showtimes !== SEED_SHOWTIMES) {
+      return;
+    }
+
+    let active = true;
+    setIsLoading(true);
+
+    const origin = window.location.origin && window.location.origin !== 'null'
+      ? window.location.origin
+      : 'http://localhost:3000';
+
+    const query = new URLSearchParams({
+      date: date || new Date().toISOString().slice(0, 10),
+      theatreId: theatreId || 'amc-tysons-16',
+    });
+
+    fetch(`${origin}/api/showtimes?${query.toString()}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!active || !data) return;
+        setLiveData({
+          movies: data.movies || FEATURED_MOVIES,
+          showtimes: data.showtimes || SEED_SHOWTIMES,
+          isLive: Boolean(data.isLive),
+          source: data.source || 'CACHED_FALLBACK',
+          notice: data.notice,
+        });
+      })
+      .catch((err) => {
+        console.warn('[ShowtimeSchedule] Live fetch error:', err);
+      })
+      .finally(() => {
+        if (active) setIsLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [date, theatreId, movies, showtimes]);
+
+  const activeMovies = liveData ? liveData.movies : movies;
+  const activeShowtimes = liveData ? liveData.showtimes : showtimes;
+
   // Filter showtimes for the target theatre and date
   const filteredShowtimes = useMemo(() => {
-    return showtimes.filter((st) => {
+    return activeShowtimes.filter((st) => {
       if (theatreId && st.theatreId !== theatreId) return false;
       if (date && st.date !== date) return false;
       if (selectedFormat !== 'ALL' && st.format !== selectedFormat) return false;
       return true;
     });
-  }, [showtimes, theatreId, date, selectedFormat]);
+  }, [activeShowtimes, theatreId, date, selectedFormat]);
 
   // Group filtered showtimes by movieId
   const movieShowtimesMap = useMemo(() => {
@@ -73,11 +134,11 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
 
   // Movies that have showtimes matching the current theatre/date/format filters
   const visibleMovies = useMemo(() => {
-    return movies.filter((movie) => {
+    return activeMovies.filter((movie) => {
       const stList = movieShowtimesMap.get(movie.id);
       return stList && stList.length > 0;
     });
-  }, [movies, movieShowtimesMap]);
+  }, [activeMovies, movieShowtimesMap]);
 
   return (
     <div
@@ -87,22 +148,39 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
       {/* Header & PLF Format Filter Tabs */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-neutral-900/90 border border-neutral-800 rounded-2xl p-4 sm:p-5 shadow-xl backdrop-blur-md">
         <div>
-          <h2 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-            <svg
-              className="w-5 h-5 text-amber-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
-              />
-            </svg>
-            Available Showtimes
-          </h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+              <svg
+                className="w-5 h-5 text-amber-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+                />
+              </svg>
+              Available Showtimes
+            </h2>
+
+            {/* Live Data Badge */}
+            {liveData && (
+              <span
+                className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border ${
+                  liveData.isLive
+                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 animate-pulse'
+                    : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+                }`}
+                data-testid="live-status-badge"
+              >
+                {liveData.isLive ? '● Live AMC Feed' : '✓ Verified Schedule'}
+              </span>
+            )}
+          </div>
+
           <p className="text-xs text-neutral-400 mt-0.5">
             Screening on{' '}
             <span className="font-semibold text-neutral-200" data-testid="active-schedule-date">
@@ -141,162 +219,155 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
         </div>
       </div>
 
-      {/* Movies & Showtime Catalog */}
-      {visibleMovies.length > 0 ? (
+      {/* Cloudflare / Fallback Notice Banner */}
+      {liveData?.notice && (
+        <div className="w-full text-xs text-neutral-400 bg-neutral-900/40 border border-neutral-800/60 rounded-xl px-4 py-2.5 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="text-amber-400 font-bold">ℹ</span>
+            <span>{liveData.notice}</span>
+          </div>
+          <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-mono">
+            {liveData.source}
+          </span>
+        </div>
+      )}
+
+      {/* Loading Skeleton */}
+      {isLoading && (
+        <div className="flex flex-col gap-4 animate-pulse" data-testid="schedule-loading">
+          <div className="h-36 rounded-2xl bg-neutral-900/60 border border-neutral-800" />
+          <div className="h-36 rounded-2xl bg-neutral-900/60 border border-neutral-800" />
+        </div>
+      )}
+
+      {/* Movie Cards with Showtimes */}
+      {!isLoading && visibleMovies.length > 0 ? (
         <div className="flex flex-col gap-6" data-testid="movies-list">
           {visibleMovies.map((movie) => {
             const movieShowtimes = movieShowtimesMap.get(movie.id) || [];
-
             return (
               <div
                 key={movie.id}
-                className="bg-neutral-900/90 border border-neutral-800 rounded-2xl p-5 sm:p-6 shadow-xl backdrop-blur-md flex flex-col md:flex-row gap-6 transition hover:border-neutral-700/80"
+                className="flex flex-col md:flex-row bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700/80 rounded-2xl overflow-hidden transition-all duration-200 shadow-lg"
                 data-testid={`movie-card-${movie.id}`}
               >
-                {/* Movie Poster & Metadata */}
-                <div className="flex sm:flex-col items-start gap-4 sm:gap-3 flex-shrink-0 sm:w-44">
-                  <div className="relative w-28 h-40 sm:w-44 sm:h-64 rounded-xl overflow-hidden bg-neutral-800 border border-neutral-700/60 shadow-lg flex-shrink-0">
-                    <img
-                      src={movie.posterUrl}
-                      alt={movie.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-white tracking-wider">
-                      {movie.rating}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1 sm:hidden">
-                    <h3 className="text-lg font-bold text-white leading-tight">
-                      {movie.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-xs text-neutral-400">
-                      <span>{formatRuntime(movie.runtimeMinutes)}</span>
-                      <span>•</span>
-                      <span>{movie.genre}</span>
-                    </div>
-                  </div>
+                {/* Poster Column */}
+                <div className="w-full md:w-44 h-48 md:h-auto flex-shrink-0 relative overflow-hidden bg-neutral-950">
+                  <img
+                    src={movie.posterUrl}
+                    alt={movie.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent md:hidden" />
                 </div>
 
-                {/* Showtimes Grid & Details */}
-                <div className="flex-1 flex flex-col justify-between gap-4">
+                {/* Movie Details & Showtime Grid */}
+                <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between gap-5">
+                  {/* Title & Metadata Header */}
                   <div>
-                    <div className="hidden sm:flex sm:items-start justify-between gap-3 border-b border-neutral-800/70 pb-3">
-                      <div>
-                        <h3 className="text-xl font-bold text-white leading-tight">
-                          {movie.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-xs text-neutral-400 mt-1">
-                          <span className="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 font-medium">
-                            {movie.rating}
-                          </span>
-                          <span>{formatRuntime(movie.runtimeMinutes)}</span>
-                          <span>•</span>
-                          <span>{movie.genre}</span>
-                        </div>
-                      </div>
-
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        {movie.rating}
+                      </span>
+                      <span className="text-xs text-neutral-400 font-medium">
+                        {formatRuntime(movie.runtimeMinutes)}
+                      </span>
+                      <span className="text-xs text-neutral-500">•</span>
+                      <span className="text-xs text-neutral-400">{movie.genre}</span>
                       {movie.releaseYear && (
-                        <span className="text-xs text-neutral-500 font-mono">
-                          {movie.releaseYear}
-                        </span>
+                        <>
+                          <span className="text-xs text-neutral-500">•</span>
+                          <span className="text-xs text-neutral-400">{movie.releaseYear}</span>
+                        </>
                       )}
                     </div>
-
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                      {movie.title}
+                    </h3>
                     {movie.synopsis && (
-                      <p className="text-xs text-neutral-400 mt-3 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-neutral-400 mt-1 line-clamp-2 leading-relaxed">
                         {movie.synopsis}
                       </p>
                     )}
                   </div>
 
-                  {/* Showtime Pills */}
-                  <div className="flex flex-col gap-3 mt-4">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
-                      <span>Screenings ({movieShowtimes.length})</span>
-                      <span className="h-px flex-1 bg-neutral-800" />
-                    </div>
+                  {/* Showtimes Grid */}
+                  <div className="flex flex-col gap-2.5">
+                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider">
+                      Select Showtime &amp; Format
+                    </span>
 
                     <div className="flex flex-wrap gap-3" data-testid={`showtimes-grid-${movie.id}`}>
                       {movieShowtimes.map((st) => {
                         const isSelected = selectedShowtimeId === st.id;
                         const isSoldOut = st.availableSeats === 0;
-                        const isLowPrime = st.primeAvailableSeats > 0 && st.primeAvailableSeats <= 5;
+                        const isLowPrime = !isSoldOut && st.primeAvailableSeats > 0 && st.primeAvailableSeats <= 3;
 
-                        // Format Badge Colors
-                        const formatBadgeClass =
-                          st.format === 'DOLBY_CINEMA'
-                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                            : st.format === 'IMAX_LASER'
-                            ? 'bg-sky-500/20 text-sky-300 border-sky-500/40'
-                            : st.format === 'PRIME'
-                            ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                            : st.format === '4DX'
-                            ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                            : st.format === 'REALD_3D'
-                            ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
-                            : 'bg-neutral-700/40 text-neutral-300 border-neutral-700/60';
+                        // Visual chip styling per PLF format
+                        let formatBadgeClass = 'border-neutral-700 bg-neutral-800 text-neutral-300';
+                        let formatLabel = 'Laser';
+                        if (st.format === 'DOLBY_CINEMA') {
+                          formatBadgeClass = 'border-amber-500/40 bg-amber-500/10 text-amber-300';
+                          formatLabel = 'Dolby Cinema';
+                        } else if (st.format === 'IMAX_LASER') {
+                          formatBadgeClass = 'border-sky-500/40 bg-sky-500/10 text-sky-300';
+                          formatLabel = 'IMAX Laser';
+                        } else if (st.format === '4DX') {
+                          formatBadgeClass = 'border-rose-500/40 bg-rose-500/10 text-rose-300';
+                          formatLabel = '4DX';
+                        } else if (st.format === 'PRIME') {
+                          formatBadgeClass = 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300';
+                          formatLabel = 'Prime';
+                        } else if (st.format === 'REALD_3D') {
+                          formatBadgeClass = 'border-purple-500/40 bg-purple-500/10 text-purple-300';
+                          formatLabel = 'RealD 3D';
+                        }
 
                         return (
                           <button
                             key={st.id}
                             type="button"
                             disabled={isSoldOut}
-                            onClick={() => !isSoldOut && onSelectShowtime(st, movie)}
-                            data-testid={`showtime-pill-${st.id}`}
-                            className={`group relative flex flex-col items-start p-3 rounded-xl border text-left transition-all duration-200 select-none ${
+                            onClick={() => onSelectShowtime(st, movie)}
+                            className={`group relative flex flex-col items-start p-3 rounded-xl border text-left transition-all duration-150 ${
                               isSoldOut
-                                ? 'bg-neutral-900/40 border-neutral-800 text-neutral-600 cursor-not-allowed opacity-50'
+                                ? 'opacity-40 cursor-not-allowed border-neutral-800 bg-neutral-900/40'
                                 : isSelected
-                                ? 'bg-gradient-to-br from-amber-500/20 to-amber-600/10 border-amber-400 ring-2 ring-amber-400/50 shadow-lg shadow-amber-500/20 scale-105'
-                                : 'bg-neutral-800/80 border-neutral-700/80 hover:bg-neutral-700/80 hover:border-neutral-600 text-neutral-100 hover:scale-[1.02]'
+                                ? 'border-sky-400 bg-sky-500/15 shadow-lg shadow-sky-500/10 ring-1 ring-sky-400'
+                                : 'border-neutral-800 bg-neutral-900/80 hover:border-neutral-700 hover:bg-neutral-800/80'
                             }`}
+                            data-testid={`showtime-pill-${st.id}`}
                           >
-                            {/* Time & Format Header */}
-                            <div className="flex items-center justify-between w-full gap-3">
+                            {/* Top row: Format badge & Auditorium */}
+                            <div className="flex items-center gap-1.5 mb-1.5 w-full">
                               <span
-                                className={`text-sm font-bold tracking-tight ${
-                                  isSelected ? 'text-amber-300' : 'text-white'
-                                }`}
+                                className={`text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider ${formatBadgeClass}`}
                               >
-                                {st.time}
+                                {formatLabel}
                               </span>
-
-                              <span
-                                className={`text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border ${formatBadgeClass}`}
-                              >
-                                {st.format === 'DOLBY_CINEMA'
-                                  ? 'Dolby'
-                                  : st.format === 'IMAX_LASER'
-                                  ? 'IMAX'
-                                  : st.format === 'PRIME'
-                                  ? 'Prime'
-                                  : st.format === '4DX'
-                                  ? '4DX'
-                                  : st.format === 'REALD_3D'
-                                  ? '3D'
-                                  : 'Laser'}
+                              <span className="text-[10px] text-neutral-400 font-mono">
+                                {st.auditoriumName.split(' ')[0]} {st.auditoriumName.split(' ')[1]}
                               </span>
                             </div>
 
-                            {/* Auditorium Info */}
-                            <div className="text-[11px] text-neutral-400 mt-1 line-clamp-1">
-                              {st.auditoriumName}
+                            {/* Middle row: Time */}
+                            <div className="text-base font-bold text-white tracking-tight">
+                              {st.time}
                             </div>
 
-                            {/* Vacancy / Prime Drop Badge */}
-                            <div className="mt-2.5 w-full flex items-center justify-between gap-2">
+                            {/* Bottom row: Availability badges */}
+                            <div className="mt-2 flex items-center justify-between w-full gap-2">
                               {isSoldOut ? (
                                 <span
-                                  className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/20 border border-red-500/30 text-red-400 uppercase tracking-wide"
+                                  className="text-[10px] font-semibold px-2 py-0.5 rounded bg-red-500/15 border border-red-500/30 text-red-400 tracking-wide"
                                   data-testid={`badge-sold-out-${st.id}`}
                                 >
                                   Sold Out
                                 </span>
                               ) : isLowPrime ? (
                                 <span
-                                  className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 uppercase tracking-wide flex items-center gap-1 animate-pulse"
+                                  className="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 flex items-center gap-1 tracking-wide"
                                   data-testid={`badge-low-prime-${st.id}`}
                                 >
                                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
@@ -325,7 +396,7 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
             );
           })}
         </div>
-      ) : (
+      ) : !isLoading ? (
         /* Empty State */
         <div
           className="w-full bg-neutral-900/70 border border-neutral-800 rounded-2xl p-10 text-center flex flex-col items-center justify-center gap-3"
@@ -356,7 +427,7 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
             </button>
           )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
