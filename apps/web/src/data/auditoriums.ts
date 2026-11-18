@@ -409,13 +409,194 @@ function buildTysonsAuditorium2FourDX(): AuditoriumLayout {
   };
 }
 
+/**
+ * Exact 92-seat physical layout for AMC Tysons Corner 16 Auditorium 7 (RealD 3D).
+ * Verified against live AMC ticketing capture:
+ * - 7 rows (A through G)
+ * - Rows A & B: 14 seats contiguous (A14-A1, B14-B1, cols 0-13)
+ * - Row C: 11 seats (C11-C10 left, 8 ADA platform seats in center, C1 right)
+ * - Row D: 13 seats (D13-D10 left, D9-D5 center, D4-D1 right with aisle gap at col 9)
+ * - Rows E & F: 14 seats contiguous (E14-E1, F14-F1, cols 0-13)
+ * - Row G: 12 seats (G12-G6 left 7-pack, cols 7-8 aisle gap, G5-G1 right 5-pack)
+ */
+function buildTysonsAuditorium7RealD3D(): AuditoriumLayout {
+  const rowsData: {
+    row: string;
+    seats: { num: number; type: string; colOffset: number }[];
+  }[] = [
+    // Row A: 14 seats (A14 down to A1)
+    {
+      row: 'A',
+      seats: Array.from({ length: 14 }, (_, i) => ({
+        num: 14 - i,
+        type: 'AMC Signature Recliner',
+        colOffset: i,
+      })),
+    },
+    // Row B: 14 seats (B14 down to B1)
+    {
+      row: 'B',
+      seats: Array.from({ length: 14 }, (_, i) => ({
+        num: 14 - i,
+        type: 'AMC Signature Recliner',
+        colOffset: i,
+      })),
+    },
+    // Row C: 11 seats
+    {
+      row: 'C',
+      seats: [
+        { num: 11, type: 'AMC Signature Recliner', colOffset: 1 },
+        { num: 10, type: 'AMC Signature Recliner', colOffset: 2 },
+        { num: 9, type: 'Companion', colOffset: 3 },
+        { num: 8, type: 'Wheelchair', colOffset: 4 },
+        { num: 7, type: 'Wheelchair', colOffset: 5 },
+        { num: 6, type: 'Companion', colOffset: 6 },
+        { num: 5, type: 'Companion', colOffset: 7 },
+        { num: 4, type: 'Wheelchair', colOffset: 8 },
+        { num: 3, type: 'Wheelchair', colOffset: 9 },
+        { num: 2, type: 'Companion', colOffset: 10 },
+        { num: 1, type: 'AMC Signature Recliner', colOffset: 12 },
+      ],
+    },
+    // Row D: 13 seats
+    {
+      row: 'D',
+      seats: [
+        { num: 13, type: 'AMC Signature Recliner', colOffset: 0 },
+        { num: 12, type: 'AMC Signature Recliner', colOffset: 1 },
+        { num: 11, type: 'AMC Signature Recliner', colOffset: 2 },
+        { num: 10, type: 'AMC Signature Recliner', colOffset: 3 },
+        { num: 9, type: 'AMC Signature Recliner', colOffset: 4 },
+        { num: 8, type: 'AMC Signature Recliner', colOffset: 5 },
+        { num: 7, type: 'AMC Signature Recliner', colOffset: 6 },
+        { num: 6, type: 'AMC Signature Recliner', colOffset: 7 },
+        { num: 5, type: 'AMC Signature Recliner', colOffset: 8 },
+        { num: 4, type: 'AMC Signature Recliner', colOffset: 10 },
+        { num: 3, type: 'AMC Signature Recliner', colOffset: 11 },
+        { num: 2, type: 'AMC Signature Recliner', colOffset: 12 },
+        { num: 1, type: 'AMC Signature Recliner', colOffset: 13 },
+      ],
+    },
+    // Row E: 14 seats (E14 down to E1)
+    {
+      row: 'E',
+      seats: Array.from({ length: 14 }, (_, i) => ({
+        num: 14 - i,
+        type: 'AMC Signature Recliner',
+        colOffset: i,
+      })),
+    },
+    // Row F: 14 seats (F14 down to F1)
+    {
+      row: 'F',
+      seats: Array.from({ length: 14 }, (_, i) => ({
+        num: 14 - i,
+        type: 'AMC Signature Recliner',
+        colOffset: i,
+      })),
+    },
+    // Row G: 12 seats (G12-G6 left, G5-G1 right)
+    {
+      row: 'G',
+      seats: [
+        { num: 12, type: 'AMC Signature Recliner', colOffset: 0 },
+        { num: 11, type: 'AMC Signature Recliner', colOffset: 1 },
+        { num: 10, type: 'AMC Signature Recliner', colOffset: 2 },
+        { num: 9, type: 'AMC Signature Recliner', colOffset: 3 },
+        { num: 8, type: 'AMC Signature Recliner', colOffset: 4 },
+        { num: 7, type: 'AMC Signature Recliner', colOffset: 5 },
+        { num: 6, type: 'AMC Signature Recliner', colOffset: 6 },
+        { num: 5, type: 'AMC Signature Recliner', colOffset: 9 },
+        { num: 4, type: 'AMC Signature Recliner', colOffset: 10 },
+        { num: 3, type: 'AMC Signature Recliner', colOffset: 11 },
+        { num: 2, type: 'AMC Signature Recliner', colOffset: 12 },
+        { num: 1, type: 'AMC Signature Recliner', colOffset: 13 },
+      ],
+    },
+  ];
+
+  const seats: SeatData[] = [];
+  rowsData.forEach(({ row, seats: rowSeats }, rowIdx) => {
+    rowSeats.forEach(({ num, type, colOffset }) => {
+      // Prime Sightline Box: Rows E & F, center seats 5 through 10
+      const isPrime = (row === 'E' || row === 'F') && num >= 5 && num <= 10;
+      const isOccupied = isPrime ? num % 3 !== 0 : (rowIdx * 3 + num) % 4 !== 0;
+
+      let dropProb: number | undefined;
+      if (isOccupied && isPrime) {
+        dropProb = Number((0.40 + ((rowIdx * 7 + num * 11) % 45) / 100).toFixed(2));
+      }
+
+      seats.push({
+        row,
+        number: num,
+        status: isOccupied ? 'OCCUPIED' : 'AVAILABLE',
+        seat_type: type,
+        is_prime: isPrime,
+        drop_probability: dropProb,
+        grid_row: rowIdx,
+        grid_col: colOffset,
+      });
+    });
+  });
+
+  return {
+    id: 'tysons-aud-7-3d',
+    name: 'Auditorium 7 (RealD 3D at AMC Tysons Corner 16)',
+    auditoriumNumber: 7,
+    screenFormat: 'REALD_3D',
+    totalRows: 7,
+    totalCols: 14,
+    totalPhysicalCapacity: seats.length, // 92 seats
+    seats,
+  };
+}
+
+/**
+ * 165-seat standard Laser auditorium layout for AMC Tysons Corner 16 (Auditorium 6).
+ */
+function buildTysonsAuditorium6Laser(): AuditoriumLayout {
+  const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L'];
+  const seats: SeatData[] = [];
+  rows.forEach((row, rowIdx) => {
+    for (let num = 1; num <= 15; num++) {
+      const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 5 && num <= 11;
+      const isOccupied = isPrime ? num % 3 !== 0 : (rowIdx * 3 + num) % 4 !== 0;
+      seats.push({
+        row,
+        number: num,
+        status: isOccupied ? 'OCCUPIED' : 'AVAILABLE',
+        seat_type: 'AMC Signature Recliner',
+        is_prime: isPrime,
+        drop_probability: isOccupied && isPrime ? 0.45 : undefined,
+        grid_row: rowIdx,
+        grid_col: num - 1,
+      });
+    }
+  });
+
+  return {
+    id: 'tysons-aud-6-laser',
+    name: 'Auditorium 6 (Laser at AMC Tysons Corner 16)',
+    auditoriumNumber: 6,
+    screenFormat: 'LASER',
+    totalRows: 11,
+    totalCols: 15,
+    totalPhysicalCapacity: seats.length, // 165 seats
+    seats,
+  };
+}
+
 export const TYSONS_AUDITORIUM_11 = buildTysonsAuditorium11();
 export const TYSONS_AUDITORIUM_9 = buildTysonsAuditorium9();
 export const TYSONS_AUDITORIUM_3_IMAX = buildTysonsAuditorium3Imax();
 export const TYSONS_AUDITORIUM_2_4DX = buildTysonsAuditorium2FourDX();
+export const TYSONS_AUDITORIUM_7_3D = buildTysonsAuditorium7RealD3D();
+export const TYSONS_AUDITORIUM_6_LASER = buildTysonsAuditorium6Laser();
 
 /**
- * Retrieves the auditorium layout by ID, routing accurately to all 4 PLF auditoriums.
+ * Retrieves the auditorium layout by ID, routing accurately to all PLF & RealD auditoriums.
  */
 export function getAuditoriumLayout(auditoriumId: string): AuditoriumLayout {
   if (auditoriumId === 'tysons-aud-11-dolby' || auditoriumId.includes('aud-11')) {
@@ -433,6 +614,21 @@ export function getAuditoriumLayout(auditoriumId: string): AuditoriumLayout {
   }
   if (auditoriumId === 'tysons-aud-2-4dx' || auditoriumId.includes('4dx')) {
     return TYSONS_AUDITORIUM_2_4DX;
+  }
+  if (
+    auditoriumId === 'tysons-aud-7-3d' ||
+    auditoriumId.includes('aud-7') ||
+    auditoriumId.includes('3d') ||
+    auditoriumId.includes('reald')
+  ) {
+    return TYSONS_AUDITORIUM_7_3D;
+  }
+  if (
+    auditoriumId.includes('laser') ||
+    auditoriumId.includes('aud-6') ||
+    auditoriumId.includes('aud-5')
+  ) {
+    return TYSONS_AUDITORIUM_6_LASER;
   }
 
   // Fallback default

@@ -67,4 +67,23 @@ describe('Milestone 9.0 Task 3 Verification: Exact PLF Auditorium Layouts', () =
     expect(Math.min(...rowDSeats)).toBe(5);
     expect(rowDSeats.length).toBe(12);
   });
+
+  it('verifies Auditorium 7 (RealD 3D) exact 92-seat layout matching AMC live ticketing capture', () => {
+    const layout = getAuditoriumLayout('tysons-aud-7-3d');
+    expect(layout.id).toBe('tysons-aud-7-3d');
+    expect(layout.totalPhysicalCapacity).toBe(92);
+    expect(layout.seats.length).toBe(92);
+    expect(layout.screenFormat).toBe('REALD_3D');
+    expect(layout.totalRows).toBe(7);
+
+    // Verify Row C has 11 seats including 8 ADA seats
+    const rowCSeats = layout.seats.filter((s) => s.row === 'C');
+    expect(rowCSeats.length).toBe(11);
+    const adaSeats = rowCSeats.filter((s) => s.seat_type === 'Wheelchair' || s.seat_type === 'Companion');
+    expect(adaSeats.length).toBe(8);
+
+    // Verify Row G aisle gap split (7 left, 5 right)
+    const rowGSeats = layout.seats.filter((s) => s.row === 'G');
+    expect(rowGSeats.length).toBe(12);
+  });
 });

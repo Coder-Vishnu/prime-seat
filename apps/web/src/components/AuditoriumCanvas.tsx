@@ -101,6 +101,8 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
       ? 'IMAX with Laser Screen'
       : screenFormat === '4DX'
       ? '4DX Motion Screen'
+      : screenFormat === 'REALD_3D'
+      ? 'RealD 3D Screen'
       : 'Auditorium Screen';
 
   return (
@@ -118,6 +120,8 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
                 ? '#38bdf8'
                 : screenFormat === '4DX'
                 ? '#f43f5e'
+                : screenFormat === 'REALD_3D'
+                ? '#a855f7'
                 : '#38bdf8'
             }
             strokeWidth="5"

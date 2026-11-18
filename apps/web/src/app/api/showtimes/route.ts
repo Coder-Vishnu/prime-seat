@@ -8,6 +8,7 @@ import {
   FEATURED_MOVIES,
 } from '@/data/showtimes';
 import { TYSONS_THEATRE } from '@/data/theatres';
+import { getAuditoriumLayout } from '@/data/auditoriums';
 
 export const revalidate = 300; // 5-minute ISR cache
 
@@ -200,13 +201,27 @@ export async function GET(request: Request) {
     }));
   }
 
+  // Normalize all showtimes to match exact architectural seat capacities
+  const normalizedShowtimes = cachedShowtimes.map((st) => {
+    try {
+      const layout = getAuditoriumLayout(st.auditoriumId);
+      return {
+        ...st,
+        totalSeats: layout.totalPhysicalCapacity,
+        auditoriumName: layout.name,
+      };
+    } catch {
+      return st;
+    }
+  });
+
   return NextResponse.json<ShowtimesApiResponse>({
     theatreId,
     date,
     isLive: false,
     source: 'CACHED_FALLBACK',
     movies: FEATURED_MOVIES,
-    showtimes: cachedShowtimes,
+    showtimes: normalizedShowtimes,
     notice: 'AMC public endpoint protected by Cloudflare WAF. Serving verified high-fidelity schedule for AMC Tysons Corner 16.',
   });
 }

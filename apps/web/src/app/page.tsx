@@ -45,6 +45,34 @@ export default function Home() {
   const { seats: streamSeats, latestDrop, isConnected } = useAuditoriumStream(streamId);
   const { permission, requestPermission, playChime } = useDesktopNotification();
 
+  const [pushToast, setPushToast] = useState<string | null>(null);
+
+  const handleTestPhonePush = async () => {
+    try {
+      setPushToast('Sending test push to phone & watch...');
+      const res = await fetch('/api/notifications/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topic: 'prime-seat-tysons-vishnu',
+          movieTitle: selectedMovie?.title || 'The Cat in the Hat',
+          row: 'E',
+          seatNumber: 8,
+          auditorium: activeAuditorium.name,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setPushToast(`⚡ Push alert sent! View on phone or at ${data.viewUrl}`);
+      } else {
+        setPushToast(`Push error: ${data.error}`);
+      }
+    } catch {
+      setPushToast('Failed to reach notification service');
+    }
+    setTimeout(() => setPushToast(null), 5000);
+  };
+
   const activeSeats = streamSeats.length > 0 ? streamSeats : activeAuditorium.seats;
 
   // Pipeline handlers
@@ -121,8 +149,33 @@ export default function Home() {
           >
             🔔 Chime
           </button>
+
+          <button
+            onClick={handleTestPhonePush}
+            title="Send test push notification to iPhone & Apple Watch"
+            className="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-sky-500/20 to-indigo-500/20 border border-sky-400/40 text-sky-200 hover:from-sky-500/30 hover:to-indigo-500/30 transition font-medium flex items-center gap-1.5 shadow-sm"
+            data-testid="test-phone-push-btn"
+          >
+            📱 Test iPhone Push
+          </button>
         </div>
       </header>
+
+      {/* Push Toast Notification */}
+      {pushToast && (
+        <div className="w-full max-w-5xl mt-3 px-4 py-2.5 rounded-xl bg-sky-950/80 border border-sky-500/40 text-sky-200 text-xs flex items-center justify-between animate-fadeIn backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping" />
+            <span>{pushToast}</span>
+          </div>
+          <button
+            onClick={() => setPushToast(null)}
+            className="text-neutral-400 hover:text-white text-sm px-1.5 py-0.5"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Venue Banner — always visible */}
       <div className="w-full max-w-5xl mt-4">
