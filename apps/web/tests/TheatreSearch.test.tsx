@@ -33,5 +33,7 @@ describe('Milestone 9.0 Task 1 Verification: Tysons Venue Banner', () => {
     expect(screen.getByText('Aud 2')).toBeInTheDocument();
     expect(screen.getByText('262 seats')).toBeInTheDocument();
     expect(screen.getByText('161 seats')).toBeInTheDocument();
+    expect(screen.getByText('350 seats')).toBeInTheDocument();
+    expect(screen.getByText('125 seats')).toBeInTheDocument();
   });
 });

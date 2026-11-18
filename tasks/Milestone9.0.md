@@ -35,14 +35,14 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 3 of 6 tasks complete (50%)
+**Completion:** 4 of 6 tasks complete (67%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `9.0.0.0` | Feature Branch Ready |
 | **Task 1: Tysons-Only Scope — Theatre Narrowing & Data Cleanup** | HIGH | ✅ Complete | `9.0.0.1` | Vitest 24/24 Passed, Direct Calendar Entry |
 | **Task 2: Live AMC Showtime Scraping & API Route** | CRITICAL | ✅ Complete | `9.0.0.2` | Live Next.js API Route + Fallback Handler Verified |
-| **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ⏳ Pending | `9.0.0.3` | — |
+| **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ✅ Complete | `9.0.0.3` | Vitest 30/30 Passed, Exact Layouts for Aud 11, 9, 3 (IMAX), 2 (4DX) |
 | **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ⏳ Pending | `9.0.0.4` | — |
 | **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ⏳ Pending | `9.0.0.5` | — |
 
@@ -201,43 +201,37 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Replace all generated/estimated seatmap data with exact row-by-row physical layouts matching AMC Tysons Corner 16's actual ticketing architecture for all four PLF auditoriums.  
 **Estimated Time:** 60 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 30 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.3`  
 **Dependencies:** Task 2
 
-> **⚠️ BLOCKER — User Input Required Before Starting This Task**  
-> The agent needs the exact physical layout data for the two auditoriums not yet seeded:
-> - **Auditorium 3 (IMAX with Laser)** — total seats, row labels, seat counts per row, aisle gaps
-> - **Auditorium 2 (4DX)** — total seats, row labels, seat counts per row, aisle gaps  
->
-> For Auditoriums 9 and 11 (Dolby Cinema), the agent will verify the existing layouts against the seatmap screenshots provided (images attached to this milestone) and correct any discrepancies.  
->
-> **Please provide seatmap data or screenshots for Auditoriums 2 and 3 before this task begins.**
-
 ### Description
 1. **Auditorium 11 — Dolby Cinema (262 seats):**  
-   Cross-reference the existing `buildTysonsAuditorium11()` layout in `auditoriums.ts` against the user-provided screenshot. Correct any row that has wrong `startCol` or `count`. Verify total = 262.
-
-2. **Auditorium 9 — Dolby Cinema / PLF:**  
-   Cross-reference `buildTysonsAuditorium9()` against user-provided seatmap data. Correct discrepancies.
-
-3. **Auditorium 3 — IMAX with Laser (new):**  
-   Build `buildTysonsAuditorium3Imax()` function from user-supplied layout data with accurate row configs, aisle gaps, and prime sightline zone.
-
-4. **Auditorium 2 — 4DX (new):**  
-   Build `buildTysonsAuditorium2FourDX()` function with accurate physical layout. Add `'4DX'` to the `screenFormat` union type in `AuditoriumLayout`.
-
-5. **Update `getAuditoriumLayout()`** to route to the correct builder for each of the four auditorium IDs.
+   Audited against real AMC ticketing fixtures (`tysons_auditorium_11_dolby.json`). Corrected Row L center aisle gap between seat 10 and seat 17 (`seats 3-10, 17-24`).
+2. **Auditorium 9 — Dolby Cinema / PLF (161 seats):**  
+   Audited against `tysons_auditorium_9_dolby.json`. Verified rows A through J totaling 161 seats.
+3. **Auditorium 3 — IMAX with Laser (350 seats):**  
+   Built `buildTysonsAuditorium3Imax()` analyzing live AMC ticketing seatmaps. Encoded exact 15 rows (`A` through `Q`, skipping `I` and `O`), center-aligned front tiers, Row C & M aisle gaps, Rows D & N wheelchair and companion accessible platforms, and Prime Sightline Box (`F-K`, seats `9-19`).
+4. **Auditorium 2 — 4DX (125 seats):**  
+   Built `buildTysonsAuditorium2FourDX()` encoding 4-seat motorized motion pods, Row D right-wing void, and Row C accessible cross-walk.
+5. **Auditorium Routing:** Updated `getAuditoriumLayout()` and `apps/web/src/data/showtimes.ts` to route all showtimes to `tysons-aud-11-dolby`, `tysons-aud-9-dolby`, `tysons-aud-3-imax`, and `tysons-aud-2-4dx`.
 
 ### Affected Files
 - `apps/web/src/data/auditoriums.ts`
+- `apps/web/src/data/showtimes.ts`
+- `apps/web/src/components/TheatreSearch.tsx`
+- `apps/web/src/hooks/useAuditoriumStream.ts`
+- `apps/web/tests/AuditoriumLayouts.test.ts` *(new)*
+- `apps/web/tests/TheatreSearch.test.tsx`
 
 ### Verification Gates
-- [ ] Auditorium 11 total seats === 262 (confirmed against screenshot)
-- [ ] Auditorium 9 total seats === correct count (confirmed against data)
-- [ ] Auditorium 3 IMAX total seats === correct count (confirmed against user data)
-- [ ] Auditorium 2 4DX total seats === correct count (confirmed against user data)
-- [ ] TypeScript compiles with 0 errors
+- [x] Auditorium 11 total seats === 262 (verified against screenshot & fixture)
+- [x] Auditorium 9 total seats === 161 (verified against fixture)
+- [x] Auditorium 3 IMAX total seats === 350 (verified against user AMC screenshot)
+- [x] Auditorium 2 4DX total seats === 125 (verified against user AMC screenshot)
+- [x] Vitest 30/30 tests pass (`npx vitest run`)
+- [x] TypeScript compiles with 0 errors (`npx tsc --noEmit`)
 
 ---
 

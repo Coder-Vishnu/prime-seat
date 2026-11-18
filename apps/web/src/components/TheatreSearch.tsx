@@ -88,8 +88,8 @@ export const TheatreSearch: React.FC<TheatreSearchProps> = ({ onSelectTheatre, s
         {[
           { aud: 'Aud 11', fmt: 'Dolby Cinema', seats: '262 seats', style: 'border-amber-500/30 bg-amber-500/5' },
           { aud: 'Aud 9', fmt: 'Dolby Cinema', seats: '161 seats', style: 'border-amber-500/30 bg-amber-500/5' },
-          { aud: 'Aud 3', fmt: 'IMAX with Laser', seats: 'TBD', style: 'border-sky-500/30 bg-sky-500/5' },
-          { aud: 'Aud 2', fmt: '4DX', seats: 'TBD', style: 'border-rose-500/30 bg-rose-500/5' },
+          { aud: 'Aud 3', fmt: 'IMAX with Laser', seats: '350 seats', style: 'border-sky-500/30 bg-sky-500/5' },
+          { aud: 'Aud 2', fmt: '4DX', seats: '125 seats', style: 'border-rose-500/30 bg-rose-500/5' },
         ].map(({ aud, fmt, seats, style }) => (
           <div
             key={aud}
