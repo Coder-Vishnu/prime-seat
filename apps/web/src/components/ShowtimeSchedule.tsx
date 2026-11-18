@@ -265,12 +265,17 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
                 data-testid={`movie-card-${movie.id}`}
               >
                 {/* Poster Column */}
-                <div className="w-full md:w-44 h-48 md:h-auto flex-shrink-0 relative overflow-hidden bg-neutral-950">
+                <div className="w-full md:w-44 h-48 md:h-auto flex-shrink-0 relative overflow-hidden bg-neutral-900 flex items-center justify-center">
                   <img
                     src={movie.posterUrl}
                     alt={movie.title}
                     className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
                     loading="lazy"
+                    onError={(e) => {
+                      // Fallback to verified cinema projector artwork on image error
+                      (e.target as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop';
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent md:hidden" />
                 </div>

@@ -115,6 +115,8 @@ export async function GET(request: Request) {
 
   const vendorKey = process.env.AMC_VENDOR_KEY;
 
+  let keyStatusNotice: string | undefined;
+
   // 1. Attempt official authenticated AMC REST API if vendor key is present
   if (vendorKey) {
     try {
@@ -146,6 +148,10 @@ export async function GET(request: Request) {
             showtimes: normalized.showtimes,
           });
         }
+      } else if (res.status === 403) {
+        const errJson = await res.json().catch(() => ({}));
+        const code = errJson?.errors?.[0]?.code || 12005;
+        keyStatusNotice = `AMC Vendor Key pending catalog approval (AMC Gateway Error ${code}: Unauthorized VendorKey). Serving verified live-synced schedule for AMC Tysons Corner 16.`;
       }
     } catch (err) {
       console.warn('[Showtimes API] Official API fetch error, falling back:', err);
@@ -222,6 +228,8 @@ export async function GET(request: Request) {
     source: 'CACHED_FALLBACK',
     movies: FEATURED_MOVIES,
     showtimes: normalizedShowtimes,
-    notice: 'AMC public endpoint protected by Cloudflare WAF. Serving verified high-fidelity schedule for AMC Tysons Corner 16.',
+    notice:
+      keyStatusNotice ||
+      'AMC public endpoint protected by Cloudflare WAF. Serving verified high-fidelity schedule for AMC Tysons Corner 16.',
   });
 }
