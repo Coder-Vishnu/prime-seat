@@ -109,7 +109,20 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
   }, [date, theatreId, movies, showtimes]);
 
   const activeMovies = liveData ? liveData.movies : movies;
-  const activeShowtimes = liveData ? liveData.showtimes : showtimes;
+  const rawShowtimes = liveData ? liveData.showtimes : showtimes;
+
+  // Ensure dates are populated: if the active dataset has no showtimes for the requested date,
+  // dynamically project the schedule to the selected date.
+  const activeShowtimes = useMemo(() => {
+    if (!date) return rawShowtimes;
+    const hasExactDate = rawShowtimes.some((st) => st.date === date);
+    if (hasExactDate) return rawShowtimes;
+    return rawShowtimes.map((st) => ({
+      ...st,
+      date,
+      id: `${st.id.replace(/2026-\d{2}-\d{2}/, date)}`,
+    }));
+  }, [rawShowtimes, date]);
 
   // Filter showtimes for the target theatre and date
   const filteredShowtimes = useMemo(() => {

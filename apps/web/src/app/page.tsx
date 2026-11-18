@@ -7,6 +7,7 @@ import { TheatreSearch } from '../components/TheatreSearch';
 import { CalendarPicker } from '../components/CalendarPicker';
 import { ShowtimeSchedule } from '../components/ShowtimeSchedule';
 import { AuditoriumCanvas } from '../components/AuditoriumCanvas';
+import { SeatAlertModal } from '../components/SeatAlertModal';
 import { TYSONS_THEATRE } from '../data/theatres';
 import { Movie, Showtime } from '../data/showtimes';
 import { getAuditoriumLayout } from '../data/auditoriums';
@@ -323,48 +324,16 @@ export default function Home() {
               />
             </div>
 
-            {/* Selected Seat Inspector (placeholder until Task 4 modal) */}
+            {/* Selected Seat Alert Modal & Inspector */}
             {selectedSeat && (
-              <aside
-                className="w-full p-4 rounded-xl border border-sky-500/40 bg-neutral-900/60 flex items-center justify-between"
-                data-testid="selected-seat-inspector"
-              >
-                <div className="text-xs flex flex-wrap items-center gap-2">
-                  <span className="font-bold text-white">
-                    Row {selectedSeat.row}, Seat {selectedSeat.number}
-                  </span>
-                  <span className="text-neutral-500">•</span>
-                  <span className="text-neutral-300">{selectedSeat.seat_type}</span>
-                  <span className="text-neutral-500">•</span>
-                  <span
-                    className={`font-semibold ${
-                      selectedSeat.status === 'AVAILABLE'
-                        ? 'text-emerald-400'
-                        : selectedSeat.status === 'OCCUPIED'
-                        ? 'text-slate-400'
-                        : 'text-neutral-500'
-                    }`}
-                  >
-                    {selectedSeat.status}
-                  </span>
-                  {selectedSeat.is_prime && (
-                    <span className="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold text-[10px]">
-                      PRIME SIGHTLINE
-                    </span>
-                  )}
-                  {selectedSeat.drop_probability !== undefined && (
-                    <span className="text-amber-400 font-mono">
-                      P(Drop): {(selectedSeat.drop_probability * 100).toFixed(1)}%
-                    </span>
-                  )}
-                </div>
-                <button
-                  onClick={() => setSelectedSeat(null)}
-                  className="text-xs text-neutral-400 hover:text-white px-2 py-1 ml-4 flex-shrink-0"
-                >
-                  ✕
-                </button>
-              </aside>
+              <SeatAlertModal
+                seat={selectedSeat}
+                showtime={selectedShowtime}
+                movie={selectedMovie}
+                theatreName={selectedTheatre.name}
+                auditoriumName={activeAuditorium.name}
+                onClose={() => setSelectedSeat(null)}
+              />
             )}
           </section>
         )}

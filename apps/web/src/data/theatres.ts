@@ -46,3 +46,4 @@ export const TYSONS_THEATRE: AMCTheatre = {
 
 /** @deprecated Use TYSONS_THEATRE — kept for Vitest backward-compat only */
 export const DMV_AMC_THEATRES: AMCTheatre[] = [TYSONS_THEATRE];
+export const THEATRES: AMCTheatre[] = [TYSONS_THEATRE];

@@ -1,7 +1,7 @@
 // apps/web/src/components/AuditoriumCanvas.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { SeatData, DropEventPayload } from '../hooks/useAuditoriumStream';
 
 export interface AuditoriumCanvasProps {
@@ -40,7 +40,6 @@ export function getNodeColor(
   }
   // Occupied state
   if (heatmapMode && seat.drop_probability !== undefined) {
-    // Heatmap gradient based on predicted churn probability
     const prob = seat.drop_probability;
     if (prob >= 0.7) return { fill: '#ef4444', stroke: '#dc2626', className: '' };
     if (prob >= 0.4) return { fill: '#f97316', stroke: '#ea580c', className: '' };
@@ -67,26 +66,66 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
   const seatWidth = 28;
   const seatHeight = 24;
   const gapX = 10;
-  const gapY = 12;
+  const gapY = 14;
+  const paddingX = 80;
+  const paddingY = 90;
 
-  const canvasWidth = totalCols * (seatWidth + gapX) + 120;
-  const canvasHeight = totalRows * (seatHeight + gapY) + 180;
+  // Build deterministic row index mapping based on unique row order
+  const uniqueRows = useMemo(() => {
+    const seen = new Set<string>();
+    const list: string[] = [];
+    seats.forEach((s) => {
+      if (!seen.has(s.row)) {
+        seen.add(s.row);
+        list.push(s.row);
+      }
+    });
+    return list;
+  }, [seats]);
+
+  const rowIndexMap = useMemo(() => {
+    const map = new Map<string, number>();
+    uniqueRows.forEach((r, idx) => map.set(r, idx));
+    return map;
+  }, [uniqueRows]);
+
+  const effectiveRows = Math.max(totalRows, uniqueRows.length);
+  const canvasWidth = totalCols * (seatWidth + gapX) + paddingX * 2;
+  const canvasHeight = effectiveRows * (seatHeight + gapY) + paddingY * 2;
+
+  // Format label text
+  const formatBannerTitle =
+    screenFormat === 'DOLBY_CINEMA'
+      ? 'Dolby Cinema Screen'
+      : screenFormat === 'IMAX_LASER'
+      ? 'IMAX with Laser Screen'
+      : screenFormat === '4DX'
+      ? '4DX Motion Screen'
+      : 'Auditorium Screen';
 
   return (
-    <div className="relative w-full flex flex-col items-center bg-[#0a0a0a] p-6 rounded-2xl border border-neutral-800 shadow-2xl">
+    <div className="relative w-full flex flex-col items-center bg-[#0a0a0a] p-4 sm:p-6 rounded-2xl border border-neutral-800 shadow-2xl overflow-x-auto">
       {/* Curved Screen Banner */}
-      <div className="w-full max-w-4xl mb-8 flex flex-col items-center">
+      <div className="w-full max-w-4xl mb-6 flex flex-col items-center">
         <svg viewBox="0 0 600 50" className="w-full max-w-2xl h-12">
           <path
             d="M 20 40 Q 300 10 580 40"
             fill="none"
-            stroke="#38bdf8"
+            stroke={
+              screenFormat === 'DOLBY_CINEMA'
+                ? '#f59e0b'
+                : screenFormat === 'IMAX_LASER'
+                ? '#38bdf8'
+                : screenFormat === '4DX'
+                ? '#f43f5e'
+                : '#38bdf8'
+            }
             strokeWidth="5"
             strokeLinecap="round"
           />
         </svg>
         <span className="text-xs uppercase tracking-widest text-neutral-400 mt-1 font-semibold">
-          {screenFormat === 'DOLBY_CINEMA' ? 'Dolby Cinema Screen' : 'IMAX with Laser Screen'}
+          {formatBannerTitle}
         </span>
       </div>
 
@@ -94,41 +133,98 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
       <svg
         viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}
         className="w-full max-w-5xl h-auto select-none"
+        data-testid="auditorium-svg-canvas"
       >
+        {/* Row Letter Markers on Left and Right */}
+        {uniqueRows.map((rowLetter, idx) => {
+          const y = paddingY + idx * (seatHeight + gapY) + seatHeight / 2 + 4;
+          return (
+            <g key={`row-label-${rowLetter}`}>
+              <text
+                x={paddingX - 25}
+                y={y}
+                textAnchor="middle"
+                fontSize="11"
+                fill="#64748b"
+                className="font-mono font-bold"
+              >
+                {rowLetter}
+              </text>
+              <text
+                x={canvasWidth - paddingX + 25}
+                y={y}
+                textAnchor="middle"
+                fontSize="11"
+                fill="#64748b"
+                className="font-mono font-bold"
+              >
+                {rowLetter}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Seat Nodes */}
         {seats.map((seat) => {
-          const rowIdx = seat.row.charCodeAt(0) - 65;
-          const colIdx = seat.number - 1;
-          const x = 60 + colIdx * (seatWidth + gapX);
-          const y = 80 + rowIdx * (seatHeight + gapY);
+          const rowIdx =
+            seat.grid_row !== undefined ? seat.grid_row : (rowIndexMap.get(seat.row) ?? 0);
+          const colIdx = seat.grid_col !== undefined ? seat.grid_col : seat.number - 1;
+
+          const x = paddingX + colIdx * (seatWidth + gapX);
+          const y = paddingY + rowIdx * (seatHeight + gapY);
           const styling = getNodeColor(seat, latestDrop, heatmapMode);
+
+          const isSelected =
+            selectedSeat?.row === seat.row && selectedSeat?.number === seat.number;
+          const isWheelchair = seat.seat_type === 'Wheelchair';
+          const isCompanion = seat.seat_type === 'Companion';
 
           return (
             <g
               key={`${seat.row}-${seat.number}`}
-              className={`cursor-pointer transition-transform duration-150 hover:scale-125 ${styling.className}`}
+              className={`cursor-pointer transition-opacity duration-150 ${styling.className}`}
               onClick={() => onSeatClick && onSeatClick(seat)}
               onMouseEnter={() => setHoveredSeat(seat)}
               onMouseLeave={() => setHoveredSeat(null)}
+              data-testid={`seat-node-${seat.row}-${seat.number}`}
             >
+              {/* Selected Glow Ring */}
+              {isSelected && (
+                <rect
+                  x={x - 3}
+                  y={y - 3}
+                  width={seatWidth + 6}
+                  height={seatHeight + 6}
+                  rx={8}
+                  fill="none"
+                  stroke="#38bdf8"
+                  strokeWidth="2.5"
+                  className="animate-pulse"
+                />
+              )}
+
+              {/* Main Seat Rectangle */}
               <rect
                 x={x}
                 y={y}
                 width={seatWidth}
                 height={seatHeight}
-                rx={6}
-                fill={styling.fill}
-                stroke={styling.stroke}
-                strokeWidth={seat.is_prime ? 2.5 : 1.5}
+                rx={isWheelchair ? 12 : 6}
+                fill={isSelected ? '#0284c7' : styling.fill}
+                stroke={isSelected ? '#ffffff' : styling.stroke}
+                strokeWidth={isSelected ? 2 : seat.is_prime ? 2.5 : 1.2}
               />
+
+              {/* Seat Label */}
               <text
                 x={x + seatWidth / 2}
-                y={y + seatHeight / 2 + 4}
+                y={y + seatHeight / 2 + 3.5}
                 textAnchor="middle"
-                fontSize="9"
-                fill="#ffffff"
-                className="font-mono pointer-events-none"
+                fontSize={isWheelchair || isCompanion ? '7.5' : '8.5'}
+                fill={isSelected ? '#ffffff' : '#f8fafc'}
+                className="font-mono font-semibold pointer-events-none"
               >
-                {seat.number}
+                {isWheelchair ? '♿' : isCompanion ? '★' : seat.number}
               </text>
             </g>
           );
@@ -137,7 +233,7 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
 
       {/* Hover Tooltip */}
       {hoveredSeat && (
-        <div className="absolute bottom-4 left-6 bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-lg text-xs text-neutral-200 shadow-xl pointer-events-none">
+        <div className="absolute bottom-4 left-6 bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-lg text-xs text-neutral-200 shadow-xl pointer-events-none z-10">
           <span className="font-bold text-sky-400">
             Row {hoveredSeat.row}, Seat {hoveredSeat.number}
           </span>
@@ -145,7 +241,7 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
           <span className="capitalize">{hoveredSeat.status.toLowerCase()}</span>
           {hoveredSeat.is_prime && (
             <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] bg-sky-500/20 text-sky-300 font-semibold">
-              PRIME
+              PRIME SIGHTLINE
             </span>
           )}
           {hoveredSeat.drop_probability !== undefined && (

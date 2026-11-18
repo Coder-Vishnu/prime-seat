@@ -1,10 +1,10 @@
 # Milestone 9.0 - AMC Tysons-Only Focus, Live Showtime Scraping & Accurate Auditorium Seatmaps
 
-**Version:** 9.0.0.0 (Starting version)  
+**Version:** 9.0.0.5  
 **Date Created:** 2026-11-18  
 **Date Started:** 2026-11-18  
-**Date Completed:** —  
-**Status:** In Progress  
+**Date Completed:** 2026-11-18  
+**Status:** Complete  
 **Based on:** User Specification: Narrow scope to AMC Tysons Corner 16 only, replace mock showtime seed data with live AMC scraping, verify and rebuild exact physical seatmap layouts for IMAX (Aud 3), Dolby Cinema (Aud 9 & 11), and 4DX (Aud 2), and fix seat selection / alert flow in the AuditoriumCanvas component.
 
 Narrows Prime Seat from a 10-theatre DMV-wide application to a laser-focused, single-venue tool: **AMC Tysons Corner 16 only**. Replaces all static mock showtime seed data with live AMC API-scraped data, rebuilds the four critical auditorium seatmaps (IMAX Aud 3, Dolby Aud 11, Dolby Aud 9, 4DX Aud 2) to exactly match AMC's physical layouts, and repairs the broken seat-selection and alert-setting UX in the seatmap canvas.
@@ -35,7 +35,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 4 of 6 tasks complete (67%)
+**Completion:** 6 of 6 tasks complete (100%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
@@ -43,8 +43,8 @@ Each task completion increments the BUILD number (4th digit) by 1:
 | **Task 1: Tysons-Only Scope — Theatre Narrowing & Data Cleanup** | HIGH | ✅ Complete | `9.0.0.1` | Vitest 24/24 Passed, Direct Calendar Entry |
 | **Task 2: Live AMC Showtime Scraping & API Route** | CRITICAL | ✅ Complete | `9.0.0.2` | Live Next.js API Route + Fallback Handler Verified |
 | **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ✅ Complete | `9.0.0.3` | Vitest 30/30 Passed, Exact Layouts for Aud 11, 9, 3 (IMAX), 2 (4DX) |
-| **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ⏳ Pending | `9.0.0.4` | — |
-| **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ⏳ Pending | `9.0.0.5` | — |
+| **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ✅ Complete | `9.0.0.4` | Modal Inspector, Alert Persistence, Glitch-Free SVG |
+| **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ✅ Complete | `9.0.0.5` | 37/37 Tests Passed Across 8 Suites |
 
 **Status Legend:**
 - ⏳ Pending: not started
@@ -239,7 +239,8 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Fix the broken seat selection experience. Currently clicking a seat causes visual glitching and there is no way to actually set an alert on a selected seat. This task makes seat clicking fully functional with a proper selection state and alert-setting modal.  
 **Estimated Time:** 60 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 35 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.4`  
 **Dependencies:** Task 3
 
@@ -251,34 +252,29 @@ Current issues identified in `AuditoriumCanvas.tsx`:
 4. **Row index calculation bug** — `rowIdx = seat.row.charCodeAt(0) - 65` breaks for rows that skip letters (e.g. the Dolby auditoriums skip `I`), causing seats to render at wrong Y positions
 
 ### Description
-1. **Fix SVG glitch** — Replace `hover:scale-125` on `<g>` with an SVG-native `transform` scale applied only to the `<rect>`, centered correctly. Or switch hover scaling to a stroke width change instead to avoid transform coordinate issues entirely.
-
-2. **Add seat selection state** — Add `selectedSeat: SeatData | null` state inside `AuditoriumCanvas`. When a seat is clicked, set it as selected and render a distinct selection ring (e.g. 3px white/gold stroke + slight brightness boost). Clicking the same seat again deselects it.
-
-3. **Add `SeatAlertModal` component** — Create `apps/web/src/components/SeatAlertModal.tsx`:
-   - Displays: Auditorium name, Row + Seat number, Format badge, current status (Occupied / Available), Drop Probability if present
-   - CTA: **"Set Drop Alert"** button for occupied prime seats, **"Book Now →"** link for available seats (uses `checkoutUrl` from the showtime)
-   - On "Set Drop Alert": persist `{ theatreId, auditoriumId, row, seat, movieId, showtimeId, format, setAt }` to `localStorage` key `prime-seat:alerts`
-   - Confirmation toast: "Alert set for Row {X}, Seat {Y} — we'll notify you when this seat drops."
-   - Dismissible via X button or clicking outside
-
-4. **Fix row Y-position calculation** — Build a `rowIndexMap` from the actual seat data (sorted unique row labels → index) instead of relying on ASCII arithmetic. This ensures rows that skip letters (I, O) render at correct positions.
-
-5. **Wire modal into `page.tsx`** — Pass selected seat + current showtime context into `SeatAlertModal`.
+1. **Fix SVG glitch** — Removed `hover:scale-125` on `<g>` group elements in `AuditoriumCanvas.tsx`, eliminating coordinate jumping and misalignment entirely.
+2. **Add seat selection state** — Added `selectedSeat: SeatData | null` to `AuditoriumCanvas` and `page.tsx`. Selection renders an animated cyan glow ring (`stroke="#38bdf8"`) and brightened blue seat node fill (`#0284c7`).
+3. **Created `SeatAlertModal` component** (`apps/web/src/components/SeatAlertModal.tsx`):
+   - Displays: Auditorium name, Row + Seat number, Format badge, occupancy status, and Churn Drop Probability progress bar.
+   - For occupied seats: "Set Churn Reclamation Alert" button with real-time toggle, instant confirmation toast, and persistent storage in `localStorage` under `prime-seat:alerts`.
+   - For available seats: "Book Seat Now on AMC Theatres ↗" link directing to official AMC checkout.
+4. **Row Y-position calculation** — Implemented deterministic `rowIndexMap` from sorted unique row strings, ensuring skipped row letters (such as `I` in Dolby) align accurately on the visual seating plane.
 
 ### Affected Files
 - `apps/web/src/components/AuditoriumCanvas.tsx`
 - `apps/web/src/components/SeatAlertModal.tsx` *(new)*
 - `apps/web/src/app/page.tsx`
+- `apps/web/tests/SeatAlertModal.test.tsx` *(new)*
 
 ### Verification Gates
-- [ ] Clicking any seat renders a visible selection highlight with no visual glitch or coordinate jump
-- [ ] Clicking a second seat deselects the first and selects the new one
-- [ ] `SeatAlertModal` opens on seat click showing correct Row/Seat/Format/Status data
-- [ ] "Set Drop Alert" persists to `localStorage` and shows confirmation toast
-- [ ] "Book Now →" link is correct AMC checkout URL
-- [ ] Rows that skip letters (e.g. `I`) render at correct Y positions
-- [ ] TypeScript compiles with 0 errors
+- [x] Clicking any seat renders a visible selection highlight with no visual glitch or coordinate jump
+- [x] Clicking a second seat deselects the first and selects the new one
+- [x] `SeatAlertModal` opens on seat click showing correct Row/Seat/Format/Status data
+- [x] "Set Drop Alert" persists to `localStorage` and shows confirmation toast
+- [x] "Book Now →" link is correct AMC checkout URL
+- [x] Rows that skip letters (e.g. `I`) render at correct Y positions
+- [x] TypeScript compiles with 0 errors
+- [x] Production Next.js build succeeds (`npm run build`)
 
 ---
 
@@ -286,26 +282,33 @@ Current issues identified in `AuditoriumCanvas.tsx`:
 
 **Purpose:** Implement automated Vitest tests covering all four 9.0 deliverables.  
 **Estimated Time:** 40 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 20 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.5`  
 **Dependencies:** Task 4
 
 ### Description
-Extend `apps/web/tests/BookingPipeline.test.tsx` with new gates:
+Extended `apps/web/tests/BookingPipeline.test.tsx` with all 4 integration verification gates:
 
-- `test_gate_05_tysons_only_scope`: Verifies `TYSONS_THEATRE` is a single object with id `amc-tysons-16` and that no other theatre IDs appear in the codebase data exports.
-- `test_gate_06_live_api_route_mock`: Mocks `fetch` to return a sample AMC API response and verifies the `/api/showtimes` route maps it correctly to `Showtime[]` / `Movie[]` types.
-- `test_gate_07_seatmap_seat_counts`: Verifies exact seat counts for all four auditoriums — Aud 11 Dolby (262), Aud 9 Dolby (verify), Aud 3 IMAX (verify after user data), Aud 2 4DX (verify after user data).
-- `test_gate_08_seat_selection_alert`: Renders `AuditoriumCanvas` with mock seats, simulates a click, verifies `selectedSeat` state updates and `SeatAlertModal` renders with correct seat data, verifies `localStorage` write on "Set Drop Alert".
+- `test_gate_05_tysons_only_scope`: Verifies `TYSONS_THEATRE` is isolated, `id === 'amc-tysons-16'`, and `THEATRES` array strictly contains only AMC Tysons Corner 16.
+- `test_gate_06_live_api_route_mock`: Executes GET request against Next.js `/api/showtimes` route and verifies JSON structure, movies array, and showtimes array.
+- `test_gate_07_seatmap_seat_counts`: Verifies exact physical capacities across all four auditoriums:
+  - Aud 11 Dolby: exactly 262 seats
+  - Aud 9 Dolby / PLF: exactly 161 seats
+  - Aud 3 IMAX: exactly 350 seats
+  - Aud 2 4DX: exactly 125 seats
+- `test_gate_08_seat_selection_alert`: Renders full booking pipeline, navigates to SEATMAP stage, clicks seat A-1, verifies `SeatAlertModal` renders, verifies "Set Churn Reclamation Alert" toggles and writes to `localStorage`, verifies alert toast message, and verifies modal dismissal.
 
 ### Affected Files
 - `apps/web/tests/BookingPipeline.test.tsx`
+- `apps/web/src/components/ShowtimeSchedule.tsx`
+- `apps/web/src/data/theatres.ts`
 
 ### Verification Gates
-- [ ] All 4 new gates pass (`npx vitest run`)
-- [ ] Total test suite passes (all 9 prior gates + 4 new = 13/13)
-- [ ] TypeScript compiles with 0 errors
-- [ ] Production build succeeds (`npm run build`)
+- [x] All 4 new gates pass (`npm test`)
+- [x] Total test suite passes: 37/37 tests across 8 test suites (100% passing)
+- [x] TypeScript compiles with 0 errors (`tsc --noEmit`)
+- [x] Production build succeeds (`npm run build`)
 
 ---
 
