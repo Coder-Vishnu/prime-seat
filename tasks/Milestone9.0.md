@@ -35,12 +35,12 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 1 of 6 tasks complete (17%)
+**Completion:** 2 of 6 tasks complete (33%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `9.0.0.0` | Feature Branch Ready |
-| **Task 1: Tysons-Only Scope — Theatre Narrowing & Data Cleanup** | HIGH | ⏳ Pending | `9.0.0.1` | — |
+| **Task 1: Tysons-Only Scope — Theatre Narrowing & Data Cleanup** | HIGH | ✅ Complete | `9.0.0.1` | Vitest 24/24 Passed, Direct Calendar Entry |
 | **Task 2: Live AMC Showtime Scraping & API Route** | CRITICAL | ⏳ Pending | `9.0.0.2` | — |
 | **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ⏳ Pending | `9.0.0.3` | — |
 | **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ⏳ Pending | `9.0.0.4` | — |
@@ -126,26 +126,31 @@ Update this document with confirmed version and record `Date Started`.
 
 **Purpose:** Strip the app to AMC Tysons Corner 16 only. Remove the 9 other DMV theatres, eliminate the theatre search/selection step, and hard-code the single venue as the app's context so the UI opens directly to the date/showtime picker.  
 **Estimated Time:** 30 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 25 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.1`  
 **Dependencies:** Task 0
 
 ### Description
-1. **`apps/web/src/data/theatres.ts`** — Remove all theatres except `amc-tysons-16`. Rename export from `DMV_AMC_THEATRES` to `TYSONS_THEATRE` (single constant, not an array).
-2. **`apps/web/src/components/TheatreSearch.tsx`** — This component is no longer needed. Either delete it or repurpose it into a static venue header banner showing the AMC Tysons Corner 16 branding, address, and format badges.
-3. **`apps/web/src/app/page.tsx`** — Remove Stage 1 (Theatre Search). App now opens at Stage 2 (Calendar). Simplify the breadcrumb to: `[AMC Tysons 16] > [Date] > [Movie & Showtime] > [Seatmap]`. Pre-select `amc-tysons-16` as the fixed `selectedTheatreId`.
-4. **`apps/web/src/data/showtimes.ts`** — Remove all showtime entries for non-Tysons theatre IDs. Keep the `FEATURED_MOVIES` list and Tysons-only showtimes as a temporary seed for today while Task 2 is being built, but mark them clearly with `// TEMPORARY — replaced by live API in Task 2`.
+1. **`apps/web/src/data/theatres.ts`** — Removed all theatres except `amc-tysons-16`. Renamed export to `TYSONS_THEATRE` (single constant) with backward-compat alias.
+2. **`apps/web/src/components/TheatreSearch.tsx`** — Repurposed into a static venue header banner showing the AMC Tysons Corner 16 branding, address, format badges, and quick reference cards for Aud 11, Aud 9, Aud 3, and Aud 2.
+3. **`apps/web/src/app/page.tsx`** — Removed Stage 1 (Theatre Search). App now opens at Stage 2 (Calendar) directly. Simplified breadcrumbs: `[AMC Tysons 16] > [Date] > [Showtimes] > [Seatmap]`.
+4. **`apps/web/src/data/showtimes.ts`** — Removed all non-Tysons showtime entries.
 
 ### Affected Files
 - `apps/web/src/data/theatres.ts`
 - `apps/web/src/components/TheatreSearch.tsx`
 - `apps/web/src/app/page.tsx`
 - `apps/web/src/data/showtimes.ts`
+- `apps/web/tests/TheatreSearch.test.tsx`
+- `apps/web/tests/BookingPipeline.test.tsx`
 
 ### Verification Gates
-- [ ] TypeScript compiles with 0 errors (`npx tsc --noEmit`)
-- [ ] App loads in browser and opens directly to Calendar (no theatre search step)
-- [ ] Only AMC Tysons Corner 16 appears anywhere in the UI
+- [x] TypeScript compiles with 0 errors (`npx tsc --noEmit`)
+- [x] App loads in browser and opens directly to Calendar (no theatre search step)
+- [x] Only AMC Tysons Corner 16 appears anywhere in the UI
+- [x] 100% Vitest tests pass (24/24 gates passed across 5 test suites)
+- [x] Next.js production build succeeds (`npm run build`)
 
 ---
 
