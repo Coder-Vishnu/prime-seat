@@ -1,0 +1,29 @@
+name: 24/7 Prime Seat Cloud Monitor
+
+on:
+  schedule:
+    # Run every 10 minutes, 24/7 across all 365 days
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  poll-tysons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Ping Prime Seat Cloud Poller
+        env:
+          PRIME_SEAT_URL: ${{ secrets.PRIME_SEAT_URL }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || 'prime-seat-tysons-vishnu' }}
+        run: |
+          echo "Scanning AMC Tysons Corner 16 for PLF Prime Seat Vacancies..."
+          if [ -n "$PRIME_SEAT_URL" ]; then
+            echo "Invoking $PRIME_SEAT_URL/api/cron/poll"
+            curl -s -f "$PRIME_SEAT_URL/api/cron/poll" || echo "Poller responded with non-200"
+          else
+            echo "PRIME_SEAT_URL not yet configured. Pinging health probe on ntfy..."
+            curl -s -X POST "https://ntfy.sh/$NTFY_TOPIC" \
+              -H "Content-Type: application/json" \
+              -d '{"topic":"'"$NTFY_TOPIC"'","title":"Cloud Health Check","message":"24/7 Background poller is active in GitHub Actions!","priority":1,"tags":["cloud","white_check_mark"]}'
+          fi
