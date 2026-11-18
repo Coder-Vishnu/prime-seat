@@ -24,14 +24,18 @@ describe('Milestone 9.0 Task 1 Verification: Tysons Venue Banner', () => {
     expect(screen.getByText('Prime at AMC')).toBeInTheDocument();
   });
 
-  it('renders all 4 PLF auditoriums in quick reference cards', () => {
+  it('renders all premium auditoriums in quick reference cards', () => {
     render(<TheatreSearch />);
 
     expect(screen.getByText('Aud 11')).toBeInTheDocument();
     expect(screen.getByText('Aud 9')).toBeInTheDocument();
     expect(screen.getByText('Aud 3')).toBeInTheDocument();
     expect(screen.getByText('Aud 2')).toBeInTheDocument();
+    expect(screen.getByText('Aud 7')).toBeInTheDocument();
     expect(screen.getByText('262 seats')).toBeInTheDocument();
     expect(screen.getByText('161 seats')).toBeInTheDocument();
+    expect(screen.getByText('350 seats')).toBeInTheDocument();
+    expect(screen.getByText('125 seats')).toBeInTheDocument();
+    expect(screen.getByText('92 seats')).toBeInTheDocument();
   });
 });

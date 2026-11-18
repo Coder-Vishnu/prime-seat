@@ -7,6 +7,7 @@ import { TheatreSearch } from '../components/TheatreSearch';
 import { CalendarPicker } from '../components/CalendarPicker';
 import { ShowtimeSchedule } from '../components/ShowtimeSchedule';
 import { AuditoriumCanvas } from '../components/AuditoriumCanvas';
+import { SeatAlertModal } from '../components/SeatAlertModal';
 import { TYSONS_THEATRE } from '../data/theatres';
 import { Movie, Showtime } from '../data/showtimes';
 import { getAuditoriumLayout } from '../data/auditoriums';
@@ -43,6 +44,34 @@ export default function Home() {
   const streamId = selectedShowtime?.id || 'amc-tysons-dolby-current';
   const { seats: streamSeats, latestDrop, isConnected } = useAuditoriumStream(streamId);
   const { permission, requestPermission, playChime } = useDesktopNotification();
+
+  const [pushToast, setPushToast] = useState<string | null>(null);
+
+  const handleTestPhonePush = async () => {
+    try {
+      setPushToast('Sending test push to phone & watch...');
+      const res = await fetch('/api/notifications/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topic: 'prime-seat-tysons-vishnu',
+          movieTitle: selectedMovie?.title || 'The Cat in the Hat',
+          row: 'E',
+          seatNumber: 8,
+          auditorium: activeAuditorium.name,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setPushToast(`⚡ Push alert sent! View on phone or at ${data.viewUrl}`);
+      } else {
+        setPushToast(`Push error: ${data.error}`);
+      }
+    } catch {
+      setPushToast('Failed to reach notification service');
+    }
+    setTimeout(() => setPushToast(null), 5000);
+  };
 
   const activeSeats = streamSeats.length > 0 ? streamSeats : activeAuditorium.seats;
 
@@ -120,8 +149,33 @@ export default function Home() {
           >
             🔔 Chime
           </button>
+
+          <button
+            onClick={handleTestPhonePush}
+            title="Send test push notification to iPhone & Apple Watch"
+            className="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-sky-500/20 to-indigo-500/20 border border-sky-400/40 text-sky-200 hover:from-sky-500/30 hover:to-indigo-500/30 transition font-medium flex items-center gap-1.5 shadow-sm"
+            data-testid="test-phone-push-btn"
+          >
+            📱 Test iPhone Push
+          </button>
         </div>
       </header>
+
+      {/* Push Toast Notification */}
+      {pushToast && (
+        <div className="w-full max-w-5xl mt-3 px-4 py-2.5 rounded-xl bg-sky-950/80 border border-sky-500/40 text-sky-200 text-xs flex items-center justify-between animate-fadeIn backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping" />
+            <span>{pushToast}</span>
+          </div>
+          <button
+            onClick={() => setPushToast(null)}
+            className="text-neutral-400 hover:text-white text-sm px-1.5 py-0.5"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Venue Banner — always visible */}
       <div className="w-full max-w-5xl mt-4">
@@ -323,48 +377,16 @@ export default function Home() {
               />
             </div>
 
-            {/* Selected Seat Inspector (placeholder until Task 4 modal) */}
+            {/* Selected Seat Alert Modal & Inspector */}
             {selectedSeat && (
-              <aside
-                className="w-full p-4 rounded-xl border border-sky-500/40 bg-neutral-900/60 flex items-center justify-between"
-                data-testid="selected-seat-inspector"
-              >
-                <div className="text-xs flex flex-wrap items-center gap-2">
-                  <span className="font-bold text-white">
-                    Row {selectedSeat.row}, Seat {selectedSeat.number}
-                  </span>
-                  <span className="text-neutral-500">•</span>
-                  <span className="text-neutral-300">{selectedSeat.seat_type}</span>
-                  <span className="text-neutral-500">•</span>
-                  <span
-                    className={`font-semibold ${
-                      selectedSeat.status === 'AVAILABLE'
-                        ? 'text-emerald-400'
-                        : selectedSeat.status === 'OCCUPIED'
-                        ? 'text-slate-400'
-                        : 'text-neutral-500'
-                    }`}
-                  >
-                    {selectedSeat.status}
-                  </span>
-                  {selectedSeat.is_prime && (
-                    <span className="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold text-[10px]">
-                      PRIME SIGHTLINE
-                    </span>
-                  )}
-                  {selectedSeat.drop_probability !== undefined && (
-                    <span className="text-amber-400 font-mono">
-                      P(Drop): {(selectedSeat.drop_probability * 100).toFixed(1)}%
-                    </span>
-                  )}
-                </div>
-                <button
-                  onClick={() => setSelectedSeat(null)}
-                  className="text-xs text-neutral-400 hover:text-white px-2 py-1 ml-4 flex-shrink-0"
-                >
-                  ✕
-                </button>
-              </aside>
+              <SeatAlertModal
+                seat={selectedSeat}
+                showtime={selectedShowtime}
+                movie={selectedMovie}
+                theatreName={selectedTheatre.name}
+                auditoriumName={activeAuditorium.name}
+                onClose={() => setSelectedSeat(null)}
+              />
             )}
           </section>
         )}

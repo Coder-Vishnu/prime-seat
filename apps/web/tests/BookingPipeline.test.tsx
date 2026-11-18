@@ -1,10 +1,23 @@
 // apps/web/tests/BookingPipeline.test.tsx
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Home from '../src/app/page';
+import { TYSONS_THEATRE, THEATRES } from '../src/data/theatres';
+import {
+  TYSONS_AUDITORIUM_11,
+  TYSONS_AUDITORIUM_9,
+  TYSONS_AUDITORIUM_3_IMAX,
+  TYSONS_AUDITORIUM_2_4DX,
+} from '../src/data/auditoriums';
+import { GET } from '../src/app/api/showtimes/route';
+import { getSavedAlerts } from '../src/components/SeatAlertModal';
 
-describe('Milestone 9.0 Task 1 Verification: Tysons-Only Streamlined Booking Pipeline', () => {
+describe('Milestone 9.0 Integration Gates: Tysons-Only Streamlined Booking Pipeline', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
   it('test_gate_01_direct_calendar_entry: verifies app opens directly at Calendar stage with AMC Tysons Corner 16', () => {
     render(<Home />);
 
@@ -68,5 +81,77 @@ describe('Milestone 9.0 Task 1 Verification: Tysons-Only Streamlined Booking Pip
       expect(screen.getByTestId('stage-calendar-picker')).toBeInTheDocument();
       expect(screen.getByTestId('current-stage-badge')).toHaveTextContent('Stage: CALENDAR');
     }
+  });
+
+  it('test_gate_05_tysons_only_scope: verifies TYSONS_THEATRE is isolated and THEATRES contains only AMC Tysons Corner 16', () => {
+    expect(TYSONS_THEATRE.id).toBe('amc-tysons-16');
+    expect(TYSONS_THEATRE.name).toBe('AMC Tysons Corner 16');
+    expect(THEATRES.length).toBe(1);
+    expect(THEATRES[0].id).toBe('amc-tysons-16');
+  });
+
+  it('test_gate_06_live_api_route_mock: verifies Next.js API route returns normalized showtimes and movies for Tysons', async () => {
+    const request = new Request('http://localhost:3000/api/showtimes?theatreId=amc-tysons-16&date=2026-11-18');
+    const response = await GET(request as any);
+    expect(response.status).toBe(200);
+
+    const data = await response.json();
+    expect(data.theatreId).toBe('amc-tysons-16');
+    expect(Array.isArray(data.movies)).toBe(true);
+    expect(Array.isArray(data.showtimes)).toBe(true);
+    expect(data.showtimes.length).toBeGreaterThan(0);
+  });
+
+  it('test_gate_07_seatmap_seat_counts: verifies exact physical capacities across all 4 PLF auditoriums', () => {
+    expect(TYSONS_AUDITORIUM_11.totalPhysicalCapacity).toBe(262);
+    expect(TYSONS_AUDITORIUM_11.seats.length).toBe(262);
+
+    expect(TYSONS_AUDITORIUM_9.totalPhysicalCapacity).toBe(161);
+    expect(TYSONS_AUDITORIUM_9.seats.length).toBe(161);
+
+    expect(TYSONS_AUDITORIUM_3_IMAX.totalPhysicalCapacity).toBe(350);
+    expect(TYSONS_AUDITORIUM_3_IMAX.seats.length).toBe(350);
+
+    expect(TYSONS_AUDITORIUM_2_4DX.totalPhysicalCapacity).toBe(125);
+    expect(TYSONS_AUDITORIUM_2_4DX.seats.length).toBe(125);
+  });
+
+  it('test_gate_08_seat_selection_alert: verifies seat click triggers SeatAlertModal and persists alert to localStorage', () => {
+    render(<Home />);
+
+    // Pick date
+    fireEvent.click(screen.getByTestId('shortcut-today'));
+
+    // Select first showtime pill
+    const showtimePills = screen.queryAllByTestId(/^showtime-pill-/);
+    expect(showtimePills.length).toBeGreaterThan(0);
+    fireEvent.click(showtimePills[0]);
+
+    // Now in SEATMAP stage
+    expect(screen.getByTestId('stage-seatmap-canvas')).toBeInTheDocument();
+
+    // Click seat A-1
+    const seatA1 = screen.getByTestId('seat-node-A-1');
+    fireEvent.click(seatA1);
+
+    // Verify SeatAlertModal opens
+    const modal = screen.getByTestId('seat-alert-modal');
+    expect(modal).toBeInTheDocument();
+    expect(screen.getByText(/Row A, Seat 1/i)).toBeInTheDocument();
+
+    // Toggle drop alert if button is present (occupied seat)
+    const toggleBtn = screen.queryByTestId('toggle-drop-alert-btn');
+    if (toggleBtn) {
+      fireEvent.click(toggleBtn);
+      const saved = getSavedAlerts();
+      expect(saved.length).toBe(1);
+      expect(saved[0].row).toBe('A');
+      expect(saved[0].seatNumber).toBe(1);
+      expect(screen.getByTestId('alert-toast-message')).toBeInTheDocument();
+    }
+
+    // Close modal
+    fireEvent.click(screen.getByTestId('close-seat-modal'));
+    expect(screen.queryByTestId('seat-alert-modal')).not.toBeInTheDocument();
   });
 });

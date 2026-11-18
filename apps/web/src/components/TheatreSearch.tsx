@@ -83,13 +83,14 @@ export const TheatreSearch: React.FC<TheatreSearchProps> = ({ onSelectTheatre, s
         ))}
       </div>
 
-      {/* PLF Auditorium Quick Reference */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+      {/* PLF & Premium Auditorium Quick Reference */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
         {[
           { aud: 'Aud 11', fmt: 'Dolby Cinema', seats: '262 seats', style: 'border-amber-500/30 bg-amber-500/5' },
           { aud: 'Aud 9', fmt: 'Dolby Cinema', seats: '161 seats', style: 'border-amber-500/30 bg-amber-500/5' },
-          { aud: 'Aud 3', fmt: 'IMAX with Laser', seats: 'TBD', style: 'border-sky-500/30 bg-sky-500/5' },
-          { aud: 'Aud 2', fmt: '4DX', seats: 'TBD', style: 'border-rose-500/30 bg-rose-500/5' },
+          { aud: 'Aud 3', fmt: 'IMAX with Laser', seats: '350 seats', style: 'border-sky-500/30 bg-sky-500/5' },
+          { aud: 'Aud 2', fmt: '4DX', seats: '125 seats', style: 'border-rose-500/30 bg-rose-500/5' },
+          { aud: 'Aud 7', fmt: 'RealD 3D', seats: '92 seats', style: 'border-purple-500/30 bg-purple-500/5' },
         ].map(({ aud, fmt, seats, style }) => (
           <div
             key={aud}

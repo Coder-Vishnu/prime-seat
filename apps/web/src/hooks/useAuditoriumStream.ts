@@ -10,6 +10,8 @@ export interface SeatData {
   seat_type: string;
   is_prime: boolean;
   drop_probability?: number;
+  grid_row?: number;
+  grid_col?: number;
 }
 
 export interface DropEventPayload {
