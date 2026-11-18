@@ -176,7 +176,67 @@ prime-seat/
 
 ---
 
-## 5. Development & Execution Directives
+## 5. Running the App Locally
+
+### Prerequisites
+- **Node.js** `v18+` and **npm** (for the Next.js web app)
+- **Python** `3.10+` and a virtual environment (for the FastAPI backend)
+
+### Web App (`apps/web`) — Next.js 15 / React 19 PWA
+
+```bash
+cd apps/web
+npm install         # first time only
+npm run dev         # starts dev server at http://localhost:3000
+```
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Start development server with hot-reload at `http://localhost:3000` |
+| `npm run build` | Production build |
+| `npm run start` | Start production build (run `build` first) |
+| `npm run lint` | ESLint checks |
+| `npm run test` | Run Vitest unit test suite |
+
+> **PWA Note:** The service worker (`public/sw.js`) only activates in production builds. For full PWA functionality, run `npm run build` then `npm run start`.
+
+### API Backend (`apps/api`) — FastAPI / Python
+
+```bash
+cd apps/api
+python -m venv .venv
+
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt    # first time only
+uvicorn src.main:app --reload      # starts API at http://localhost:8000
+```
+
+> **API Docs:** FastAPI auto-generates interactive docs at `http://localhost:8000/docs` (Swagger UI) and `http://localhost:8000/redoc`.
+
+### Running Both Together
+
+Open two terminals:
+
+```bash
+# Terminal 1 — API
+cd apps/api
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
+uvicorn src.main:app --reload
+
+# Terminal 2 — Web
+cd apps/web
+npm run dev
+```
+
+Then open **http://localhost:3000** in your browser.
+
+---
+
+## 6. Development & Execution Directives
 
 ### Antigravity Agent Milestone Workflow
 Development follows deterministic milestone cycles backed by verification gates:

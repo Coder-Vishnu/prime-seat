@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `6.0.0.3`  
-**Last Updated**: `2026-10-20`  
-**Active Milestone**: None (Milestone 6.0 completed)
+**Current Version**: `8.0.0.4`  
+**Last Updated**: `2026-11-18`  
+**Active Milestone**: [Milestone 9.0](./tasks/Milestone9.0.md) — Planning
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Milestone | Priority | Status | Target Date | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| None | - | - | - | All active milestones completed. Next: Milestone 7.0 |
+| [Milestone 9.0](./tasks/Milestone9.0.md) | HIGH | Planning | 2026-11-25 | Tysons-only scope, live AMC showtime scraping, accurate IMAX/Dolby/4DX seatmaps, seat selection & alert UX fix |
 
 ---
 
@@ -21,7 +21,7 @@
 
 | Milestone | Priority | Status | Dependencies | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| Milestone 7.0 | HIGH | ⏳ Pending | Milestone 6.0 | Next.js 15 / React 19 PWA Auditorium Canvas (`07_AUDITORIUM_UI_DASHBOARD`) |
+| None | - | - | - | - |
 
 ---
 
@@ -29,6 +29,8 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
+| [Milestone 8.0](./tasks/Milestone8.0.md) | 2026-11-14 | `8.0.0.4` | 5 / 5 | AMC Theatre Discovery, Interactive Monthly Calendar, PLF Format Showtime Matrix, Physical Seatmaps & 4/4 Integration Gates ([#8](./tasks/Milestone8.0.md)) |
+| [Milestone 7.0](./tasks/Milestone7.0.md) | 2026-11-06 | `7.0.0.4` | 5 / 5 | Next.js 15 / React 19 PWA Auditorium Canvas, SVG Seatmap, Live SSE Stream Hook, ML Heatmap Overlay & 5/5 Vitest Gates ([#7](./tasks/Milestone7.0.md)) |
 | [Milestone 6.0](./tasks/Milestone6.0.md) | 2026-10-20 | `6.0.0.3` | 4 / 4 | Adaptive Polling Policy, Stochastic Jitter, SSE Broadcast, Urgent ntfy.sh Webhook & 2/2 Pytest Gates ([#6](./tasks/Milestone6.0.md)) |
 | [Milestone 5.0](./tasks/Milestone5.0.md) | 2026-10-20 | `5.0.0.3` | 4 / 4 | Adversarial Boundary Sanitization, Hardware Bounds Gating, Replay Defense, Anomaly Rate-of-Change Limiter & 5/5 Pytest Gates ([#5](./tasks/Milestone5.0.md)) |
 | [Milestone 4.0](./tasks/Milestone4.0.md) | 2026-10-20 | `4.0.0.3` | 4 / 4 | PyTorch Deep Learning Churn Predictor, 16-Dim Feature Builder, Weighted BCE Loss (45:1), TorchScript Exporter & 5/5 Pytest Gates ([#4](./tasks/Milestone4.0.md)) |
@@ -43,3 +45,4 @@
 - **PATCH bump** (`1.0.0.x` -> `1.0.1.0`): Bumped on patch releases.
 - **MINOR bump** (`1.0.x.x` -> `1.1.0.0`): Milestone completion across major subsystems.
 - **MAJOR bump** (`1.x.x.x` -> `2.0.0.0`): Production release.
+
