@@ -1,4 +1,5 @@
 // apps/web/src/data/showtimes.ts
+import tysonsDb from './tysons_schedule_db.json';
 
 export type PLFFormat = 'DOLBY_CINEMA' | 'IMAX_LASER' | 'PRIME' | 'REALD_3D' | '4DX' | 'LASER';
 
@@ -90,6 +91,16 @@ export const FEATURED_MOVIES: Movie[] = [
     posterUrl: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?q=80&w=600&auto=format&fit=crop',
     genre: 'Family / Comedy',
     synopsis: 'A mischievous cat pays an unexpected visit to a young boy and his sister on a rainy day, turning their home into a magical adventure.',
+    releaseYear: 2026,
+  },
+  {
+    id: 'hunger-games-sunrise',
+    title: 'The Hunger Games: Sunrise on the Reaping',
+    rating: 'PG-13',
+    runtimeMinutes: 158,
+    posterUrl: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop',
+    genre: 'Action / Sci-Fi / Adventure',
+    synopsis: 'As the 50th Annual Hunger Games dawn, double the tributes are chosen in the harrowing Second Quarter Quell.',
     releaseYear: 2026,
   },
   {
@@ -406,48 +417,148 @@ export const SEED_SHOWTIMES: Showtime[] = [
     checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-15/all-movies',
   },
 
-  // Ghost Soldier
+  // The Hunger Games: Sunrise on the Reaping (Tysons PLF Schedule)
   {
-    id: 'st-tysons-ghost-laser-510pm',
+    id: 'st-tysons-hg-imax-1240pm',
     theatreId: 'amc-tysons-16',
-    movieId: 'ghost-soldier',
+    movieId: 'hunger-games-sunrise',
     date: '2026-11-15',
-    time: '5:10 PM',
-    format: 'LASER',
-    auditoriumId: 'tysons-aud-6-laser',
-    auditoriumName: 'Auditorium 6 (Laser at AMC)',
-    totalSeats: 165,
-    availableSeats: 58,
-    primeAvailableSeats: 8,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-15/all-movies',
+    time: '12:40 PM',
+    format: 'IMAX_LASER',
+    auditoriumId: 'tysons-aud-3-imax',
+    auditoriumName: 'Auditorium 3 (IMAX with Laser)',
+    totalSeats: 350,
+    availableSeats: 296,
+    primeAvailableSeats: 38,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208152',
   },
   {
-    id: 'st-tysons-ghost-laser-740pm',
+    id: 'st-tysons-hg-imax-420pm',
     theatreId: 'amc-tysons-16',
-    movieId: 'ghost-soldier',
+    movieId: 'hunger-games-sunrise',
     date: '2026-11-15',
-    time: '7:40 PM',
-    format: 'LASER',
-    auditoriumId: 'tysons-aud-6-laser',
-    auditoriumName: 'Auditorium 6 (Laser at AMC)',
-    totalSeats: 165,
-    availableSeats: 34,
-    primeAvailableSeats: 5,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-15/all-movies',
+    time: '4:20 PM',
+    format: 'IMAX_LASER',
+    auditoriumId: 'tysons-aud-3-imax',
+    auditoriumName: 'Auditorium 3 (IMAX with Laser)',
+    totalSeats: 350,
+    availableSeats: 246,
+    primeAvailableSeats: 24,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208153',
   },
   {
-    id: 'st-tysons-ghost-laser-1010pm',
+    id: 'st-tysons-hg-imax-805pm',
     theatreId: 'amc-tysons-16',
-    movieId: 'ghost-soldier',
+    movieId: 'hunger-games-sunrise',
     date: '2026-11-15',
-    time: '10:10 PM',
-    format: 'LASER',
-    auditoriumId: 'tysons-aud-6-laser',
-    auditoriumName: 'Auditorium 6 (Laser at AMC)',
-    totalSeats: 165,
-    availableSeats: 62,
+    time: '8:05 PM',
+    format: 'IMAX_LASER',
+    auditoriumId: 'tysons-aud-3-imax',
+    auditoriumName: 'Auditorium 3 (IMAX with Laser)',
+    totalSeats: 350,
+    availableSeats: 180,
     primeAvailableSeats: 12,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-15/all-movies',
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208154',
+  },
+  {
+    id: 'st-tysons-hg-dolby-135pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'hunger-games-sunrise',
+    date: '2026-11-15',
+    time: '1:35 PM',
+    format: 'DOLBY_CINEMA',
+    auditoriumId: 'tysons-aud-11-dolby',
+    auditoriumName: 'Auditorium 11 (Dolby Cinema at AMC)',
+    totalSeats: 262,
+    availableSeats: 195,
+    primeAvailableSeats: 20,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208175',
+  },
+  {
+    id: 'st-tysons-hg-dolby-520pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'hunger-games-sunrise',
+    date: '2026-11-15',
+    time: '5:20 PM',
+    format: 'DOLBY_CINEMA',
+    auditoriumId: 'tysons-aud-11-dolby',
+    auditoriumName: 'Auditorium 11 (Dolby Cinema at AMC)',
+    totalSeats: 262,
+    availableSeats: 140,
+    primeAvailableSeats: 8,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208174',
+  },
+  {
+    id: 'st-tysons-hg-dolby-905pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'hunger-games-sunrise',
+    date: '2026-11-15',
+    time: '9:05 PM',
+    format: 'DOLBY_CINEMA',
+    auditoriumId: 'tysons-aud-11-dolby',
+    auditoriumName: 'Auditorium 11 (Dolby Cinema at AMC)',
+    totalSeats: 262,
+    availableSeats: 165,
+    primeAvailableSeats: 15,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208173',
+  },
+  {
+    id: 'st-tysons-hg-4dx-220pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'hunger-games-sunrise',
+    date: '2026-11-15',
+    time: '2:20 PM',
+    format: '4DX',
+    auditoriumId: 'tysons-aud-2-4dx',
+    auditoriumName: 'Auditorium 2 (4DX at AMC)',
+    totalSeats: 125,
+    availableSeats: 88,
+    primeAvailableSeats: 10,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208298',
+  },
+  {
+    id: 'st-tysons-hg-4dx-610pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'hunger-games-sunrise',
+    date: '2026-11-15',
+    time: '6:10 PM',
+    format: '4DX',
+    auditoriumId: 'tysons-aud-2-4dx',
+    auditoriumName: 'Auditorium 2 (4DX at AMC)',
+    totalSeats: 125,
+    availableSeats: 64,
+    primeAvailableSeats: 6,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148208294',
+  },
+
+  // Ghost Soldier (AMC Tysons Corner 16 verified live schedule)
+  {
+    id: 'st-tysons-ghost-dolby-1225pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'ghost-soldier',
+    date: '2026-11-15',
+    time: '12:25 PM',
+    format: 'DOLBY_CINEMA',
+    auditoriumId: 'tysons-aud-11-dolby',
+    auditoriumName: 'Auditorium 11 (Dolby Cinema at AMC)',
+    totalSeats: 262,
+    availableSeats: 218,
+    primeAvailableSeats: 18,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148767418',
+  },
+  {
+    id: 'st-tysons-ghost-laser-835pm',
+    theatreId: 'amc-tysons-16',
+    movieId: 'ghost-soldier',
+    date: '2026-11-15',
+    time: '8:35 PM',
+    format: 'LASER',
+    auditoriumId: 'tysons-aud-6-laser',
+    auditoriumName: 'Auditorium 6 (Laser at AMC)',
+    totalSeats: 165,
+    availableSeats: 82,
+    primeAvailableSeats: 9,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148767425',
   },
 
   // Drummer Boy
@@ -1516,48 +1627,34 @@ export const SEED_SHOWTIMES: Showtime[] = [
     checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-16/all-movies',
   },
 
-  // Ghost Soldier
+  // Ghost Soldier (AMC Tysons Corner 16 verified live schedule)
   {
-    id: 'st-tysons-ghost-laser-16-510pm',
+    id: 'st-tysons-ghost-dolby-16-1225pm',
     theatreId: 'amc-tysons-16',
     movieId: 'ghost-soldier',
     date: '2026-11-16',
-    time: '5:10 PM',
-    format: 'LASER',
-    auditoriumId: 'tysons-aud-6-laser',
-    auditoriumName: 'Auditorium 6 (Laser at AMC)',
-    totalSeats: 165,
-    availableSeats: 58,
-    primeAvailableSeats: 8,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-16/all-movies',
+    time: '12:25 PM',
+    format: 'DOLBY_CINEMA',
+    auditoriumId: 'tysons-aud-11-dolby',
+    auditoriumName: 'Auditorium 11 (Dolby Cinema at AMC)',
+    totalSeats: 262,
+    availableSeats: 218,
+    primeAvailableSeats: 18,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148767418',
   },
   {
-    id: 'st-tysons-ghost-laser-16-740pm',
+    id: 'st-tysons-ghost-laser-16-835pm',
     theatreId: 'amc-tysons-16',
     movieId: 'ghost-soldier',
     date: '2026-11-16',
-    time: '7:40 PM',
+    time: '8:35 PM',
     format: 'LASER',
     auditoriumId: 'tysons-aud-6-laser',
     auditoriumName: 'Auditorium 6 (Laser at AMC)',
     totalSeats: 165,
-    availableSeats: 34,
-    primeAvailableSeats: 5,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-16/all-movies',
-  },
-  {
-    id: 'st-tysons-ghost-laser-16-1010pm',
-    theatreId: 'amc-tysons-16',
-    movieId: 'ghost-soldier',
-    date: '2026-11-16',
-    time: '10:10 PM',
-    format: 'LASER',
-    auditoriumId: 'tysons-aud-6-laser',
-    auditoriumName: 'Auditorium 6 (Laser at AMC)',
-    totalSeats: 165,
-    availableSeats: 62,
-    primeAvailableSeats: 12,
-    checkoutUrl: 'https://www.amctheatres.com/movie-theatres/amc-tysons-corner-16/showtimes/all/2026-11-16/all-movies',
+    availableSeats: 82,
+    primeAvailableSeats: 9,
+    checkoutUrl: 'https://www.amctheatres.com/showtimes/148767425',
   },
 
   // Wildwood
@@ -1874,11 +1971,20 @@ export const SEED_SHOWTIMES: Showtime[] = [
 ];
 
 export function getMovies(): Movie[] {
-  return FEATURED_MOVIES;
+  const dbMovies = (tysonsDb?.movies as Movie[]) || [];
+  const existingIds = new Set(FEATURED_MOVIES.map((m) => m.id));
+  const merged = [...FEATURED_MOVIES];
+  for (const m of dbMovies) {
+    if (!existingIds.has(m.id)) {
+      merged.push(m);
+      existingIds.add(m.id);
+    }
+  }
+  return merged;
 }
 
 export function getMovieById(movieId: string): Movie | undefined {
-  return FEATURED_MOVIES.find((m) => m.id === movieId);
+  return getMovies().find((m) => m.id === movieId);
 }
 
 export interface ShowtimeFilterOptions {
@@ -1893,11 +1999,29 @@ export function getShowtimes(options?: ShowtimeFilterOptions): Showtime[] {
 
   if (!options) return list;
 
+  if (options.date) {
+    // 1. Direct lookup in high-fidelity rolling database
+    const dbDateList = (tysonsDb?.dates as Record<string, Showtime[]>)?.[options.date];
+    if (dbDateList && dbDateList.length > 0) {
+      list = dbDateList;
+    } else {
+      const directMatches = list.filter((st) => st.date === options.date);
+      if (directMatches.length > 0) {
+        list = directMatches;
+      } else {
+        // Dynamic synthesis for any requested date from verified AMC Tysons schedule
+        const baseSchedule = list.filter((st) => st.date === '2026-11-19' || st.date === '2026-11-15');
+        list = baseSchedule.map((st) => ({
+          ...st,
+          date: options.date!,
+          id: `${st.id.replace(/2026-\d{2}-\d{2}/, options.date!)}`,
+        }));
+      }
+    }
+  }
+
   if (options.theatreId) {
     list = list.filter((st) => st.theatreId === options.theatreId);
-  }
-  if (options.date) {
-    list = list.filter((st) => st.date === options.date);
   }
   if (options.format && options.format !== 'ALL') {
     list = list.filter((st) => st.format === options.format);

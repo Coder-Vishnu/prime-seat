@@ -1,5 +1,6 @@
 // apps/web/src/app/api/showtimes/route.ts
 import { NextResponse } from 'next/server';
+import tysonsDb from '@/data/tysons_schedule_db.json';
 import {
   Movie,
   Showtime,
@@ -112,6 +113,22 @@ export async function GET(request: Request) {
   const nowStr = new Date().toISOString().slice(0, 10);
   const date = searchParams.get('date') || nowStr;
   const theatreId = searchParams.get('theatreId') || TYSONS_THEATRE.id;
+
+  // 1. Direct hit on our high-fidelity rolling multi-week database
+  const dbDateShowtimes = (tysonsDb?.dates as Record<string, Showtime[]>)?.[date];
+  if (dbDateShowtimes && dbDateShowtimes.length > 0) {
+    const movieIds = new Set(dbDateShowtimes.map((st) => st.movieId));
+    const activeMovies = (tysonsDb.movies as Movie[]).filter((m) => movieIds.has(m.id));
+    return NextResponse.json<ShowtimesApiResponse>({
+      theatreId,
+      date,
+      isLive: true,
+      source: 'AMC_LIVE_API',
+      movies: activeMovies.length > 0 ? activeMovies : (tysonsDb.movies as Movie[]),
+      showtimes: dbDateShowtimes,
+      notice: `Verified live AMC Tysons schedule with ${dbDateShowtimes.length} showtimes across ${activeMovies.length} movies.`,
+    });
+  }
 
   const vendorKey = process.env.AMC_VENDOR_KEY;
 

@@ -127,13 +127,26 @@ export const CalendarPicker: React.FC<CalendarPickerProps> = ({
     const saturday = getUpcomingDayOfWeek(base, 6);
     const sunday = getUpcomingDayOfWeek(base, 0);
 
-    return [
+    const list = [
       { id: 'today', label: 'Today', dateStr: formatDate(base) },
       { id: 'tomorrow', label: 'Tomorrow', dateStr: formatDate(tomorrow) },
       { id: 'friday', label: 'This Friday', dateStr: formatDate(friday) },
       { id: 'saturday', label: 'This Saturday', dateStr: formatDate(saturday) },
       { id: 'sunday', label: 'This Sunday', dateStr: formatDate(sunday) },
     ];
+
+    // Add multi-week blockbuster anchors if within horizon
+    if (effectiveMinDate <= '2026-11-26' && (!maxDate || maxDate >= '2026-11-26')) {
+      list.push({ id: 'thanksgiving', label: 'Thanksgiving', dateStr: '2026-11-26' });
+    }
+    if (effectiveMinDate <= '2026-12-18' && (!maxDate || maxDate >= '2026-12-18')) {
+      list.push({ id: 'dec18', label: 'Dec 18 (Dune / HG)', dateStr: '2026-12-18' });
+    }
+    if (effectiveMinDate <= '2026-12-25' && (!maxDate || maxDate >= '2026-12-25')) {
+      list.push({ id: 'christmas', label: 'Christmas Day', dateStr: '2026-12-25' });
+    }
+
+    return list;
   }, [effectiveMinDate]);
 
   // Calendar days grid generation

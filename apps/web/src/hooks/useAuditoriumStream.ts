@@ -36,12 +36,62 @@ export function calculateBackoffMs(retryCount: number): number {
   return Math.min(1000 * Math.pow(2, retryCount), 16000);
 }
 
-export function useAuditoriumStream(showtimeId: string) {
+export function useAuditoriumStream(showtimeId: string, auditoriumId?: string) {
   const [seats, setSeats] = useState<SeatData[]>([]);
   const [latestDrop, setLatestDrop] = useState<DropEventPayload | null>(null);
   const [isConnected, setIsConnected] = useState<boolean>(false);
+  const [isHydrating, setIsHydrating] = useState<boolean>(false);
+  const [liveMetadata, setLiveMetadata] = useState<{
+    isLive: boolean;
+    source: string;
+    totalSeats?: number;
+    occupiedSeats?: number;
+    availableSeats?: number;
+  } | null>(null);
   const retryCount = useRef<number>(0);
 
+  // 1. Hydrate live AMC seatmap on selection
+  useEffect(() => {
+    if (!showtimeId || process.env.NODE_ENV === 'test' || typeof window === 'undefined') {
+      return;
+    }
+
+    let active = true;
+    setIsHydrating(true);
+
+    const params = new URLSearchParams({
+      showtimeId,
+      auditoriumId: auditoriumId || 'tysons-aud-11-dolby',
+    });
+
+    fetch(`/api/seats/live?${params.toString()}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!active || !data) return;
+        if (Array.isArray(data.seats) && data.seats.length > 0) {
+          setSeats(data.seats);
+          setLiveMetadata({
+            isLive: Boolean(data.isLive),
+            source: data.source,
+            totalSeats: data.totalSeats,
+            occupiedSeats: data.occupiedSeats,
+            availableSeats: data.availableSeats,
+          });
+        }
+      })
+      .catch((err) => {
+        console.warn('[useAuditoriumStream] Hydration error:', err);
+      })
+      .finally(() => {
+        if (active) setIsHydrating(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [showtimeId, auditoriumId]);
+
+  // 2. Real-time SSE stream for seat drops
   useEffect(() => {
     if (!showtimeId || typeof EventSource === 'undefined') return;
 
@@ -112,5 +162,12 @@ export function useAuditoriumStream(showtimeId: string) {
     };
   }, [showtimeId]);
 
-  return { seats, latestDrop, isConnected };
+  return {
+    seats,
+    setSeats,
+    latestDrop,
+    isConnected,
+    isHydrating,
+    liveMetadata,
+  };
 }

@@ -206,10 +206,12 @@ class AMCHarvester:
         page = await session.new_page()
 
         if showtime_url_or_id.isdigit():
-            target_url = f"https://www.amctheatres.com/showtimes/{showtime_url_or_id}"
+            target_url = f"https://www.amctheatres.com/showtimes/{showtime_url_or_id}/seats"
             showtime_id = showtime_url_or_id
         else:
             target_url = showtime_url_or_id
+            if not target_url.endswith("/seats"):
+                target_url = f"{target_url.rstrip('/')}/seats"
             m = re.search(r"/showtimes/(\d+)", showtime_url_or_id)
             showtime_id = m.group(1) if m else "unknown"
 

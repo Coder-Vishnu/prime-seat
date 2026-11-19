@@ -1,13 +1,15 @@
 {
   "name": "web",
-  "version": "9.0.0.8",
+  "version": "10.0.0.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "sync:schedule": "node ./scripts/sync-schedule.js",
+    "sync:daemon": "node ./scripts/sync-schedule.js --daemon --interval-hours 12"
   },
   "dependencies": {
     "next": "^15.1.7",

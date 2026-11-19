@@ -3,9 +3,9 @@
 > High-level project tracker and milestone dashboard for prime-seat (Prime Seat).  
 > All low-level task execution details live inside `./tasks/Milestone*.md`.
 
-**Current Version**: `9.0.0.8`  
+**Current Version**: `10.0.0.5`  
 **Last Updated**: `2026-11-19`  
-**Active Milestone**: None — All planned tasks complete
+**Active Milestone**: None
 
 ---
 
@@ -29,6 +29,7 @@
 
 | Milestone | Date Completed | Final Version | Tasks Count | Deliverables & PR Links |
 | :--- | :--- | :--- | :--- | :--- |
+| [Milestone 10.0](./tasks/Milestone10.0.md) | 2026-11-19 | `10.0.0.5` | 6 / 6 | Multi-Week AMC Schedule Sync (Nov 19 – Dec 26, 1,560 showtimes), Multi-Week Calendar Navigation, Live AMC Seat Hydration & GitHub Actions 24/7 Rolling Sync ([#10](./tasks/Milestone10.0.md)) |
 | [Milestone 9.0](./tasks/Milestone9.0.md) | 2026-11-19 | `9.0.0.8` | 9 / 9 | AMC Tysons Scope, Exact PLF Seatmaps, Playwright Stealth Ingress, Live Occupancy & Vectorized Diff Bridge ([#9](./tasks/Milestone9.0.md)) |
 | [Milestone 8.0](./tasks/Milestone8.0.md) | 2026-11-14 | `8.0.0.4` | 5 / 5 | AMC Theatre Discovery, Interactive Monthly Calendar, PLF Format Showtime Matrix, Physical Seatmaps & 4/4 Integration Gates ([#8](./tasks/Milestone8.0.md)) |
 | [Milestone 7.0](./tasks/Milestone7.0.md) | 2026-11-06 | `7.0.0.4` | 5 / 5 | Next.js 15 / React 19 PWA Auditorium Canvas, SVG Seatmap, Live SSE Stream Hook, ML Heatmap Overlay & 5/5 Vitest Gates ([#7](./tasks/Milestone7.0.md)) |

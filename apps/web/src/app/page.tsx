@@ -10,6 +10,7 @@ import { AuditoriumCanvas } from '../components/AuditoriumCanvas';
 import { SeatAlertModal } from '../components/SeatAlertModal';
 import { TYSONS_THEATRE } from '../data/theatres';
 import { Movie, Showtime } from '../data/showtimes';
+import tysonsDb from '../data/tysons_schedule_db.json';
 import { getAuditoriumLayout } from '../data/auditoriums';
 import { useAuditoriumStream, SeatData } from '../hooks/useAuditoriumStream';
 import { useDesktopNotification } from '../hooks/useDesktopNotification';
@@ -42,7 +43,13 @@ export default function Home() {
   );
 
   const streamId = selectedShowtime?.id || 'amc-tysons-dolby-current';
-  const { seats: streamSeats, latestDrop, isConnected } = useAuditoriumStream(streamId);
+  const {
+    seats: streamSeats,
+    latestDrop,
+    isConnected,
+    isHydrating,
+    liveMetadata,
+  } = useAuditoriumStream(streamId, selectedShowtime?.auditoriumId);
   const { permission, requestPermission, playChime } = useDesktopNotification();
 
   const [pushToast, setPushToast] = useState<string | null>(null);
@@ -112,7 +119,7 @@ export default function Home() {
               PRIME <span className="text-sky-400">SEAT</span>
             </h1>
             <span className="text-xs px-2.5 py-0.5 rounded font-mono font-bold bg-neutral-800 text-neutral-300 border border-neutral-700">
-              v9.0.0.0
+              v10.0.0.2
             </span>
           </div>
           <p className="text-xs text-neutral-400 mt-1">
@@ -277,6 +284,8 @@ export default function Home() {
               selectedDate={selectedDate}
               onSelectDate={handleSelectDate}
               minDate={todayStr()}
+              maxDate="2026-12-26"
+              availableDates={Object.keys(tysonsDb.dates)}
             />
           </section>
         )}
@@ -317,8 +326,27 @@ export default function Home() {
                     {selectedShowtime?.time}
                   </span>
                 </h2>
-                <p className="text-xs text-neutral-400 mt-0.5">
-                  {selectedTheatre.name} · {activeAuditorium.name} ({activeAuditorium.totalPhysicalCapacity} physical seats)
+                <p className="text-xs text-neutral-400 mt-0.5 flex flex-wrap items-center gap-2">
+                  <span>
+                    {selectedTheatre.name} · {activeAuditorium.name} ({activeAuditorium.totalPhysicalCapacity} physical seats)
+                  </span>
+                  {liveMetadata?.isLive && (
+                    <span
+                      className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1"
+                      data-testid="live-amc-seat-badge"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Live AMC Patron Seats ({liveMetadata.availableSeats} Available / {liveMetadata.occupiedSeats} Reserved)
+                    </span>
+                  )}
+                  {isHydrating && (
+                    <span
+                      className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/40 animate-pulse"
+                      data-testid="hydrating-amc-seat-badge"
+                    >
+                      ⚡ Sniffing Live AMC Seating...
+                    </span>
+                  )}
                 </p>
               </div>
 
