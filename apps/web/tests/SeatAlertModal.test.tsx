@@ -116,4 +116,53 @@ describe('Milestone 9.0 Task 4 Verification: SeatAlertModal & Alert Flow', () =>
     expect(bookNowLink).toBeInTheDocument();
     expect(bookNowLink).toHaveAttribute('href', mockShowtime.checkoutUrl);
   });
+
+  it('renders multi-seat watchlist pool with ANY-SEAT ALERT badge and calculated combined drop probability', () => {
+    const handleClose = vi.fn();
+    const handleArmAlerts = vi.fn();
+
+    const mockWatchlistSeats: SeatData[] = [
+      { row: 'F', number: 12, status: 'OCCUPIED', seat_type: 'Recliner', is_prime: true, drop_probability: 0.35 },
+      { row: 'F', number: 11, status: 'OCCUPIED', seat_type: 'Recliner', is_prime: true, drop_probability: 0.35 },
+      { row: 'F', number: 10, status: 'OCCUPIED', seat_type: 'Recliner', is_prime: true, drop_probability: 0.35 },
+      { row: 'F', number: 9, status: 'OCCUPIED', seat_type: 'Recliner', is_prime: true, drop_probability: 0.35 },
+    ];
+
+    render(
+      <SeatAlertModal
+        seats={mockWatchlistSeats}
+        showtime={mockShowtime}
+        movie={mockMovie}
+        onClose={handleClose}
+        onArmAlerts={handleArmAlerts}
+      />
+    );
+
+    // Watchlist header & badge
+    expect(screen.getByText(/Watchlist: 4 Seats/i)).toBeInTheDocument();
+    expect(screen.getByText(/ANY-SEAT ALERT/i)).toBeInTheDocument();
+
+    // Verify all 4 seat chips are rendered
+    expect(screen.getByText(/Row F #12/i)).toBeInTheDocument();
+    expect(screen.getByText(/Row F #11/i)).toBeInTheDocument();
+    expect(screen.getByText(/Row F #10/i)).toBeInTheDocument();
+    expect(screen.getByText(/Row F #9/i)).toBeInTheDocument();
+
+    // Combined probability for 4 seats with p=0.35 each: 1 - (1 - 0.35)^4 = 1 - 0.1785 = 82.1% -> 82.1%
+    expect(screen.getByText(/82.1%/i)).toBeInTheDocument();
+
+    // Arm Watchlist Alert
+    const armBtn = screen.getByTestId('toggle-drop-alert-btn');
+    expect(armBtn).toHaveTextContent(/Set Watchlist Alert \(4 Seats\)/i);
+    fireEvent.click(armBtn);
+
+    // Verify all 4 seats are saved in localStorage
+    const saved = getSavedAlerts();
+    expect(saved.length).toBe(4);
+    expect(saved.map((s) => s.seatNumber)).toEqual([12, 11, 10, 9]);
+    expect(handleArmAlerts).toHaveBeenCalledWith(mockWatchlistSeats);
+
+    // Button updates to active
+    expect(armBtn).toHaveTextContent(/Watchlist Active — Cancel Alerts/i);
+  });
 });

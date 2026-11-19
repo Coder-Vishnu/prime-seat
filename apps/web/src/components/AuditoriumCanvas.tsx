@@ -12,7 +12,9 @@ export interface AuditoriumCanvasProps {
   latestDrop: DropEventPayload | null;
   heatmapMode: boolean;
   onSeatClick?: (seat: SeatData) => void;
+  onSeatToggle?: (seat: SeatData) => void;
   selectedSeat?: SeatData | null;
+  selectedSeats?: SeatData[];
 }
 
 export interface NodeStyling {
@@ -59,7 +61,9 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
   latestDrop,
   heatmapMode,
   onSeatClick,
+  onSeatToggle,
   selectedSeat,
+  selectedSeats,
 }) => {
   const [hoveredSeat, setHoveredSeat] = useState<SeatData | null>(null);
 
@@ -89,11 +93,25 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
     return map;
   }, [uniqueRows]);
 
+  // Group seats by row and sort each row descending by seat number (greatest to least from left to right)
+  const rowsMap = useMemo(() => {
+    const map = new Map<string, SeatData[]>();
+    seats.forEach((seat) => {
+      const list = map.get(seat.row) || [];
+      list.push(seat);
+      map.set(seat.row, list);
+    });
+    map.forEach((rowSeats) => {
+      rowSeats.sort((a, b) => b.number - a.number);
+    });
+    return map;
+  }, [seats]);
+
   const effectiveRows = Math.max(totalRows, uniqueRows.length);
   const canvasWidth = totalCols * (seatWidth + gapX) + paddingX * 2;
   const canvasHeight = effectiveRows * (seatHeight + gapY) + paddingY * 2;
 
-  // Format label text
+  // Format label text and screen color
   const formatBannerTitle =
     screenFormat === 'DOLBY_CINEMA'
       ? 'Dolby Cinema Screen'
@@ -105,40 +123,82 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
       ? 'RealD 3D Screen'
       : 'Auditorium Screen';
 
+  const screenColor =
+    screenFormat === 'DOLBY_CINEMA'
+      ? '#f59e0b'
+      : screenFormat === 'IMAX_LASER'
+      ? '#38bdf8'
+      : screenFormat === '4DX'
+      ? '#f43f5e'
+      : screenFormat === 'REALD_3D'
+      ? '#a855f7'
+      : '#38bdf8';
+
+  const screenStartX = paddingX - 25;
+  const screenEndX = canvasWidth - paddingX + 25;
+  const screenMidX = canvasWidth / 2;
+  const screenApexY = 20;
+  const screenBaseY = 56;
+
   return (
     <div className="relative w-full flex flex-col items-center bg-[#0a0a0a] p-4 sm:p-6 rounded-2xl border border-neutral-800 shadow-2xl overflow-x-auto">
-      {/* Curved Screen Banner */}
-      <div className="w-full max-w-4xl mb-6 flex flex-col items-center">
-        <svg viewBox="0 0 600 50" className="w-full max-w-2xl h-12">
-          <path
-            d="M 20 40 Q 300 10 580 40"
-            fill="none"
-            stroke={
-              screenFormat === 'DOLBY_CINEMA'
-                ? '#f59e0b'
-                : screenFormat === 'IMAX_LASER'
-                ? '#38bdf8'
-                : screenFormat === '4DX'
-                ? '#f43f5e'
-                : screenFormat === 'REALD_3D'
-                ? '#a855f7'
-                : '#38bdf8'
-            }
-            strokeWidth="5"
-            strokeLinecap="round"
-          />
-        </svg>
-        <span className="text-xs uppercase tracking-widest text-neutral-400 mt-1 font-semibold">
-          {formatBannerTitle}
-        </span>
-      </div>
-
-      {/* SVG Seating Chart */}
+      {/* SVG Seating Chart with Integrated Curved Screen */}
       <svg
         viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}
         className="w-full max-w-5xl h-auto select-none"
         data-testid="auditorium-svg-canvas"
       >
+        <defs>
+          <filter id="screen-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+          <linearGradient id="screen-beam" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor={screenColor} stopOpacity="0.25" />
+            <stop offset="100%" stopColor={screenColor} stopOpacity="0.0" />
+          </linearGradient>
+        </defs>
+
+        {/* Ambient Projector Light Beam from Screen */}
+        <polygon
+          points={`${screenStartX},${screenBaseY} ${screenEndX},${screenBaseY} ${screenEndX - 40},${canvasHeight - 20} ${screenStartX + 40},${canvasHeight - 20}`}
+          fill="url(#screen-beam)"
+          className="pointer-events-none"
+        />
+
+        {/* Curved Screen Arc — Surrounds and parallels the seating layout */}
+        <path
+          d={`M ${screenStartX} ${screenBaseY} Q ${screenMidX} ${screenApexY} ${screenEndX} ${screenBaseY}`}
+          fill="none"
+          stroke={screenColor}
+          strokeWidth="6"
+          strokeLinecap="round"
+          filter="url(#screen-glow)"
+        />
+
+        {/* Inner subtle screen rim */}
+        <path
+          d={`M ${screenStartX + 4} ${screenBaseY + 3} Q ${screenMidX} ${screenApexY + 4} ${screenEndX - 4} ${screenBaseY + 3}`}
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="1.5"
+          strokeOpacity="0.6"
+          strokeLinecap="round"
+        />
+
+        {/* Centered Screen Label */}
+        <text
+          x={screenMidX}
+          y={screenApexY + 22}
+          textAnchor="middle"
+          fontSize="11"
+          letterSpacing="4"
+          fill="#94a3b8"
+          className="font-mono font-bold uppercase select-none tracking-widest"
+        >
+          {formatBannerTitle}
+        </text>
+
         {/* Row Letter Markers on Left and Right */}
         {uniqueRows.map((rowLetter, idx) => {
           const y = paddingY + idx * (seatHeight + gapY) + seatHeight / 2 + 4;
@@ -172,14 +232,27 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
         {seats.map((seat) => {
           const rowIdx =
             seat.grid_row !== undefined ? seat.grid_row : (rowIndexMap.get(seat.row) ?? 0);
-          const colIdx = seat.grid_col !== undefined ? seat.grid_col : seat.number - 1;
+
+          const rowSeats = rowsMap.get(seat.row) || [];
+          const idxInRow = rowSeats.findIndex((s) => s.number === seat.number);
+
+          let colIdx: number;
+          if (seat.grid_col !== undefined && seat.grid_col < totalCols) {
+            colIdx = seat.grid_col;
+          } else {
+            // Dynamic centering for live seats without pre-computed grid_col
+            const rowCount = rowSeats.length;
+            const rowOffset = Math.max(0, Math.floor((totalCols - rowCount) / 2));
+            colIdx = rowOffset + (idxInRow >= 0 ? idxInRow : 0);
+          }
 
           const x = paddingX + colIdx * (seatWidth + gapX);
           const y = paddingY + rowIdx * (seatHeight + gapY);
           const styling = getNodeColor(seat, latestDrop, heatmapMode);
 
           const isSelected =
-            selectedSeat?.row === seat.row && selectedSeat?.number === seat.number;
+            Boolean(selectedSeats && selectedSeats.some((s) => s.row === seat.row && s.number === seat.number)) ||
+            Boolean(selectedSeat?.row === seat.row && selectedSeat?.number === seat.number);
           const isWheelchair = seat.seat_type === 'Wheelchair';
           const isCompanion = seat.seat_type === 'Companion';
 
@@ -187,7 +260,13 @@ export const AuditoriumCanvas: React.FC<AuditoriumCanvasProps> = ({
             <g
               key={`${seat.row}-${seat.number}`}
               className={`cursor-pointer transition-opacity duration-150 ${styling.className}`}
-              onClick={() => onSeatClick && onSeatClick(seat)}
+              onClick={() => {
+                if (onSeatClick) {
+                  onSeatClick(seat);
+                } else if (onSeatToggle) {
+                  onSeatToggle(seat);
+                }
+              }}
               onMouseEnter={() => setHoveredSeat(seat)}
               onMouseLeave={() => setHoveredSeat(null)}
               data-testid={`seat-node-${seat.row}-${seat.number}`}

@@ -86,4 +86,30 @@ describe('Milestone 9.0 Task 3 Verification: Exact PLF Auditorium Layouts', () =
     const rowGSeats = layout.seats.filter((s) => s.row === 'G');
     expect(rowGSeats.length).toBe(12);
   });
+
+  it('verifies Auditorium 6 (Laser) exact 104-seat layout with left-to-right greatest-to-least seat numbering (A12 -> A1)', () => {
+    const layout = getAuditoriumLayout('tysons-aud-6-laser');
+    expect(layout.id).toBe('tysons-aud-6-laser');
+    expect(layout.totalPhysicalCapacity).toBe(104);
+    expect(layout.seats.length).toBe(104);
+    expect(layout.screenFormat).toBe('LASER');
+    expect(layout.totalRows).toBe(8);
+
+    // Verify Row A has 12 seats and numbers decrease from left to right (12 down to 1)
+    const rowA = layout.seats.filter((s) => s.row === 'A');
+    expect(rowA.length).toBe(12);
+    const rowANumbers = rowA.map((s) => s.number);
+    expect(rowANumbers).toEqual([12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+
+    // Verify grid_col values strictly increase as seat numbers decrease (left-to-right positioning)
+    for (let i = 0; i < rowA.length - 1; i++) {
+      expect((rowA[i].grid_col ?? 0) < (rowA[i + 1].grid_col ?? 0)).toBe(true);
+      expect(rowA[i].number > rowA[i + 1].number).toBe(true);
+    }
+
+    // Verify Row H has 12 seats (12 down to 1)
+    const rowH = layout.seats.filter((s) => s.row === 'H');
+    expect(rowH.length).toBe(12);
+    expect(rowH.map((s) => s.number)).toEqual([12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+  });
 });

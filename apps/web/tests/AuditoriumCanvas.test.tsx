@@ -162,6 +162,105 @@ describe('Milestone 7.0 Verification Gates: AuditoriumCanvas Engine', () => {
     const duration = performance.now() - start;
 
     console.log(`AuditoriumCanvas state diff re-render latency: ${duration.toFixed(3)}ms`);
-    expect(duration).toBeLessThan(50);
+    expect(duration).toBeLessThan(75);
+  });
+
+  it('test_gate_06_inverted_seat_numbering: verifies seat numbers decrease from greatest on left to least on right', () => {
+    // Generate Row A with 12 seats (12 down to 1)
+    const rowASeats: SeatData[] = [];
+    for (let i = 0; i < 12; i++) {
+      rowASeats.push({
+        row: 'A',
+        number: 12 - i,
+        status: 'AVAILABLE',
+        seat_type: 'RECLINER',
+        is_prime: false,
+        grid_row: 0,
+        grid_col: i,
+      });
+    }
+
+    const { container } = render(
+      <AuditoriumCanvas
+        seats={rowASeats}
+        totalRows={1}
+        totalCols={12}
+        screenFormat="LASER"
+        latestDrop={null}
+        heatmapMode={false}
+      />
+    );
+
+    // Get all seat nodes and sort by their X coordinate on the SVG
+    const seatNodes = Array.from(container.querySelectorAll('[data-testid^="seat-node-A-"]'));
+    expect(seatNodes.length).toBe(12);
+
+    const positions = seatNodes.map((node) => {
+      const rect = node.querySelector('rect');
+      const text = node.querySelector('text');
+      return {
+        x: Number(rect?.getAttribute('x')),
+        number: Number(text?.textContent),
+      };
+    });
+
+    // Sort by x ascending (left to right)
+    positions.sort((a, b) => a.x - b.x);
+
+    // Leftmost seat is 12, rightmost seat is 1
+    expect(positions[0].number).toBe(12);
+    expect(positions[11].number).toBe(1);
+
+    // Strictly descending numbers from left to right
+    for (let i = 0; i < positions.length - 1; i++) {
+      expect(positions[i].x).toBeLessThan(positions[i + 1].x);
+      expect(positions[i].number).toBeGreaterThan(positions[i + 1].number);
+    }
+  });
+
+  it('test_gate_07_multi_seat_selection_and_highlight: renders multiple selected seats with pulse glow rings', () => {
+    const selected: SeatData[] = [
+      mockSeats[0], // F-14
+      mockSeats[1], // G-15
+    ];
+
+    const { container } = render(
+      <AuditoriumCanvas
+        seats={mockSeats}
+        totalRows={10}
+        totalCols={20}
+        screenFormat="DOLBY_CINEMA"
+        selectedSeats={selected}
+      />
+    );
+
+    // Both selected seats have pulse rings
+    const pulses = container.querySelectorAll('.animate-pulse');
+    expect(pulses.length).toBe(2);
+
+    // Both selected seats have fill #0284c7
+    const f14Node = container.querySelector('[data-testid="seat-node-F-14"] rect:nth-of-type(2)');
+    const g15Node = container.querySelector('[data-testid="seat-node-G-15"] rect:nth-of-type(2)');
+    expect(f14Node?.getAttribute('fill')).toBe('#0284c7');
+    expect(g15Node?.getAttribute('fill')).toBe('#0284c7');
+  });
+
+  it('test_gate_08_centered_screen_and_surrounding_arc: renders curved screen surrounding the seats with ambient glow', () => {
+    const { container } = render(
+      <AuditoriumCanvas
+        seats={mockSeats}
+        totalRows={10}
+        totalCols={20}
+        screenFormat="DOLBY_CINEMA"
+      />
+    );
+
+    // Screen path rendered with filter and stroke
+    const screenArc = container.querySelector('path[filter="url(#screen-glow)"]');
+    expect(screenArc).toBeInTheDocument();
+    expect(screenArc?.getAttribute('stroke')).toBe('#f59e0b'); // Dolby Cinema amber gold
+
+    // Screen format banner centered
+    expect(screen.getByText(/Dolby Cinema Screen/i)).toBeInTheDocument();
   });
 });

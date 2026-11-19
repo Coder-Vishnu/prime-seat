@@ -36,6 +36,9 @@ export default function Home() {
   // Seatmap interaction state
   const [heatmapMode, setHeatmapMode] = useState<boolean>(false);
   const [selectedSeat, setSelectedSeat] = useState<SeatData | null>(null);
+  const [selectedSeats, setSelectedSeats] = useState<SeatData[]>([]);
+  const [watchedSeats, setWatchedSeats] = useState<SeatData[]>([]);
+  const [isAlertModalOpen, setIsAlertModalOpen] = useState<boolean>(false);
 
   // Active auditorium layout and streaming hook
   const activeAuditorium = getAuditoriumLayout(
@@ -85,25 +88,67 @@ export default function Home() {
   // Pipeline handlers
   const handleSelectDate = (dateStr: string) => {
     setSelectedDate(dateStr);
+    setSelectedSeats([]);
+    setWatchedSeats([]);
+    setSelectedSeat(null);
     setStage('SHOWTIMES');
   };
 
   const handleSelectShowtime = (showtime: Showtime, movie: Movie) => {
     setSelectedShowtime(showtime);
     setSelectedMovie(movie);
+    setSelectedSeats([]);
+    setWatchedSeats([]);
+    setSelectedSeat(null);
     setStage('SEATMAP');
   };
 
   const handleSeatClick = (seat: SeatData) => {
-    setSelectedSeat((prev) =>
-      prev?.row === seat.row && prev?.number === seat.number ? null : seat
-    );
+    setSelectedSeats((prev) => {
+      const exists = prev.some((s) => s.row === seat.row && s.number === seat.number);
+      if (exists) {
+        const next = prev.filter((s) => !(s.row === seat.row && s.number === seat.number));
+        setSelectedSeat(next.length > 0 ? next[next.length - 1] : null);
+        return next;
+      } else {
+        setSelectedSeat(seat);
+        return [...prev, seat];
+      }
+    });
   };
+
+  const handleSeatToggle = (seat: SeatData) => {
+    handleSeatClick(seat);
+  };
+
+  const handleSelectPrimeBox = () => {
+    const primes = activeSeats.filter((s) => s.is_prime);
+    const toSelect = primes.slice(0, 4);
+    setSelectedSeats(toSelect);
+    if (toSelect[0]) setSelectedSeat(toSelect[0]);
+  };
+
+  // Combined drop probability: 1 - product(1 - p_i)
+  const combinedDropProb = selectedSeats.reduce((acc, s) => {
+    const p = s.drop_probability !== undefined ? s.drop_probability : 0.35;
+    return acc * (1 - p);
+  }, 1);
+  const effectiveCombinedProb = selectedSeats.length > 0 ? Math.min(1 - combinedDropProb, 0.99) : 0;
+
+  // Check if latest drop matches any seat in the monitored watchlist pool
+  const monitoredPool = watchedSeats.length > 0 ? watchedSeats : selectedSeats;
+  const isTargetDrop = Boolean(
+    latestDrop &&
+      monitoredPool.some(
+        (s) => s.row === latestDrop.seat.row && s.number === latestDrop.seat.number
+      )
+  );
 
   const handleBack = () => {
     if (stage === 'SEATMAP') {
       setStage('SHOWTIMES');
       setSelectedSeat(null);
+      setSelectedSeats([]);
     } else if (stage === 'SHOWTIMES') {
       setStage('CALENDAR');
     }
@@ -367,16 +412,33 @@ export default function Home() {
 
             {/* Drop Alert Banner */}
             {latestDrop && (
-              <div className="w-full p-4 rounded-xl border border-amber-500/50 bg-amber-500/10 flex flex-col sm:flex-row items-center justify-between gap-4 animate-pulse">
+              <div
+                className={`w-full p-4 rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4 animate-pulse ${
+                  isTargetDrop
+                    ? 'border-emerald-500/80 bg-emerald-500/15 shadow-xl shadow-emerald-500/20'
+                    : 'border-amber-500/50 bg-amber-500/10'
+                }`}
+                data-testid="reclamation-drop-banner"
+              >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">⚡</span>
+                  <span className="text-2xl">{isTargetDrop ? '🎯' : '⚡'}</span>
                   <div>
-                    <div className="text-sm font-bold text-amber-400">
-                      RECLAMATION DROP: {latestDrop.movie_title}
+                    <div
+                      className={`text-sm font-bold ${
+                        isTargetDrop ? 'text-emerald-400' : 'text-amber-400'
+                      }`}
+                    >
+                      {isTargetDrop ? 'WATCHLIST SEAT OPENED: ' : 'RECLAMATION DROP: '}
+                      {latestDrop.movie_title}
                     </div>
                     <div className="text-xs text-neutral-300">
                       Row {latestDrop.seat.row}, Seat {latestDrop.seat.number} vacated! Confidence:{' '}
                       {(latestDrop.drop_probability * 100).toFixed(0)}%
+                      {isTargetDrop && (
+                        <strong className="text-emerald-300 ml-1.5 font-semibold">
+                          ★ Matches your multi-seat watchlist!
+                        </strong>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -384,7 +446,11 @@ export default function Home() {
                   href={latestDrop.checkout_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-amber-500 text-black font-bold text-xs hover:bg-amber-400 transition"
+                  className={`px-4 py-2 rounded-lg font-bold text-xs transition ${
+                    isTargetDrop
+                      ? 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-lg shadow-emerald-500/30'
+                      : 'bg-amber-500 hover:bg-amber-400 text-black'
+                  }`}
                 >
                   Claim Seat Immediately →
                 </a>
@@ -401,19 +467,98 @@ export default function Home() {
                 latestDrop={latestDrop}
                 heatmapMode={heatmapMode}
                 onSeatClick={handleSeatClick}
+                onSeatToggle={handleSeatToggle}
                 selectedSeat={selectedSeat}
+                selectedSeats={selectedSeats}
               />
             </div>
 
+            {/* Multi-Seat Target Watchlist Dock */}
+            {selectedSeats.length > 0 && (
+              <div
+                className="w-full bg-neutral-900/95 border border-sky-500/40 rounded-2xl p-4 shadow-2xl backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 animate-fadeIn"
+                data-testid="multi-seat-watchlist-dock"
+              >
+                <div className="flex flex-col gap-1.5 w-full md:w-auto">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-sm font-bold text-white flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                      Watchlist Target Pool ({selectedSeats.length} Seats Selected)
+                    </span>
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                      ⚡ Combined Drop Prob: {(effectiveCombinedProb * 100).toFixed(0)}%
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {selectedSeats.map((s) => (
+                      <span
+                        key={`${s.row}-${s.number}`}
+                        className="text-[11px] px-2 py-0.5 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-200 font-mono flex items-center gap-1"
+                      >
+                        <span>
+                          Row {s.row} #{s.number}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleSeatToggle(s)}
+                          className="text-neutral-400 hover:text-white ml-0.5 font-bold"
+                          title="Remove seat from target pool"
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
+                  <button
+                    type="button"
+                    onClick={handleSelectPrimeBox}
+                    className="text-xs px-3 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700 font-medium transition"
+                    data-testid="quick-select-prime-btn"
+                  >
+                    + Prime Box
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedSeats([]);
+                      setSelectedSeat(null);
+                    }}
+                    className="text-xs px-3 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-white transition"
+                  >
+                    Clear
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsAlertModalOpen(true)}
+                    className="text-xs px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold shadow-lg shadow-amber-500/20 transition flex items-center gap-1.5"
+                    data-testid="arm-watchlist-btn"
+                  >
+                    <span>🔔</span>
+                    <span>Arm Watchlist ({selectedSeats.length})</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* Selected Seat Alert Modal & Inspector */}
-            {selectedSeat && (
+            {(isAlertModalOpen || (selectedSeat && selectedSeats.length <= 1)) && (
               <SeatAlertModal
                 seat={selectedSeat}
+                seats={selectedSeats}
                 showtime={selectedShowtime}
                 movie={selectedMovie}
                 theatreName={selectedTheatre.name}
                 auditoriumName={activeAuditorium.name}
-                onClose={() => setSelectedSeat(null)}
+                onClose={() => {
+                  setIsAlertModalOpen(false);
+                  setSelectedSeat(null);
+                }}
+                onArmAlerts={(armed) => {
+                  setWatchedSeats(armed);
+                }}
               />
             )}
           </section>

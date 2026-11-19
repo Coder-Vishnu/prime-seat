@@ -62,7 +62,7 @@ function buildTysonsAuditorium11(): AuditoriumLayout {
         is_prime: isPrime,
         drop_probability: dropProb,
         grid_row: rowIdx,
-        grid_col: num - 1,
+        grid_col: 26 - num,
       });
     });
   });
@@ -115,7 +115,7 @@ function buildTysonsAuditorium9(): AuditoriumLayout {
         is_prime: isPrime,
         drop_probability: dropProb,
         grid_row: rowIdx,
-        grid_col: num - 1,
+        grid_col: 20 - num,
       });
     });
   });
@@ -286,7 +286,7 @@ function buildTysonsAuditorium3Imax(): AuditoriumLayout {
         is_prime: isPrime,
         drop_probability: dropProb,
         grid_row: rowIdx,
-        grid_col: colOffset,
+        grid_col: 27 - 1 - colOffset,
       });
     });
   });
@@ -392,7 +392,7 @@ function buildTysonsAuditorium2FourDX(): AuditoriumLayout {
         is_prime: isPrime,
         drop_probability: dropProb,
         grid_row: rowIdx,
-        grid_col: colOffset,
+        grid_col: 20 - 1 - colOffset,
       });
     });
   });
@@ -536,7 +536,7 @@ function buildTysonsAuditorium7RealD3D(): AuditoriumLayout {
         is_prime: isPrime,
         drop_probability: dropProb,
         grid_row: rowIdx,
-        grid_col: colOffset,
+        grid_col: 14 - 1 - colOffset,
       });
     });
   });
@@ -554,24 +554,43 @@ function buildTysonsAuditorium7RealD3D(): AuditoriumLayout {
 }
 
 /**
- * 165-seat standard Laser auditorium layout for AMC Tysons Corner 16 (Auditorium 6).
+ * Exact 104-seat Laser auditorium layout for AMC Tysons Corner 16 (Auditorium 6).
+ * Matches live AMC ticketing DOM geometry across Rows A through H:
+ * Row A has 12 seats (A12 on the left down to A1 on the right).
+ * Centered horizontally with high numbers on the left and 1 on the right.
  */
 function buildTysonsAuditorium6Laser(): AuditoriumLayout {
-  const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L'];
+  const rowConfigs: { row: string; maxNum: number }[] = [
+    { row: 'A', maxNum: 12 },
+    { row: 'B', maxNum: 14 },
+    { row: 'C', maxNum: 14 },
+    { row: 'D', maxNum: 11 },
+    { row: 'E', maxNum: 13 },
+    { row: 'F', maxNum: 14 },
+    { row: 'G', maxNum: 14 },
+    { row: 'H', maxNum: 12 },
+  ];
+
+  const totalCols = 14;
   const seats: SeatData[] = [];
-  rows.forEach((row, rowIdx) => {
-    for (let num = 1; num <= 15; num++) {
-      const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 5 && num <= 11;
+
+  rowConfigs.forEach(({ row, maxNum }, rowIdx) => {
+    const rowOffset = Math.floor((totalCols - maxNum) / 2);
+    // Numbering goes from greatest (left) to 1 (right)
+    for (let num = maxNum; num >= 1; num--) {
+      const colIdx = rowOffset + (maxNum - num);
+      const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 5 && num <= 10;
       const isOccupied = isPrime ? num % 3 !== 0 : (rowIdx * 3 + num) % 4 !== 0;
+
       seats.push({
         row,
         number: num,
         status: isOccupied ? 'OCCUPIED' : 'AVAILABLE',
-        seat_type: 'AMC Signature Recliner',
+        seat_type: row === 'D' && (num === 1 || num === 11) ? 'Wheelchair' : 'AMC Signature Recliner',
         is_prime: isPrime,
         drop_probability: isOccupied && isPrime ? 0.45 : undefined,
         grid_row: rowIdx,
-        grid_col: num - 1,
+        grid_col: colIdx,
       });
     }
   });
@@ -581,9 +600,9 @@ function buildTysonsAuditorium6Laser(): AuditoriumLayout {
     name: 'Auditorium 6 (Laser at AMC Tysons Corner 16)',
     auditoriumNumber: 6,
     screenFormat: 'LASER',
-    totalRows: 11,
-    totalCols: 15,
-    totalPhysicalCapacity: seats.length, // 165 seats
+    totalRows: 8,
+    totalCols: 14,
+    totalPhysicalCapacity: seats.length, // exactly 104 seats
     seats,
   };
 }
