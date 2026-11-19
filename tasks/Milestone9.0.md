@@ -3,11 +3,9 @@
 **Version:** 9.0.0.5  
 **Date Created:** 2026-11-18  
 **Date Started:** 2026-11-18  
-**Date Completed:** 2026-11-18  
-**Status:** Complete  
-**Based on:** User Specification: Narrow scope to AMC Tysons Corner 16 only, replace mock showtime seed data with live AMC scraping, verify and rebuild exact physical seatmap layouts for IMAX (Aud 3), Dolby Cinema (Aud 9 & 11), and 4DX (Aud 2), and fix seat selection / alert flow in the AuditoriumCanvas component.
-
-Narrows Prime Seat from a 10-theatre DMV-wide application to a laser-focused, single-venue tool: **AMC Tysons Corner 16 only**. Replaces all static mock showtime seed data with live AMC API-scraped data, rebuilds the four critical auditorium seatmaps (IMAX Aud 3, Dolby Aud 11, Dolby Aud 9, 4DX Aud 2) to exactly match AMC's physical layouts, and repairs the broken seat-selection and alert-setting UX in the seatmap canvas.
+**Date Completed:** -  
+**Status:** In Progress  
+**Based on:** User Specification: Narrow scope to AMC Tysons Corner 16 only, replace mock showtime seed data with live AMC scraping, rebuild exact physical seatmap layouts, fix seat selection / alert UX, and build Playwright stealth browser ingress to capture real patron seat states without simulated occupancy.
 
 ---
 
@@ -17,16 +15,19 @@ Narrows Prime Seat from a 10-theatre DMV-wide application to a laser-focused, si
 - **prime-seat (web):** `8.0.0.4`
 
 **Target Version (after milestone completion):**
-- **prime-seat (web):** `9.0.0.5`
+- **prime-seat (web):** `9.0.0.8`
 
 **Task-Level Versioning:**
 Each task completion increments the BUILD number (4th digit) by 1:
 - Task 0 complete: `9.0.0.0` (Milestone Initialization & Branch Setup)
 - Task 1 complete: `9.0.0.1` (Tysons-Only Scope: Theatre Narrowing & Data Cleanup)
 - Task 2 complete: `9.0.0.2` (Live AMC Showtime Scraping & API Route)
-- Task 3 complete: `9.0.0.3` (Accurate Physical Seatmap Data — IMAX, Dolby x2, 4DX)
+- Task 3 complete: `9.0.0.3` (Accurate Physical Seatmap Data — IMAX, Dolby x2, 4DX, RealD 3D)
 - Task 4 complete: `9.0.0.4` (AuditoriumCanvas Seat Selection & Alert UX Fix)
 - Task 5 complete: `9.0.0.5` (Vitest Verification Suite — 9.0 Integration Gates)
+- Task 6 complete: `9.0.0.6` (Playwright Stealth Ingress Engine & Cloudflare Clearance)
+- Task 7 complete: `9.0.0.7` (AMC Live Seat Response Sniffer & Harvester)
+- Task 8 complete: `9.0.0.8` (Ingestion Bridge to NumPy 2D Diff Engine & Push Validation)
 
 **Git Branch:**
 - **prime-seat:** `vishnu-111826-9.0-tysons-live-seatmaps`
@@ -35,16 +36,19 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 6 of 6 tasks complete (100%)
+**Completion:** 6 of 9 tasks complete (67%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
 | **Task 0: Milestone Initialization & Branch Setup** | SETUP | ✅ Complete | `9.0.0.0` | Feature Branch Ready |
 | **Task 1: Tysons-Only Scope — Theatre Narrowing & Data Cleanup** | HIGH | ✅ Complete | `9.0.0.1` | Vitest 24/24 Passed, Direct Calendar Entry |
 | **Task 2: Live AMC Showtime Scraping & API Route** | CRITICAL | ✅ Complete | `9.0.0.2` | Live Next.js API Route + Fallback Handler Verified |
-| **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ✅ Complete | `9.0.0.3` | Vitest 30/30 Passed, Exact Layouts for Aud 11, 9, 3 (IMAX), 2 (4DX) |
+| **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ✅ Complete | `9.0.0.3` | Vitest 30/30 Passed, Exact Layouts for Aud 11, 9, 3 (IMAX), 2 (4DX), 7 (RealD 3D) |
 | **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ✅ Complete | `9.0.0.4` | Modal Inspector, Alert Persistence, Glitch-Free SVG |
-| **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ✅ Complete | `9.0.0.5` | 37/37 Tests Passed Across 8 Suites |
+| **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ✅ Complete | `9.0.0.5` | 38/38 Tests Passed Across 8 Suites |
+| **Task 6: Playwright Stealth Ingress Engine & Cloudflare Clearance** | CRITICAL | ⏳ Pending | `9.0.0.6` | - |
+| **Task 7: AMC Live Seat Response Sniffer & Harvester** | CRITICAL | ⏳ Pending | `9.0.0.7` | - |
+| **Task 8: Ingestion Bridge to NumPy 2D Diff Engine & Push Validation** | HIGH | ⏳ Pending | `9.0.0.8` | - |
 
 **Status Legend:**
 - ⏳ Pending: not started
@@ -306,9 +310,60 @@ Extended `apps/web/tests/BookingPipeline.test.tsx` with all 4 integration verifi
 
 ### Verification Gates
 - [x] All 4 new gates pass (`npm test`)
-- [x] Total test suite passes: 37/37 tests across 8 test suites (100% passing)
+- [x] Total test suite passes: 38/38 tests across 8 test suites (100% passing)
 - [x] TypeScript compiles with 0 errors (`tsc --noEmit`)
 - [x] Production build succeeds (`npm run build`)
+
+---
+
+## Task 6: Playwright Stealth Ingress Engine & Cloudflare Clearance (CRITICAL)
+
+**Purpose:** Set up the stealth headless browser harness capable of navigating AMC Theatres without Cloudflare WAF bot blocks.  
+**Estimated Time:** 45 minutes  
+**Status:** ⏳ Pending  
+**Version:** `9.0.0.6`  
+**Dependencies:** Task 5
+
+### Description
+Configure Playwright with stealth evasions (evading `navigator.webdriver`, realistic user-agents, WebGL vendor masking, and viewport randomization) to load AMC Theatres showtime pages and consistently bypass Cloudflare Turnstile bot challenges.
+
+### Verification Gates
+- [ ] Headless browser successfully loads an AMC Tysons showtime page with HTTP 200 (no 403 / Cloudflare captcha block).
+
+---
+
+## Task 7: AMC Live Seat Response Sniffer & Harvester (CRITICAL)
+
+**Purpose:** Intercept internal AMC JSON responses to extract real patron seat reservation states.  
+**Estimated Time:** 60 minutes  
+**Status:** ⏳ Pending  
+**Version:** `9.0.0.7`  
+**Dependencies:** Task 6
+
+### Description
+Implement response event listeners (`page.on('response')`) that sniff internal XHR/Fetch calls containing seat maps and occupancy states. Extract real row, seat number, and status (`Available`, `Reserved`, `Sold`, `Held`) data into a standardized snapshot object.
+
+### Verification Gates
+- [ ] Captured seat payload contains genuine occupied and available seats for an active AMC Tysons Corner 16 screening.
+- [ ] Seat count matches the auditorium's physical capacity (e.g. 262 seats for Aud 11 Dolby).
+
+---
+
+## Task 8: Ingestion Bridge to NumPy 2D Diff Engine & Push Validation (HIGH)
+
+**Purpose:** Feed the live captured seat payload into Module 01 Pydantic schema and Module 02 NumPy 2D diff matrix and validate end-to-end alerts.  
+**Estimated Time:** 45 minutes  
+**Status:** ⏳ Pending  
+**Version:** `9.0.0.8`  
+**Dependencies:** Task 7
+
+### Description
+Connect the harvester output directly to `apps/api/src/sentinel/schema.py` and `diff_engine.py`. Map live AMC statuses (`Sold`, `Reserved` $\to 1$; `Available` $\to 0$). Ensure consecutive snapshots generate accurate vacancy diffs $D_t = M_{t-1} \odot (1 - M_t)$, and verify that when a prime seat vacates, an alert with movie title, row, seat number, and direct AMC checkout URL reaches the user's devices.
+
+### Verification Gates
+- [ ] Live seat payload passes fail-closed Pydantic v2 validation without validation errors.
+- [ ] Matrix diff correctly identifies live state transitions in $< 2\text{ms}$.
+- [ ] End-to-end push alert triggers to Apple Watch and iPhone via `ntfy.sh`.
 
 ---
 
