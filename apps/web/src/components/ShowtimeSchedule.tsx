@@ -39,6 +39,19 @@ function formatRuntime(minutes: number): string {
   return `${hrs}h ${mins}m`;
 }
 
+/** Robust theatre matcher supporting all canonical Tysons IDs and aliases */
+function isTysonsTheatreId(id?: string): boolean {
+  if (!id) return true;
+  return id === 'amc-tysons-16' || id === 'amc-tysons-corner-16';
+}
+
+function matchesTheatreId(stTheatreId?: string, targetTheatreId?: string): boolean {
+  if (!targetTheatreId || !stTheatreId) return true;
+  if (stTheatreId === targetTheatreId) return true;
+  if (isTysonsTheatreId(stTheatreId) && isTysonsTheatreId(targetTheatreId)) return true;
+  return false;
+}
+
 export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
   theatreId,
   date,
@@ -127,7 +140,7 @@ export const ShowtimeSchedule: React.FC<ShowtimeScheduleProps> = ({
   // Filter showtimes for the target theatre and date
   const filteredShowtimes = useMemo(() => {
     return activeShowtimes.filter((st) => {
-      if (theatreId && st.theatreId !== theatreId) return false;
+      if (!matchesTheatreId(st.theatreId, theatreId)) return false;
       if (date && st.date !== date) return false;
       if (selectedFormat !== 'ALL' && st.format !== selectedFormat) return false;
       return true;

@@ -2021,7 +2021,12 @@ export function getShowtimes(options?: ShowtimeFilterOptions): Showtime[] {
   }
 
   if (options.theatreId) {
-    list = list.filter((st) => st.theatreId === options.theatreId);
+    const isTysons = (id?: string) => !id || id === 'amc-tysons-16' || id === 'amc-tysons-corner-16';
+    list = list.filter((st) => {
+      if (st.theatreId === options.theatreId) return true;
+      if (isTysons(st.theatreId) && isTysons(options.theatreId)) return true;
+      return false;
+    });
   }
   if (options.format && options.format !== 'ALL') {
     list = list.filter((st) => st.format === options.format);

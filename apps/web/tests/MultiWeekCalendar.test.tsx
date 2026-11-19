@@ -94,4 +94,12 @@ describe('Milestone 10.0 Task 2: Multi-Week Calendar & Dynamic Showtimes', () =>
     const avengers = showtimes.filter((st) => st.movieId.includes('avengers'));
     expect(avengers.length).toBeGreaterThan(0);
   });
+
+  it('matches showtimes under both amc-tysons-16 and amc-tysons-corner-16 without dropping', () => {
+    const listCanonical = getShowtimes({ date: '2026-11-19', theatreId: 'amc-tysons-16' });
+    expect(listCanonical.length).toBeGreaterThanOrEqual(50);
+
+    const listSlug = getShowtimes({ date: '2026-11-19', theatreId: 'amc-tysons-corner-16' });
+    expect(listSlug.length).toBe(listCanonical.length);
+  });
 });

@@ -125,7 +125,10 @@ export async function GET(request: Request) {
       isLive: true,
       source: 'AMC_LIVE_API',
       movies: activeMovies.length > 0 ? activeMovies : (tysonsDb.movies as Movie[]),
-      showtimes: dbDateShowtimes,
+      showtimes: dbDateShowtimes.map((st) => ({
+        ...st,
+        theatreId: theatreId || TYSONS_THEATRE.id,
+      })),
       notice: `Verified live AMC Tysons schedule with ${dbDateShowtimes.length} showtimes across ${activeMovies.length} movies.`,
     });
   }

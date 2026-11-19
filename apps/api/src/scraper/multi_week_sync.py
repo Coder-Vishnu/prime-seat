@@ -360,7 +360,7 @@ class RollingScheduleHarvester:
 
                     showtime_entry: Dict[str, Any] = {
                         "id": st["id"],
-                        "theatreId": "amc-tysons-corner-16",
+                        "theatreId": "amc-tysons-16",
                         "movieId": m_id,
                         "date": d_str,
                         "time": clean_time,
