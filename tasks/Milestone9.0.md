@@ -36,7 +36,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 6 of 9 tasks complete (67%)
+**Completion:** 7 of 9 tasks complete (78%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 | **Task 3: Accurate Physical Seatmap Data — IMAX, Dolby ×2, 4DX** | CRITICAL | ✅ Complete | `9.0.0.3` | Vitest 30/30 Passed, Exact Layouts for Aud 11, 9, 3 (IMAX), 2 (4DX), 7 (RealD 3D) |
 | **Task 4: AuditoriumCanvas Seat Selection & Alert UX Fix** | CRITICAL | ✅ Complete | `9.0.0.4` | Modal Inspector, Alert Persistence, Glitch-Free SVG |
 | **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ✅ Complete | `9.0.0.5` | 38/38 Tests Passed Across 8 Suites |
-| **Task 6: Playwright Stealth Ingress Engine & Cloudflare Clearance** | CRITICAL | ⏳ Pending | `9.0.0.6` | - |
+| **Task 6: Playwright Stealth Ingress Engine & Cloudflare Clearance** | CRITICAL | ✅ Complete | `9.0.0.6` | Headless Chromium Stealth Session, WAF Detection & Live 200 OK |
 | **Task 7: AMC Live Seat Response Sniffer & Harvester** | CRITICAL | ⏳ Pending | `9.0.0.7` | - |
 | **Task 8: Ingestion Bridge to NumPy 2D Diff Engine & Push Validation** | HIGH | ⏳ Pending | `9.0.0.8` | - |
 
@@ -320,15 +320,24 @@ Extended `apps/web/tests/BookingPipeline.test.tsx` with all 4 integration verifi
 
 **Purpose:** Set up the stealth headless browser harness capable of navigating AMC Theatres without Cloudflare WAF bot blocks.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 35 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.6`  
 **Dependencies:** Task 5
 
 ### Description
-Configure Playwright with stealth evasions (evading `navigator.webdriver`, realistic user-agents, WebGL vendor masking, and viewport randomization) to load AMC Theatres showtime pages and consistently bypass Cloudflare Turnstile bot challenges.
+Configured Playwright Chromium with stealth evasions (`playwright-stealth`, neutralizing `navigator.webdriver`, desktop User-Agent, WebGL vendor masking, natural HTTP navigation headers, and viewport configuration) to load AMC Theatres showtime schedules and verify clearance. Implemented a fail-closed WAF detection boundary (`CloudflareChallengeDetected`) detecting managed Turnstile challenges without illicit solver exploits.
+
+### Affected Files
+- `apps/api/src/scraper/__init__.py` *(new)*
+- `apps/api/src/scraper/stealth_engine.py` *(new)*
+- `apps/api/tests/test_stealth_ingress.py` *(new)*
 
 ### Verification Gates
-- [ ] Headless browser successfully loads an AMC Tysons showtime page with HTTP 200 (no 403 / Cloudflare captcha block).
+- [x] Headless browser successfully loads an AMC Tysons showtime page with HTTP 200 (no 403 / Cloudflare captcha block).
+- [x] Neutralized `navigator.webdriver` verified via DOM execution (`False` / `None`).
+- [x] 100% test pass rate across `test_stealth_ingress.py` (5/5 tests passed).
+- [x] Full regression test suite passed: 35/35 tests in `apps/api/tests/`.
 
 ---
 
