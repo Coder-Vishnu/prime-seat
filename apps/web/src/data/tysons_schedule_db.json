@@ -465,8 +465,8 @@
         "auditoriumId": "tysons-aud-3-imax",
         "auditoriumName": "Auditorium 3 (IMAX with Laser)",
         "totalSeats": 350,
-        "availableSeats": 82,
-        "primeAvailableSeats": 42,
+        "availableSeats": 256,
+        "primeAvailableSeats": 6,
         "checkoutUrl": "https://www.amctheatres.com/showtimes/148208153"
       },
       {

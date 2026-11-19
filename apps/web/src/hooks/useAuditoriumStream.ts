@@ -131,7 +131,10 @@ export function useAuditoriumStream(showtimeId: string, auditoriumId?: string) {
               });
             }
           } else if (parsed.event === 'SNAPSHOT_INIT') {
-            setSeats(parsed.data.seats);
+            // Only update seats if snapshot contains non-empty seat array
+            if (Array.isArray(parsed.data?.seats) && parsed.data.seats.length > 0) {
+              setSeats(parsed.data.seats);
+            }
           }
         } catch (err: unknown) {
           console.error('Failed to parse SSE event:', err);

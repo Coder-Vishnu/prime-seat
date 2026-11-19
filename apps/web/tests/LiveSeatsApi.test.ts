@@ -48,25 +48,28 @@ describe('Milestone 10.0 Task 3: Live AMC Seat Hydration API', () => {
     expect(json.source).toBe('AMC_LIVE_SEATMAP');
     expect(json.isLive).toBe(true);
     expect(json.totalSeats).toBe(350);
-    expect(json.availableSeats).toBe(82);
-    expect(json.occupiedSeats).toBe(268);
+    expect(json.availableSeats).toBe(256);
+    expect(json.occupiedSeats).toBe(94);
 
-    // Verify Row A through D are completely occupied (front rows sold out)
+    // Verify Row A through D are completely available (all 79 front row seats are solid gold in AMC)
     const frontRows = ['A', 'B', 'C', 'D'];
     const frontSeats = json.seats.filter((s: any) => frontRows.includes(s.row));
-    expect(frontSeats.every((s: any) => s.status === 'OCCUPIED')).toBe(true);
+    expect(frontSeats.length).toBe(79);
+    expect(frontSeats.every((s: any) => s.status === 'AVAILABLE')).toBe(true);
 
-    // Verify Row E center available cluster (16 down to 11)
+    // Verify Row E center occupied block with open single E16
     const rowESeats = json.seats.filter((s: any) => s.row === 'E');
-    const rowEAvail = rowESeats.filter((s: any) => s.status === 'AVAILABLE').map((s: any) => s.number);
-    expect(rowEAvail.sort((a: number, b: number) => a - b)).toEqual([11, 12, 13, 14, 15, 16]);
+    const rowEOcc = rowESeats.filter((s: any) => s.status === 'OCCUPIED').map((s: any) => s.number);
+    expect(rowEOcc.sort((a: number, b: number) => a - b)).toEqual([10, 11, 12, 13, 14, 15, 17]);
+    const e16 = json.seats.find((s: any) => s.row === 'E' && s.number === 16);
+    expect(e16.status).toBe('AVAILABLE');
 
-    // Verify Row F seat 13 is OCCUPIED while seats 14 and 12 are AVAILABLE
-    const f13 = json.seats.find((s: any) => s.row === 'F' && s.number === 13);
-    const f14 = json.seats.find((s: any) => s.row === 'F' && s.number === 14);
-    const f12 = json.seats.find((s: any) => s.row === 'F' && s.number === 12);
-    expect(f13.status).toBe('OCCUPIED');
-    expect(f14.status).toBe('AVAILABLE');
-    expect(f12.status).toBe('AVAILABLE');
+    // Verify Row G isolated center open seat (G14 is available while surrounding G13 & G15 are occupied)
+    const g13 = json.seats.find((s: any) => s.row === 'G' && s.number === 13);
+    const g14 = json.seats.find((s: any) => s.row === 'G' && s.number === 14);
+    const g15 = json.seats.find((s: any) => s.row === 'G' && s.number === 15);
+    expect(g13.status).toBe('OCCUPIED');
+    expect(g14.status).toBe('AVAILABLE');
+    expect(g15.status).toBe('OCCUPIED');
   });
 });

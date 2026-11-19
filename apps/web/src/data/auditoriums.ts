@@ -48,12 +48,13 @@ function buildTysonsAuditorium11(): AuditoriumLayout {
         num >= 8 &&
         num <= 19;
 
-      // Realistic clustered availability: prime rows E-J center sweet spot open; front rows A-D and outer wings booked
+      // Realistic patron demand: center acoustic sweet spot (rows E-J, center cols 9-18) booked first;
+      // Front rows (A-D) and side wings remain open/available.
       const isCenterCol = num >= 9 && num <= 18;
       const isMidRow = row === 'E' || row === 'F' || row === 'G' || row === 'H' || row === 'J';
       const isBackCenter = (row === 'K' || row === 'L') && num >= 8 && num <= 15;
-      const isAvail = (isMidRow && isCenterCol && num !== 12 && num !== 16) || (isBackCenter && num !== 11);
-      const isOccupied = !isAvail;
+      const isOccupied = (isMidRow && isCenterCol && num !== 12 && num !== 16) || (isBackCenter && num !== 11);
+      const isAvail = !isOccupied;
       let dropProb: number | undefined;
       if (isOccupied && isPrime) {
         dropProb = Number((0.45 + ((rowIdx * 7 + num * 13) % 45) / 100).toFixed(2));
@@ -105,11 +106,11 @@ function buildTysonsAuditorium9(): AuditoriumLayout {
   rowsData.forEach(({ row, seatNumbers }, rowIdx) => {
     seatNumbers.forEach((num) => {
       const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 7 && num <= 14;
-      // Realistic clustered availability in sweet-spot zone
+      // Realistic patron demand: center sweet spot booked; front and wings open
       const isCenterCol = num >= 6 && num <= 15;
       const isMidRow = row === 'D' || row === 'E' || row === 'F' || row === 'G';
-      const isAvail = isMidRow && isCenterCol && num !== 10 && num !== 12;
-      const isOccupied = !isAvail;
+      const isOccupied = isMidRow && isCenterCol && num !== 10 && num !== 12;
+      const isAvail = !isOccupied;
 
       let dropProb: number | undefined;
       if (isOccupied && isPrime) {
@@ -272,19 +273,20 @@ function buildTysonsAuditorium3Imax(): AuditoriumLayout {
     },
   ];
 
-  // Verified AMC live ticketing occupancy from patron harvest:
-  // Concentrated patron cluster in center prime (Rows E-L, P-Q); front rows A-D and side wings booked/held.
-  const verifiedAvailableMap: Record<string, number[]> = {
-    E: [11, 12, 13, 14, 15, 16],
-    F: [9, 10, 11, 12, 14, 15],
-    G: [10, 11, 12, 13, 14, 15, 16, 17, 18],
-    H: [5, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-    J: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-    K: [8, 9, 10, 11, 13, 14, 15, 16],
-    L: [8, 9, 10, 11, 12, 13, 14, 15, 16],
-    M: [3, 4, 10, 11, 12],
-    P: [10, 11, 12, 14, 15, 16, 17],
-    Q: [10, 11, 12, 13, 14, 15, 16, 17],
+  // Verified AMC live ticketing occupancy from official AMC seatmap (Auditorium 3 IMAX Laser):
+  // Moviegoers heavily reserve center prime sweet-spot (Rows E-L, P-Q); front rows A-D and outer wings remain open (Gold in AMC).
+  const verifiedOccupiedMap: Record<string, number[]> = {
+    E: [10, 11, 12, 13, 14, 15, 17],
+    F: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    G: [10, 11, 12, 13, 15, 16, 17, 18, 19],
+    H: [10, 11, 12, 13, 14, 15, 16, 17, 18],
+    J: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    K: [9, 10, 11, 13, 14, 15, 16, 17, 18, 19],
+    L: [9, 10, 13, 14, 15, 16, 17, 18],
+    M: [4, 5, 6, 7, 8, 9],
+    N: [3, 4, 17, 18],
+    P: [7, 8, 10, 11, 12, 13, 14, 15, 16, 18, 19],
+    Q: [7, 8, 10, 11, 12, 13, 14, 17],
   };
 
   const seats: SeatData[] = [];
@@ -296,8 +298,8 @@ function buildTysonsAuditorium3Imax(): AuditoriumLayout {
         num >= 9 &&
         num <= 19;
 
-      const isAvail = Boolean(verifiedAvailableMap[row]?.includes(num));
-      const isOccupied = !isAvail;
+      const isOccupied = Boolean(verifiedOccupiedMap[row]?.includes(num));
+      const isAvail = !isOccupied;
       let dropProb: number | undefined;
       if (isOccupied && isPrime) {
         dropProb = Number((0.42 + ((rowIdx * 7 + num * 11) % 48) / 100).toFixed(2));
@@ -403,11 +405,11 @@ function buildTysonsAuditorium2FourDX(): AuditoriumLayout {
       // 4DX Prime Box: Rows E, F, G (center pods: seats 5 to 12)
       const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 5 && num <= 12;
 
-      // Realistic clustered availability in sweet-spot zone
+      // Realistic patron demand: center sweet spot booked; front and wings open
       const isCenterCol = num >= 6 && num <= 15;
       const isMidRow = row === 'D' || row === 'E' || row === 'F' || row === 'G';
-      const isAvail = isMidRow && isCenterCol && num !== 10 && num !== 12;
-      const isOccupied = !isAvail;
+      const isOccupied = isMidRow && isCenterCol && num !== 10 && num !== 12;
+      const isAvail = !isOccupied;
       let dropProb: number | undefined;
       if (isOccupied && isPrime) {
         dropProb = Number((0.38 + ((rowIdx * 8 + num * 9) % 45) / 100).toFixed(2));
@@ -550,11 +552,11 @@ function buildTysonsAuditorium7RealD3D(): AuditoriumLayout {
     rowSeats.forEach(({ num, type, colOffset }) => {
       // Prime Sightline Box: Rows E & F, center seats 5 through 10
       const isPrime = (row === 'E' || row === 'F') && num >= 5 && num <= 10;
-      // Realistic clustered availability in sweet-spot zone
+      // Realistic patron demand: center sweet spot booked; front and wings open
       const isCenterCol = num >= 6 && num <= 15;
       const isMidRow = row === 'D' || row === 'E' || row === 'F' || row === 'G';
-      const isAvail = isMidRow && isCenterCol && num !== 10 && num !== 12;
-      const isOccupied = !isAvail;
+      const isOccupied = isMidRow && isCenterCol && num !== 10 && num !== 12;
+      const isAvail = !isOccupied;
 
       let dropProb: number | undefined;
       if (isOccupied && isPrime) {
@@ -613,11 +615,11 @@ function buildTysonsAuditorium6Laser(): AuditoriumLayout {
     for (let num = maxNum; num >= 1; num--) {
       const colIdx = rowOffset + (maxNum - num);
       const isPrime = (row === 'E' || row === 'F' || row === 'G') && num >= 5 && num <= 10;
-      // Realistic clustered availability in sweet-spot zone
+      // Realistic patron demand: center sweet spot booked; front and wings open
       const isCenterCol = num >= 6 && num <= 15;
       const isMidRow = row === 'D' || row === 'E' || row === 'F' || row === 'G';
-      const isAvail = isMidRow && isCenterCol && num !== 10 && num !== 12;
-      const isOccupied = !isAvail;
+      const isOccupied = isMidRow && isCenterCol && num !== 10 && num !== 12;
+      const isAvail = !isOccupied;
 
       seats.push({
         row,

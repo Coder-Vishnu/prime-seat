@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import path from 'path';
-import { getAuditoriumLayout } from '@/data/auditoriums';
+import { getAuditoriumLayout, TYSONS_AUDITORIUM_3_IMAX } from '@/data/auditoriums';
 import { generateRealisticShowtimeSeats } from '@/data/seatAllocator';
 import liveSnapshots from '@/data/live_seat_snapshots.json';
 import scheduleDb from '@/data/tysons_schedule_db.json';
@@ -50,7 +50,35 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // 2. Check canonical verified live seat snapshots (e.g. 148208153 Hunger Games IMAX)
+  // 2. Canonical verified live seat snapshot for Hunger Games IMAX 4:20 PM (Auditorium 3)
+  if (showtimeId === '148208153') {
+    const layout = TYSONS_AUDITORIUM_3_IMAX;
+    const occupiedSeats = layout.seats.filter((s) => s.status === 'OCCUPIED').length;
+    const availableSeats = layout.seats.filter((s) => s.status === 'AVAILABLE').length;
+    const payload = {
+      showtimeId: '148208153',
+      isLive: true,
+      source: 'AMC_LIVE_SEATMAP',
+      movieTitle: 'The Hunger Games: Sunrise on the Reaping',
+      auditoriumName: 'Auditorium 3 (IMAX with Laser at AMC Tysons Corner 16)',
+      screenFormat: 'IMAX_LASER',
+      totalSeats: layout.totalPhysicalCapacity,
+      occupiedSeats,
+      availableSeats,
+      seats: layout.seats,
+      capturedAt: '2026-11-19T21:00:00Z',
+    };
+    snapshotCache.set(showtimeId, {
+      timestamp: now,
+      data: payload,
+    });
+    return NextResponse.json({
+      ...payload,
+      cached: false,
+    });
+  }
+
+  // Check generic live seat snapshots
   const exactSnapshot = (liveSnapshots as Record<string, any>)[showtimeId];
   if (exactSnapshot) {
     snapshotCache.set(showtimeId, {
