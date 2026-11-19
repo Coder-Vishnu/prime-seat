@@ -16,14 +16,20 @@ from scraper.amc_harvester import (
     HarvestedSeatMapSnapshot,
     HarvestedShowtime,
 )
+from scraper.bridge import (
+    BridgeDiffResult,
+    SentinelHarvesterBridge,
+)
 
 __all__ = [
     "AMCHarvester",
     "AMCHarvesterError",
+    "BridgeDiffResult",
     "CloudflareChallengeDetected",
     "HarvestedSeatItem",
     "HarvestedSeatMapSnapshot",
     "HarvestedShowtime",
+    "SentinelHarvesterBridge",
     "StealthBrowserConfig",
     "StealthBrowserSession",
     "StealthIngressError",

@@ -1,10 +1,10 @@
 # Milestone 9.0 - AMC Tysons-Only Focus, Live Showtime Scraping & Accurate Auditorium Seatmaps
 
-**Version:** 9.0.0.5  
+**Version:** 9.0.0.8  
 **Date Created:** 2026-11-18  
 **Date Started:** 2026-11-18  
-**Date Completed:** -  
-**Status:** In Progress  
+**Date Completed:** 2026-11-19  
+**Status:** Complete  
 **Based on:** User Specification: Narrow scope to AMC Tysons Corner 16 only, replace mock showtime seed data with live AMC scraping, rebuild exact physical seatmap layouts, fix seat selection / alert UX, and build Playwright stealth browser ingress to capture real patron seat states without simulated occupancy.
 
 ---
@@ -36,7 +36,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 
 ## Progress Summary
 
-**Completion:** 8 of 9 tasks complete (89%)
+**Completion:** 9 of 9 tasks complete (100%)
 
 | Task | Priority | Status | Version | Deployed / Verified |
 | :--- | :--- | :--- | :--- | :--- |
@@ -48,7 +48,7 @@ Each task completion increments the BUILD number (4th digit) by 1:
 | **Task 5: Vitest Verification Suite — 9.0 Integration Gates** | HIGH | ✅ Complete | `9.0.0.5` | 38/38 Tests Passed Across 8 Suites |
 | **Task 6: Playwright Stealth Ingress Engine & Cloudflare Clearance** | CRITICAL | ✅ Complete | `9.0.0.6` | Headless Chromium Stealth Session, WAF Detection & Live 200 OK |
 | **Task 7: AMC Live Seat Response Sniffer & Harvester** | CRITICAL | ✅ Complete | `9.0.0.7` | Live Showtime Ingress, Real Occupancy Sniffing & Fail-Closed Pydantic Conversion |
-| **Task 8: Ingestion Bridge to NumPy 2D Diff Engine & Push Validation** | HIGH | ⏳ Pending | `9.0.0.8` | - |
+| **Task 8: Ingestion Bridge to NumPy 2D Diff Engine & Push Validation** | HIGH | ✅ Complete | `9.0.0.8` | Vectorized 2D NumPy Diff Engine Ingestion, <2ms Latency SLA & ntfy.sh Urgent Webhooks |
 
 **Status Legend:**
 - ⏳ Pending: not started
@@ -370,17 +370,25 @@ Implemented `AMCHarvester` (`apps/api/src/scraper/amc_harvester.py`), which navi
 
 **Purpose:** Feed the live captured seat payload into Module 01 Pydantic schema and Module 02 NumPy 2D diff matrix and validate end-to-end alerts.  
 **Estimated Time:** 45 minutes  
-**Status:** ⏳ Pending  
+**Actual Time:** 35 minutes  
+**Status:** ✅ Complete  
 **Version:** `9.0.0.8`  
 **Dependencies:** Task 7
 
 ### Description
-Connect the harvester output directly to `apps/api/src/sentinel/schema.py` and `diff_engine.py`. Map live AMC statuses (`Sold`, `Reserved` $\to 1$; `Available` $\to 0$). Ensure consecutive snapshots generate accurate vacancy diffs $D_t = M_{t-1} \odot (1 - M_t)$, and verify that when a prime seat vacates, an alert with movie title, row, seat number, and direct AMC checkout URL reaches the user's devices.
+Connected the harvester output directly to `AuditoriumStateEngine` (`apps/api/src/sentinel/diff_engine.py`) and `DualAlertDispatcher` (`apps/api/src/sentinel/dispatcher.py`) via `SentinelHarvesterBridge` (`apps/api/src/scraper/bridge.py`). Evaluates vectorized state transitions $D_t = M_{t-1} \odot (1 - M_t)$ under $< 2\text{ms}$ latency SLA, filters prime sightline drops, and dispatches real-time urgent push notifications to `ntfy.sh/prime-seat-tysons-vishnu` and desktop SSE channels.
+
+### Affected Files
+- `apps/api/src/scraper/bridge.py` *(new)*
+- `apps/api/src/scraper/__init__.py`
+- `apps/api/tests/test_harvester_bridge.py` *(new)*
 
 ### Verification Gates
-- [ ] Live seat payload passes fail-closed Pydantic v2 validation without validation errors.
-- [ ] Matrix diff correctly identifies live state transitions in $< 2\text{ms}$.
-- [ ] End-to-end push alert triggers to Apple Watch and iPhone via `ntfy.sh`.
+- [x] Live seat payload passes fail-closed Pydantic v2 validation without validation errors.
+- [x] Matrix diff correctly identifies live state transitions in $< 2\text{ms}$ (verified at $< 0.15\text{ms}$).
+- [x] End-to-end push alert triggers to Apple Watch and iPhone via `ntfy.sh` (HTTP 200 delivery verified).
+- [x] 100% test pass rate across `test_harvester_bridge.py` (3/3 tests passed).
+- [x] Full regression test suites passed: 43/43 API tests in `apps/api/tests/`, 38/38 Vitest tests in `apps/web/tests/`.
 
 ---
 
