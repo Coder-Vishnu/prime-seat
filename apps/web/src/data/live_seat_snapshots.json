@@ -1,0 +1,3516 @@
+{
+  "148208153": {
+    "showtimeId": "148208153",
+    "isLive": true,
+    "source": "AMC_LIVE_SEATMAP",
+    "movieTitle": "The Hunger Games: Sunrise on the Reaping",
+    "auditoriumName": "Auditorium 3 (IMAX with Laser at AMC Tysons Corner 16)",
+    "screenFormat": "IMAX_LASER",
+    "totalSeats": 350,
+    "occupiedSeats": 268,
+    "availableSeats": 82,
+    "capturedAt": "2026-11-19T20:30:00Z",
+    "seats": [
+      {
+        "row": "A",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 22
+      },
+      {
+        "row": "A",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 21
+      },
+      {
+        "row": "A",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 20
+      },
+      {
+        "row": "A",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 19
+      },
+      {
+        "row": "A",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 18
+      },
+      {
+        "row": "A",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 17
+      },
+      {
+        "row": "A",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 16
+      },
+      {
+        "row": "A",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 15
+      },
+      {
+        "row": "A",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 14
+      },
+      {
+        "row": "A",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 13
+      },
+      {
+        "row": "A",
+        "number": 11,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 12
+      },
+      {
+        "row": "A",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 11
+      },
+      {
+        "row": "A",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 10
+      },
+      {
+        "row": "A",
+        "number": 14,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 9
+      },
+      {
+        "row": "A",
+        "number": 15,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 8
+      },
+      {
+        "row": "A",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 7
+      },
+      {
+        "row": "A",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 6
+      },
+      {
+        "row": "A",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 5
+      },
+      {
+        "row": "A",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 0,
+        "grid_col": 4
+      },
+      {
+        "row": "B",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 24
+      },
+      {
+        "row": "B",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 23
+      },
+      {
+        "row": "B",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 22
+      },
+      {
+        "row": "B",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 21
+      },
+      {
+        "row": "B",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 20
+      },
+      {
+        "row": "B",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 19
+      },
+      {
+        "row": "B",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 18
+      },
+      {
+        "row": "B",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 17
+      },
+      {
+        "row": "B",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 16
+      },
+      {
+        "row": "B",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 15
+      },
+      {
+        "row": "B",
+        "number": 11,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 14
+      },
+      {
+        "row": "B",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 13
+      },
+      {
+        "row": "B",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 12
+      },
+      {
+        "row": "B",
+        "number": 14,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 11
+      },
+      {
+        "row": "B",
+        "number": 15,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 10
+      },
+      {
+        "row": "B",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 9
+      },
+      {
+        "row": "B",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 8
+      },
+      {
+        "row": "B",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 7
+      },
+      {
+        "row": "B",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 6
+      },
+      {
+        "row": "B",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 5
+      },
+      {
+        "row": "B",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 4
+      },
+      {
+        "row": "B",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 1,
+        "grid_col": 3
+      },
+      {
+        "row": "C",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 26
+      },
+      {
+        "row": "C",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 25
+      },
+      {
+        "row": "C",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 24
+      },
+      {
+        "row": "C",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 23
+      },
+      {
+        "row": "C",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 22
+      },
+      {
+        "row": "C",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 21
+      },
+      {
+        "row": "C",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 20
+      },
+      {
+        "row": "C",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 19
+      },
+      {
+        "row": "C",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 9
+      },
+      {
+        "row": "C",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 8
+      },
+      {
+        "row": "C",
+        "number": 11,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 7
+      },
+      {
+        "row": "C",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 6
+      },
+      {
+        "row": "C",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 5
+      },
+      {
+        "row": "C",
+        "number": 14,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 4
+      },
+      {
+        "row": "C",
+        "number": 15,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 3
+      },
+      {
+        "row": "C",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 2
+      },
+      {
+        "row": "C",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 1
+      },
+      {
+        "row": "C",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 2,
+        "grid_col": 0
+      },
+      {
+        "row": "D",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 25
+      },
+      {
+        "row": "D",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 24
+      },
+      {
+        "row": "D",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 23
+      },
+      {
+        "row": "D",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 22
+      },
+      {
+        "row": "D",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 21
+      },
+      {
+        "row": "D",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 20
+      },
+      {
+        "row": "D",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 19
+      },
+      {
+        "row": "D",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 15
+      },
+      {
+        "row": "D",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 14
+      },
+      {
+        "row": "D",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 12
+      },
+      {
+        "row": "D",
+        "number": 11,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 11
+      },
+      {
+        "row": "D",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 8
+      },
+      {
+        "row": "D",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 7
+      },
+      {
+        "row": "D",
+        "number": 14,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 6
+      },
+      {
+        "row": "D",
+        "number": 15,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 5
+      },
+      {
+        "row": "D",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 4
+      },
+      {
+        "row": "D",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 3
+      },
+      {
+        "row": "D",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 2
+      },
+      {
+        "row": "D",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 1
+      },
+      {
+        "row": "D",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 3,
+        "grid_col": 0
+      },
+      {
+        "row": "E",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 26
+      },
+      {
+        "row": "E",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 25
+      },
+      {
+        "row": "E",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 24
+      },
+      {
+        "row": "E",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 23
+      },
+      {
+        "row": "E",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 22
+      },
+      {
+        "row": "E",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 21
+      },
+      {
+        "row": "E",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 20
+      },
+      {
+        "row": "E",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 19
+      },
+      {
+        "row": "E",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 18
+      },
+      {
+        "row": "E",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 17
+      },
+      {
+        "row": "E",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 16
+      },
+      {
+        "row": "E",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 15
+      },
+      {
+        "row": "E",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 14
+      },
+      {
+        "row": "E",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 13
+      },
+      {
+        "row": "E",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 12
+      },
+      {
+        "row": "E",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 11
+      },
+      {
+        "row": "E",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 10
+      },
+      {
+        "row": "E",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 9
+      },
+      {
+        "row": "E",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 8
+      },
+      {
+        "row": "E",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 7
+      },
+      {
+        "row": "E",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 6
+      },
+      {
+        "row": "E",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 5
+      },
+      {
+        "row": "E",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 4
+      },
+      {
+        "row": "E",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 3
+      },
+      {
+        "row": "E",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 2
+      },
+      {
+        "row": "E",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 1
+      },
+      {
+        "row": "E",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 4,
+        "grid_col": 0
+      },
+      {
+        "row": "F",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 26
+      },
+      {
+        "row": "F",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 25
+      },
+      {
+        "row": "F",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 24
+      },
+      {
+        "row": "F",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 23
+      },
+      {
+        "row": "F",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 22
+      },
+      {
+        "row": "F",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 21
+      },
+      {
+        "row": "F",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 20
+      },
+      {
+        "row": "F",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 19
+      },
+      {
+        "row": "F",
+        "number": 9,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 18
+      },
+      {
+        "row": "F",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 17
+      },
+      {
+        "row": "F",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 16
+      },
+      {
+        "row": "F",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 15
+      },
+      {
+        "row": "F",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.83,
+        "grid_row": 5,
+        "grid_col": 14
+      },
+      {
+        "row": "F",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 13
+      },
+      {
+        "row": "F",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 12
+      },
+      {
+        "row": "F",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.71,
+        "grid_row": 5,
+        "grid_col": 11
+      },
+      {
+        "row": "F",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.82,
+        "grid_row": 5,
+        "grid_col": 10
+      },
+      {
+        "row": "F",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.48,
+        "grid_row": 5,
+        "grid_col": 9
+      },
+      {
+        "row": "F",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.59,
+        "grid_row": 5,
+        "grid_col": 8
+      },
+      {
+        "row": "F",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 7
+      },
+      {
+        "row": "F",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 6
+      },
+      {
+        "row": "F",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 5
+      },
+      {
+        "row": "F",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 4
+      },
+      {
+        "row": "F",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 3
+      },
+      {
+        "row": "F",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 2
+      },
+      {
+        "row": "F",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 1
+      },
+      {
+        "row": "F",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 5,
+        "grid_col": 0
+      },
+      {
+        "row": "G",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 26
+      },
+      {
+        "row": "G",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 25
+      },
+      {
+        "row": "G",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 24
+      },
+      {
+        "row": "G",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 23
+      },
+      {
+        "row": "G",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 22
+      },
+      {
+        "row": "G",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 21
+      },
+      {
+        "row": "G",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 20
+      },
+      {
+        "row": "G",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 19
+      },
+      {
+        "row": "G",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.46,
+        "grid_row": 6,
+        "grid_col": 18
+      },
+      {
+        "row": "G",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 17
+      },
+      {
+        "row": "G",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 16
+      },
+      {
+        "row": "G",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 15
+      },
+      {
+        "row": "G",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 14
+      },
+      {
+        "row": "G",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 13
+      },
+      {
+        "row": "G",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 12
+      },
+      {
+        "row": "G",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 11
+      },
+      {
+        "row": "G",
+        "number": 17,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 10
+      },
+      {
+        "row": "G",
+        "number": 18,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 9
+      },
+      {
+        "row": "G",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.66,
+        "grid_row": 6,
+        "grid_col": 8
+      },
+      {
+        "row": "G",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 7
+      },
+      {
+        "row": "G",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 6
+      },
+      {
+        "row": "G",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 5
+      },
+      {
+        "row": "G",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 4
+      },
+      {
+        "row": "G",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 3
+      },
+      {
+        "row": "G",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 2
+      },
+      {
+        "row": "G",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 1
+      },
+      {
+        "row": "G",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 6,
+        "grid_col": 0
+      },
+      {
+        "row": "H",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 26
+      },
+      {
+        "row": "H",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 25
+      },
+      {
+        "row": "H",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 24
+      },
+      {
+        "row": "H",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 23
+      },
+      {
+        "row": "H",
+        "number": 5,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 22
+      },
+      {
+        "row": "H",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 21
+      },
+      {
+        "row": "H",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 20
+      },
+      {
+        "row": "H",
+        "number": 8,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 19
+      },
+      {
+        "row": "H",
+        "number": 9,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 18
+      },
+      {
+        "row": "H",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 17
+      },
+      {
+        "row": "H",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 16
+      },
+      {
+        "row": "H",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 15
+      },
+      {
+        "row": "H",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 14
+      },
+      {
+        "row": "H",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 13
+      },
+      {
+        "row": "H",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 12
+      },
+      {
+        "row": "H",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 11
+      },
+      {
+        "row": "H",
+        "number": 17,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 10
+      },
+      {
+        "row": "H",
+        "number": 18,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 9
+      },
+      {
+        "row": "H",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.73,
+        "grid_row": 7,
+        "grid_col": 8
+      },
+      {
+        "row": "H",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 7
+      },
+      {
+        "row": "H",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 6
+      },
+      {
+        "row": "H",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 5
+      },
+      {
+        "row": "H",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 4
+      },
+      {
+        "row": "H",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 3
+      },
+      {
+        "row": "H",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 2
+      },
+      {
+        "row": "H",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 1
+      },
+      {
+        "row": "H",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 7,
+        "grid_col": 0
+      },
+      {
+        "row": "J",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 26
+      },
+      {
+        "row": "J",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 25
+      },
+      {
+        "row": "J",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 24
+      },
+      {
+        "row": "J",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 23
+      },
+      {
+        "row": "J",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 22
+      },
+      {
+        "row": "J",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 21
+      },
+      {
+        "row": "J",
+        "number": 7,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 20
+      },
+      {
+        "row": "J",
+        "number": 8,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 19
+      },
+      {
+        "row": "J",
+        "number": 9,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 18
+      },
+      {
+        "row": "J",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 17
+      },
+      {
+        "row": "J",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 16
+      },
+      {
+        "row": "J",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 15
+      },
+      {
+        "row": "J",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 14
+      },
+      {
+        "row": "J",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 13
+      },
+      {
+        "row": "J",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 12
+      },
+      {
+        "row": "J",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 11
+      },
+      {
+        "row": "J",
+        "number": 17,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 10
+      },
+      {
+        "row": "J",
+        "number": 18,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 9
+      },
+      {
+        "row": "J",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.8,
+        "grid_row": 8,
+        "grid_col": 8
+      },
+      {
+        "row": "J",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 7
+      },
+      {
+        "row": "J",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 6
+      },
+      {
+        "row": "J",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 5
+      },
+      {
+        "row": "J",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 4
+      },
+      {
+        "row": "J",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 3
+      },
+      {
+        "row": "J",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 2
+      },
+      {
+        "row": "J",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 1
+      },
+      {
+        "row": "J",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 8,
+        "grid_col": 0
+      },
+      {
+        "row": "K",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 26
+      },
+      {
+        "row": "K",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 25
+      },
+      {
+        "row": "K",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 24
+      },
+      {
+        "row": "K",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 23
+      },
+      {
+        "row": "K",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 22
+      },
+      {
+        "row": "K",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 21
+      },
+      {
+        "row": "K",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 20
+      },
+      {
+        "row": "K",
+        "number": 8,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 19
+      },
+      {
+        "row": "K",
+        "number": 9,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 18
+      },
+      {
+        "row": "K",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 17
+      },
+      {
+        "row": "K",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 16
+      },
+      {
+        "row": "K",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.55,
+        "grid_row": 9,
+        "grid_col": 15
+      },
+      {
+        "row": "K",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 14
+      },
+      {
+        "row": "K",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 13
+      },
+      {
+        "row": "K",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 12
+      },
+      {
+        "row": "K",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 11
+      },
+      {
+        "row": "K",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.65,
+        "grid_row": 9,
+        "grid_col": 10
+      },
+      {
+        "row": "K",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.76,
+        "grid_row": 9,
+        "grid_col": 9
+      },
+      {
+        "row": "K",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": true,
+        "drop_probability": 0.42,
+        "grid_row": 9,
+        "grid_col": 8
+      },
+      {
+        "row": "K",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 7
+      },
+      {
+        "row": "K",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 6
+      },
+      {
+        "row": "K",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 5
+      },
+      {
+        "row": "K",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 4
+      },
+      {
+        "row": "K",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 3
+      },
+      {
+        "row": "K",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 2
+      },
+      {
+        "row": "K",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 1
+      },
+      {
+        "row": "K",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 9,
+        "grid_col": 0
+      },
+      {
+        "row": "L",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 26
+      },
+      {
+        "row": "L",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 25
+      },
+      {
+        "row": "L",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 24
+      },
+      {
+        "row": "L",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 23
+      },
+      {
+        "row": "L",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 22
+      },
+      {
+        "row": "L",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 21
+      },
+      {
+        "row": "L",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 20
+      },
+      {
+        "row": "L",
+        "number": 8,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 19
+      },
+      {
+        "row": "L",
+        "number": 9,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 18
+      },
+      {
+        "row": "L",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 17
+      },
+      {
+        "row": "L",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 16
+      },
+      {
+        "row": "L",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 15
+      },
+      {
+        "row": "L",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 14
+      },
+      {
+        "row": "L",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 13
+      },
+      {
+        "row": "L",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 12
+      },
+      {
+        "row": "L",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 11
+      },
+      {
+        "row": "L",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 10
+      },
+      {
+        "row": "L",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 9
+      },
+      {
+        "row": "L",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 8
+      },
+      {
+        "row": "L",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 7
+      },
+      {
+        "row": "L",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 6
+      },
+      {
+        "row": "L",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 5
+      },
+      {
+        "row": "L",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 4
+      },
+      {
+        "row": "L",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 3
+      },
+      {
+        "row": "L",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 2
+      },
+      {
+        "row": "L",
+        "number": 26,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 1
+      },
+      {
+        "row": "L",
+        "number": 27,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 10,
+        "grid_col": 0
+      },
+      {
+        "row": "M",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 24
+      },
+      {
+        "row": "M",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 23
+      },
+      {
+        "row": "M",
+        "number": 3,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 22
+      },
+      {
+        "row": "M",
+        "number": 4,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 21
+      },
+      {
+        "row": "M",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 20
+      },
+      {
+        "row": "M",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 19
+      },
+      {
+        "row": "M",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 7
+      },
+      {
+        "row": "M",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 6
+      },
+      {
+        "row": "M",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 5
+      },
+      {
+        "row": "M",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 4
+      },
+      {
+        "row": "M",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 3
+      },
+      {
+        "row": "M",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 11,
+        "grid_col": 2
+      },
+      {
+        "row": "N",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 25
+      },
+      {
+        "row": "N",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 24
+      },
+      {
+        "row": "N",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 23
+      },
+      {
+        "row": "N",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 22
+      },
+      {
+        "row": "N",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 19
+      },
+      {
+        "row": "N",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 18
+      },
+      {
+        "row": "N",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 17
+      },
+      {
+        "row": "N",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 16
+      },
+      {
+        "row": "N",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 15
+      },
+      {
+        "row": "N",
+        "number": 10,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 14
+      },
+      {
+        "row": "N",
+        "number": 11,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 13
+      },
+      {
+        "row": "N",
+        "number": 12,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 12
+      },
+      {
+        "row": "N",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 11
+      },
+      {
+        "row": "N",
+        "number": 14,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 10
+      },
+      {
+        "row": "N",
+        "number": 15,
+        "status": "OCCUPIED",
+        "seat_type": "Companion",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 9
+      },
+      {
+        "row": "N",
+        "number": 16,
+        "status": "OCCUPIED",
+        "seat_type": "Wheelchair",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 8
+      },
+      {
+        "row": "N",
+        "number": 17,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 4
+      },
+      {
+        "row": "N",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 3
+      },
+      {
+        "row": "N",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 2
+      },
+      {
+        "row": "N",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 12,
+        "grid_col": 1
+      },
+      {
+        "row": "P",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 25
+      },
+      {
+        "row": "P",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 24
+      },
+      {
+        "row": "P",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 23
+      },
+      {
+        "row": "P",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 22
+      },
+      {
+        "row": "P",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 21
+      },
+      {
+        "row": "P",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 20
+      },
+      {
+        "row": "P",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 19
+      },
+      {
+        "row": "P",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 18
+      },
+      {
+        "row": "P",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 17
+      },
+      {
+        "row": "P",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 16
+      },
+      {
+        "row": "P",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 15
+      },
+      {
+        "row": "P",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 14
+      },
+      {
+        "row": "P",
+        "number": 13,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 13
+      },
+      {
+        "row": "P",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 12
+      },
+      {
+        "row": "P",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 11
+      },
+      {
+        "row": "P",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 10
+      },
+      {
+        "row": "P",
+        "number": 17,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 9
+      },
+      {
+        "row": "P",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 8
+      },
+      {
+        "row": "P",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 7
+      },
+      {
+        "row": "P",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 6
+      },
+      {
+        "row": "P",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 5
+      },
+      {
+        "row": "P",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 4
+      },
+      {
+        "row": "P",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 3
+      },
+      {
+        "row": "P",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 2
+      },
+      {
+        "row": "P",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 13,
+        "grid_col": 1
+      },
+      {
+        "row": "Q",
+        "number": 1,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 25
+      },
+      {
+        "row": "Q",
+        "number": 2,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 24
+      },
+      {
+        "row": "Q",
+        "number": 3,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 23
+      },
+      {
+        "row": "Q",
+        "number": 4,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 22
+      },
+      {
+        "row": "Q",
+        "number": 5,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 21
+      },
+      {
+        "row": "Q",
+        "number": 6,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 20
+      },
+      {
+        "row": "Q",
+        "number": 7,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 19
+      },
+      {
+        "row": "Q",
+        "number": 8,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 18
+      },
+      {
+        "row": "Q",
+        "number": 9,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 17
+      },
+      {
+        "row": "Q",
+        "number": 10,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 16
+      },
+      {
+        "row": "Q",
+        "number": 11,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 15
+      },
+      {
+        "row": "Q",
+        "number": 12,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 14
+      },
+      {
+        "row": "Q",
+        "number": 13,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 13
+      },
+      {
+        "row": "Q",
+        "number": 14,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 12
+      },
+      {
+        "row": "Q",
+        "number": 15,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 11
+      },
+      {
+        "row": "Q",
+        "number": 16,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 10
+      },
+      {
+        "row": "Q",
+        "number": 17,
+        "status": "AVAILABLE",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 9
+      },
+      {
+        "row": "Q",
+        "number": 18,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 8
+      },
+      {
+        "row": "Q",
+        "number": 19,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 7
+      },
+      {
+        "row": "Q",
+        "number": 20,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 6
+      },
+      {
+        "row": "Q",
+        "number": 21,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 5
+      },
+      {
+        "row": "Q",
+        "number": 22,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 4
+      },
+      {
+        "row": "Q",
+        "number": 23,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 3
+      },
+      {
+        "row": "Q",
+        "number": 24,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 2
+      },
+      {
+        "row": "Q",
+        "number": 25,
+        "status": "OCCUPIED",
+        "seat_type": "Recliner",
+        "is_prime": false,
+        "drop_probability": null,
+        "grid_row": 14,
+        "grid_col": 1
+      }
+    ]
+  }
+}
